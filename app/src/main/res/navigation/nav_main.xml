@@ -7,5 +7,24 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="ymz.coffeerep.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_defaultCoffeeReviewRegister"
+            app:destination="@id/defaultCoffeeReviewRegister"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_defaultCoffeeReviewDetail"
+            app:destination="@id/defaultCoffeeReviewDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/defaultCoffeeReviewRegister"
+        android:name="ymz.coffeerep.scenes.register.DefaultCoffeeReviewRegister"
+        android:label="DefaultCoffeeReviewRegister" />
+    <fragment
+        android:id="@+id/defaultCoffeeReviewDetail"
+        android:name="ymz.coffeerep.scenes.detail.DefaultCoffeeReviewDetail"
+        android:label="DefaultCoffeeReviewDetail" />
 </navigation>
