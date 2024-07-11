@@ -21,7 +21,7 @@ public class RawBeansRepository {
     public RawBeansRepository(Application application) {
         RawBeansDatabase db = RawBeansDatabase.getDatabase(application);
         mRawbeansDao = db.rawbeansDao();
-        mAllRawBeans = mRawbeansDao.getAlphabetizedWords();
+        mAllRawBeans = mRawbeansDao.getAlphabetizedRawBeans();
     }
 
     public LiveData<RawBeans> getRawBeans(String name, long time){

@@ -20,7 +20,7 @@ public interface RawBeansDAO {
     int getRawBeansId(String name);
 
     @Query("SELECT * FROM rawbeans ORDER BY rawbeans_name ASC")
-    LiveData<List<RawBeans>> getAlphabetizedWords();
+    LiveData<List<RawBeans>> getAlphabetizedRawBeans();
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertRawBeans(RawBeans rawbeans);
