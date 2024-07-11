@@ -19,6 +19,9 @@ public interface RawBeansDAO {
     @Query("SELECT rawbeans_id FROM rawbeans WHERE rawbeans_name IN (:name)")
     int getRawBeansId(String name);
 
+    @Query("SELECT * FROM rawbeans ORDER BY rawbeans_name ASC")
+    LiveData<List<RawBeans>> getAlphabetizedWords();
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertRawBeans(RawBeans rawbeans);
 

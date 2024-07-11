@@ -1,17 +1,20 @@
 package ymz.coffeerep.data.raw_beans;
 
 import androidx.room.Entity;
-import androidx.room.ColumnInfo;
 import androidx.room.PrimaryKey;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 
 @Entity(tableName="rawbeans")
 public class RawBeans {
 
     @PrimaryKey(autoGenerate = true)
+    @NonNull
     @ColumnInfo(name = "rawbeans_id")
     private int rawbeans_id = 0;
 
     @ColumnInfo(name = "rawbeans_name")
+    @NonNull
     private String rawbeans_name;
 
     @ColumnInfo(name = "rawbeans_country")
