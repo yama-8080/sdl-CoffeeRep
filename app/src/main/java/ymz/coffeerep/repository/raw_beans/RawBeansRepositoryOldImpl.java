@@ -3,11 +3,11 @@ package ymz.coffeerep.repository.raw_beans;
 import ymz.coffeerep.data.raw_beans.RawBeans;
 import ymz.coffeerep.data.raw_beans.RawBeansDAO;
 
-public class RawBeansRepositoryImpl implements RawBeansRepository{
+public class RawBeansRepositoryOldImpl implements RawBeansRepositoryOld {
 
     private RawBeansDAO rawbeansDao;
 
-    public RawBeansRepositoryImpl(RawBeansDAO rawbeansDao){
+    public RawBeansRepositoryOldImpl(RawBeansDAO rawbeansDao){
         this.rawbeansDao = rawbeansDao;
     }
 
@@ -18,5 +18,6 @@ public class RawBeansRepositoryImpl implements RawBeansRepository{
         //withContext(Dispatchers.IO){
         rawbeansDao.insertRawBeans(rawbeans);
         //}
+        //no idea to implement for Java...
     }
 }

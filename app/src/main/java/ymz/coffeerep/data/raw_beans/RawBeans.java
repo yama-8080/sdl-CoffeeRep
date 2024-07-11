@@ -28,6 +28,7 @@ public class RawBeans {
     }
 
     /*
+    //getters and setters below
 
     public int getRawBeansId() { return rawbeans_id; }
     public void setRawBeansId(int id) { this.rawbeans_id = id; }
