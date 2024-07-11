@@ -31,9 +31,11 @@ public class RawBeans {
     }
 
     //getters and setters below
+    @NonNull
     public int getRawBeansId() { return rawbeans_id; }
     public void setRawBeansId(int id) { this.rawbeans_id = id; }
 
+    @NonNull
     public String getRawBeansName() { return rawbeans_name; }
     public void setRawBeansName(String name) { this.rawbeans_name = name; }
 
