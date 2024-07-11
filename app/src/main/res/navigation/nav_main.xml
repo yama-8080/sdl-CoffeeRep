@@ -9,22 +9,32 @@
         android:name="ymz.coffeerep.MainFragment"
         android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment_to_defaultCoffeeReviewRegister"
-            app:destination="@id/defaultCoffeeReviewRegister"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            android:id="@+id/action_mainFragment_to_defaultInsertFragment"
+            app:destination="@id/defaultInsertFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_defaultCoffeeReviewDetail"
-            app:destination="@id/defaultCoffeeReviewDetail" />
+            android:id="@+id/action_mainFragment_to_defaultDetailFragment"
+            app:destination="@id/defaultDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_rawBeansInsertFragment"
+            app:destination="@id/rawBeansInsertFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_rawBeansDetailFragment"
+            app:destination="@id/rawBeansDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/defaultCoffeeReviewRegister"
-        android:name="ymz.coffeerep.scenes.register.DefaultCoffeeReviewRegister"
-        android:label="DefaultCoffeeReviewRegister" />
+        android:id="@+id/defaultInsertFragment"
+        android:name="ymz.coffeerep.scenes.insert.DefaultInsertFragment"
+        android:label="DefaultInsertFragment" />
     <fragment
-        android:id="@+id/defaultCoffeeReviewDetail"
-        android:name="ymz.coffeerep.scenes.detail.DefaultCoffeeReviewDetail"
-        android:label="DefaultCoffeeReviewDetail" />
+        android:id="@+id/defaultDetailFragment"
+        android:name="ymz.coffeerep.scenes.detail.DefaultDetailFragment"
+        android:label="DefaultDetailFragment" />
+    <fragment
+        android:id="@+id/rawBeansInsertFragment"
+        android:name="ymz.coffeerep.scenes.insert.RawBeansInsertFragment"
+        android:label="RawBeansInsertFragment" />
+    <fragment
+        android:id="@+id/rawBeansDetailFragment"
+        android:name="ymz.coffeerep.scenes.detail.RawBeansDetailFragment"
+        android:label="RawBeansDetailFragment" />
 </navigation>

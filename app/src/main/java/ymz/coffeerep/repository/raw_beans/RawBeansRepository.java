@@ -15,7 +15,7 @@ public class RawBeansRepository {
     private RawBeansDAO mRawbeansDao;
     private LiveData<RawBeans> mRawbeans;
     private LiveData<List<RawBeans>> mAllRawBeans;
-    private int flag = 0;
+    //private int flag = 0;
 
     //constructor
     public RawBeansRepository(Application application) {
@@ -29,7 +29,7 @@ public class RawBeansRepository {
         return mRawbeans;
     }
 
-    LiveData<List<RawBeans>> getAllRawBeans() {
+    public LiveData<List<RawBeans>> getAllRawBeans() {
         return mAllRawBeans;
     }
 
