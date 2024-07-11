@@ -11,17 +11,17 @@ public class RawBeans {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "rawbeans_id")
-    private int rawbeans_id = 0;
+    int rawbeans_id = 0;
 
     @ColumnInfo(name = "rawbeans_name")
     @NonNull
-    private String rawbeans_name;
+    String rawbeans_name;
 
     @ColumnInfo(name = "rawbeans_country")
-    private String rawbeans_country;
+    String rawbeans_country;
 
     @ColumnInfo(name = "registered_time")
-    private long registered_time;
+    long registered_time;
 
     //constructor
     public RawBeans(String rawbeans_name, String rawbeans_country, long registered_time) {
@@ -30,9 +30,7 @@ public class RawBeans {
         this.registered_time = registered_time;
     }
 
-    /*
     //getters and setters below
-
     public int getRawBeansId() { return rawbeans_id; }
     public void setRawBeansId(int id) { this.rawbeans_id = id; }
 
@@ -44,5 +42,4 @@ public class RawBeans {
 
     public long getRegisteredTime() { return registered_time; }
     public void setRegisteredTime(long time) { this.registered_time = time; }
-    */
 }

@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/title_rawbeans_register"
+        android:id="@+id/title_rawbeans_insert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="RawBeansRegister"
+        android:text="RawBeansInsert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

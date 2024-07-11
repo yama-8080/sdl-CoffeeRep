@@ -24,10 +24,10 @@ public class RawBeansRepository {
         mAllRawBeans = mRawbeansDao.getAlphabetizedRawBeans();
     }
 
-    public LiveData<RawBeans> getRawBeans(String name, long time){
-        mRawbeans = mRawbeansDao.getRawBeans(name, time);
-        return mRawbeans;
-    }
+    //public LiveData<RawBeans> getRawBeans(String name, long time){
+    //    mRawbeans = mRawbeansDao.getRawBeans(name, time);
+    //    return mRawbeans;
+    //}
 
     public LiveData<List<RawBeans>> getAllRawBeans() {
         return mAllRawBeans;

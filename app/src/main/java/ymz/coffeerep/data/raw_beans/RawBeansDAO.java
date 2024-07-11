@@ -13,8 +13,8 @@ import java.util.List;
 @Dao
 public interface RawBeansDAO {
 
-    @Query("SELECT * FROM rawbeans WHERE rawbeans_name IN (:name) AND registered_time IN(:time)")
-    LiveData getRawBeans(String name, long time);
+    //@Query("SELECT * FROM rawbeans WHERE rawbeans_name IN (:name) AND registered_time IN(:time)")
+    //LiveData getRawBeans(String name, long time);
 
     @Query("SELECT rawbeans_id FROM rawbeans WHERE rawbeans_name IN (:name)")
     int getRawBeansId(String name);
