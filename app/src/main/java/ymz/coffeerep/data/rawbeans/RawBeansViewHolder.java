@@ -16,7 +16,7 @@ import ymz.coffeerep.databinding.RawbeansItemBinding;
  */
 class RawBeansViewHolder extends RecyclerView.ViewHolder {
 
-    private RawbeansItemBinding binding;
+    private RawbeansItemBinding _binding;
 
     //constructor
     private RawBeansViewHolder(View itemView) {
@@ -25,8 +25,8 @@ class RawBeansViewHolder extends RecyclerView.ViewHolder {
 
     //set specific value to each line
     public void bind(RawBeans rawbeans) {
-        binding.nameRawbeansItem.setText(rawbeans.getRawBeansName());
-        binding.timeRawbeansItem.setText(
+        _binding.nameRawbeansItem.setText(rawbeans.getRawBeansName());
+        _binding.timeRawbeansItem.setText(
                 DateFormat.format("yyyy-MM-dd hh:mm:ss", rawbeans.getRegisteredTime())
         );
     }

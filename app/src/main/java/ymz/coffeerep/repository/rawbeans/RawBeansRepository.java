@@ -12,21 +12,21 @@ import ymz.coffeerep.data.rawbeans.RawBeansDatabase;
 
 public class RawBeansRepository {
 
-    private RawBeansDAO mRawbeansDao;
-    private LiveData<RawBeans> mRawbeans;
-    private LiveData<List<RawBeans>> mAllRawBeans;
+    private RawBeansDAO _rawbeansDao;
+    private LiveData<RawBeans> _rawbeans;
+    private LiveData<List<RawBeans>> _allRawBeans;
     //private int flag = 0;
 
     //constructor
     public RawBeansRepository(Application application) {
         RawBeansDatabase db = RawBeansDatabase.getDatabase(application);
-        mRawbeansDao = db.rawbeansDao();
-        mAllRawBeans = mRawbeansDao.getAllRawBeans();
+        _rawbeansDao = db.rawbeansDao();
+        _allRawBeans = _rawbeansDao.getAllRawBeans();
     }
 
     //get list from DAO and return it directly
     public LiveData<List<RawBeans>> getAllRawBeans() {
-        return mAllRawBeans;
+        return _allRawBeans;
     }
 
     //public LiveData<RawBeans> getRawBeans(String name, long time){
@@ -36,7 +36,7 @@ public class RawBeansRepository {
 
     public void insert(RawBeans rawbeans){
         RawBeansDatabase.databaseWriteExecutor.execute(() -> {
-            mRawbeansDao.insertRawBeans(rawbeans);
+            _rawbeansDao.insertRawBeans(rawbeans);
         });
     }
 

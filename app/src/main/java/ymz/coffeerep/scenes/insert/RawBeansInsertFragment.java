@@ -18,8 +18,8 @@ import ymz.coffeerep.databinding.FragmentRawbeansInsertBinding;
 public class RawBeansInsertFragment extends Fragment {
 
 
-    private FragmentRawbeansInsertBinding binding;
-    private RawBeansInsertViewModel vm;
+    private FragmentRawbeansInsertBinding _binding;
+    private RawBeansInsertViewModel _vm;
 
     //constructor
     public RawBeansInsertFragment() {
@@ -31,8 +31,8 @@ public class RawBeansInsertFragment extends Fragment {
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,
                               Bundle savedInstanceState) {
-        binding = FragmentRawbeansInsertBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
+        _binding = FragmentRawbeansInsertBinding.inflate(inflater, container, false);
+        View view = _binding.getRoot();
         return view;
     }
 
@@ -40,11 +40,11 @@ public class RawBeansInsertFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding = FragmentRawbeansInsertBinding.bind(view);
+        _binding = FragmentRawbeansInsertBinding.bind(view);
 
-        vm = new ViewModelProvider(this).get(RawBeansInsertViewModel.class);
+        _vm = new ViewModelProvider(this).get(RawBeansInsertViewModel.class);
 
-        binding.fabRawbeansInsert.setOnClickListener(new View.OnClickListener() {
+        _binding.fabRawbeansInsert.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 insert();
                 Navigation.findNavController(view).navigate(R.id.action_rawBeansInsertFragment_to_beansListFragment);
@@ -55,14 +55,14 @@ public class RawBeansInsertFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+        _binding = null;
     }
 
     private void insert() {
-        String name = binding.nameRawbeansInsert.getText().toString();
-        String country = binding.countryRawbeansInsert.getText().toString();
+        String name = _binding.nameRawbeansInsert.getText().toString();
+        String country = _binding.countryRawbeansInsert.getText().toString();
         long time = System.currentTimeMillis();
         RawBeans newRawbeans = new RawBeans(name, country, time);
-        vm.insert(newRawbeans);
+        _vm.insert(newRawbeans);
     }
 }

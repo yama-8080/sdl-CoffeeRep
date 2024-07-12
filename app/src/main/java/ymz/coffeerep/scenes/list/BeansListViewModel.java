@@ -12,18 +12,18 @@ import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
 
 public class BeansListViewModel extends AndroidViewModel {
 
-    private RawBeansRepository mRepository;
-    private final LiveData<List<RawBeans>> mAllRawBeans;
+    private RawBeansRepository _repository;
+    private final LiveData<List<RawBeans>> _allRawBeans;
 
     //constructor
     public BeansListViewModel(Application application) {
         super(application);
-        mRepository = new RawBeansRepository(application);
-        mAllRawBeans = mRepository.getAllRawBeans();
+        _repository = new RawBeansRepository(application);
+        _allRawBeans = _repository.getAllRawBeans();
     }
 
     //get list from repository and return it directly
     LiveData<List<RawBeans>> getAllRawBeans() {
-        return mAllRawBeans;
+        return _allRawBeans;
     }
 }

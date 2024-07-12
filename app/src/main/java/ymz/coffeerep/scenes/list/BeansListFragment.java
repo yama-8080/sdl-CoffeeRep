@@ -17,8 +17,8 @@ import ymz.coffeerep.databinding.FragmentBeansListBinding;
 
 public class BeansListFragment extends Fragment {
 
-    private FragmentBeansListBinding binding;
-    private BeansListViewModel vm;
+    private FragmentBeansListBinding _binding;
+    private BeansListViewModel _vm;
 
     //constructor
     public BeansListFragment() {
@@ -30,8 +30,8 @@ public class BeansListFragment extends Fragment {
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,
                               Bundle savedInstanceState) {
-        binding = FragmentBeansListBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
+        _binding = FragmentBeansListBinding.inflate(inflater, container, false);
+        View view = _binding.getRoot();
         return view;
     }
 
@@ -39,19 +39,19 @@ public class BeansListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding = FragmentBeansListBinding.bind(view);
+        _binding = FragmentBeansListBinding.bind(view);
 
         final RawBeansListAdapter adapter = new RawBeansListAdapter(new RawBeansListAdapter.WordDiff());
-        binding.recyclerRawbeansList.setAdapter(adapter);
+        _binding.recyclerRawbeansList.setAdapter(adapter);
 
-        vm = new ViewModelProvider(this).get(BeansListViewModel.class);
+        _vm = new ViewModelProvider(this).get(BeansListViewModel.class);
 
         // add an observer on the LiveData (fired every time the data changes)
-        vm.getAllRawBeans().observe(getViewLifecycleOwner(), rawbeans -> {
+        _vm.getAllRawBeans().observe(getViewLifecycleOwner(), rawbeans -> {
             adapter.submitList(rawbeans);
         });
 
-        binding.buttonBeansListToInsertRawbeans.setOnClickListener(new View.OnClickListener() {
+        _binding.buttonBeansListToInsertRawbeans.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansInsertFragment);
             }
@@ -61,6 +61,6 @@ public class BeansListFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+        _binding = null;
     }
 }

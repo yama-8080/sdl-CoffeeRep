@@ -5,10 +5,10 @@ import ymz.coffeerep.data.rawbeans.RawBeansDAO;
 
 public class RawBeansRepositoryOldImpl implements RawBeansRepositoryOld {
 
-    private RawBeansDAO rawbeansDao;
+    private RawBeansDAO _rawbeansDao;
 
     public RawBeansRepositoryOldImpl(RawBeansDAO rawbeansDao){
-        this.rawbeansDao = rawbeansDao;
+        this._rawbeansDao = rawbeansDao;
     }
 
     @Override
@@ -16,7 +16,7 @@ public class RawBeansRepositoryOldImpl implements RawBeansRepositoryOld {
         long time = System.currentTimeMillis();
         RawBeans rawbeans = new RawBeans(name, country, time);
         //withContext(Dispatchers.IO){
-        rawbeansDao.insertRawBeans(rawbeans);
+        _rawbeansDao.insertRawBeans(rawbeans);
         //}
         //no idea to implement for Java...
     }
