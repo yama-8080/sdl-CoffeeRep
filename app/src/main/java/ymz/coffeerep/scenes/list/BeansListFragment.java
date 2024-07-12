@@ -51,26 +51,11 @@ public class BeansListFragment extends Fragment {
             adapter.submitList(rawbeans);
         });
 
-        /*
-        binding.fabHome.setOnClickListener(new View.OnClickListener() {
+        binding.buttonBeansListToInsertRawbeans.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_defaultInsertFragment);
+                Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansInsertFragment);
             }
         });
-
-        binding.buttonHomeToRawbeansInsert.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rawBeansInsertFragment);
-            }
-        });
-
-        binding.buttonHomeToRawbeansDetail.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rawBeansDetailFragment);
-            }
-        });
-
-         */
     }
 
     @Override

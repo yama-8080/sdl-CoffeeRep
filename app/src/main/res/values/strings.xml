@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CoffeeRep</string>
+    <string name="name">名前（必須）</string>
+    <string name="country">原産国</string>
 </resources>

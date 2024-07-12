@@ -26,8 +26,4 @@ public class BeansListViewModel extends AndroidViewModel {
     LiveData<List<RawBeans>> getAllRawBeans() {
         return mAllRawBeans;
     }
-
-    void insert(RawBeans rawbeans) {
-        mRepository.insert(rawbeans);
-    }
 }
