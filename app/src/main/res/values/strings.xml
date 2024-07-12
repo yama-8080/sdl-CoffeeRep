@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CoffeeRep</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_rawbeans">RawBeansName…</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">RawBeans not saved because it is empty.</string>
+    <string name="add_rawbeans">Add RawBeans</string>
 </resources>

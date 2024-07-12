@@ -24,10 +24,19 @@ public class RawBeans {
     long registered_time;
 
     //constructor
+    /*
     public RawBeans(String rawbeans_name, String rawbeans_country, long registered_time) {
         this.rawbeans_name = rawbeans_name;
         this.rawbeans_country = rawbeans_country;
         this.registered_time = registered_time;
+    }
+    */
+
+    //constructor for debug
+    public RawBeans(String rawbeans_name) {
+        this.rawbeans_name = rawbeans_name;
+        this.rawbeans_country = "default";
+        this.registered_time = 0;
     }
 
     //getters and setters below
