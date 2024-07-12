@@ -36,21 +36,9 @@ public class MainFragment extends Fragment {
 
         vm = new ViewModelProvider(this).get(MainViewModel.class);
 
-        binding.fabHome.setOnClickListener(new View.OnClickListener() {
+        binding.buttonHomeToBeansList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_defaultInsertFragment);
-            }
-        });
-
-        binding.buttonHomeToRawbeansInsert.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rawBeansInsertFragment);
-            }
-        });
-
-        binding.buttonHomeToRawbeansDetail.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rawBeansDetailFragment);
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_beansListFragment);
             }
         });
     }
