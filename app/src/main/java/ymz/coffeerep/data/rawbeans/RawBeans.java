@@ -1,4 +1,4 @@
-package ymz.coffeerep.data.raw_beans;
+package ymz.coffeerep.data.rawbeans;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

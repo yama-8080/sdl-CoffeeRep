@@ -1,4 +1,4 @@
-package ymz.coffeerep;
+package ymz.coffeerep.scenes.list;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,19 +11,26 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import ymz.coffeerep.databinding.FragmentMainBinding;
+import ymz.coffeerep.R;
+import ymz.coffeerep.data.rawbeans.RawBeansListAdapter;
+import ymz.coffeerep.databinding.FragmentBeansListBinding;
 
-public class MainFragment extends Fragment {
+public class BeansListFragment extends Fragment {
 
-    private FragmentMainBinding binding;
-    private MainViewModel vm;
+    private FragmentBeansListBinding binding;
+    private BeansListViewModel vm;
+
+    //constructor
+    public BeansListFragment() {
+        super(R.layout.fragment_beans_list);
+    }
 
     //processes right before the view creating
     @Override
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,
                               Bundle savedInstanceState) {
-        binding = FragmentMainBinding.inflate(inflater, container, false);
+        binding = FragmentBeansListBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
     }
@@ -32,10 +39,19 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding = FragmentMainBinding.bind(view);
+        binding = FragmentBeansListBinding.bind(view);
 
-        vm = new ViewModelProvider(this).get(MainViewModel.class);
+        final RawBeansListAdapter adapter = new RawBeansListAdapter(new RawBeansListAdapter.WordDiff());
+        binding.recyclerRawbeansList.setAdapter(adapter);
 
+        vm = new ViewModelProvider(this).get(BeansListViewModel.class);
+
+        // add an observer on the LiveData (fired every time the data changes)
+        vm.getAllRawBeans().observe(getViewLifecycleOwner(), rawbeans -> {
+            adapter.submitList(rawbeans);
+        });
+
+        /*
         binding.fabHome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_defaultInsertFragment);
@@ -53,6 +69,8 @@ public class MainFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_rawBeansDetailFragment);
             }
         });
+
+         */
     }
 
     @Override

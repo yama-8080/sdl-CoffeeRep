@@ -1,4 +1,4 @@
-package ymz.coffeerep.data.raw_beans;
+package ymz.coffeerep.data.rawbeans;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -21,6 +21,10 @@ public interface RawBeansDAO {
 
     @Query("SELECT * FROM rawbeans ORDER BY rawbeans_name ASC")
     LiveData<List<RawBeans>> getAlphabetizedRawBeans();
+
+    @Query("SELECT * FROM rawbeans ORDER BY registered_time DESC")
+    LiveData<List<RawBeans>> getAllRawBeans();
+    //getAllRawBeansSortedByTime() is more suitable
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertRawBeans(RawBeans rawbeans);

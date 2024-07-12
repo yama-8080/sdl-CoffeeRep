@@ -1,7 +1,7 @@
-package ymz.coffeerep.repository.raw_beans;
+package ymz.coffeerep.repository.rawbeans;
 
-import ymz.coffeerep.data.raw_beans.RawBeans;
-import ymz.coffeerep.data.raw_beans.RawBeansDAO;
+import ymz.coffeerep.data.rawbeans.RawBeans;
+import ymz.coffeerep.data.rawbeans.RawBeansDAO;
 
 public class RawBeansRepositoryOldImpl implements RawBeansRepositoryOld {
 

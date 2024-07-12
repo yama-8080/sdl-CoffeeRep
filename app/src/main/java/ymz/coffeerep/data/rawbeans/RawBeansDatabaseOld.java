@@ -1,6 +1,5 @@
-package ymz.coffeerep.data.raw_beans;
+package ymz.coffeerep.data.rawbeans;
 
-import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
 //@Database(entities = {RawBeans.class}, version = 1)
