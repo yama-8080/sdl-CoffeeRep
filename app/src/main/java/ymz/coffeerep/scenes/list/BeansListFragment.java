@@ -1,6 +1,7 @@
 package ymz.coffeerep.scenes.list;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import ymz.coffeerep.R;
+import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.data.rawbeans.RawBeansListAdapter;
 import ymz.coffeerep.databinding.FragmentBeansListBinding;
 
@@ -49,6 +51,23 @@ public class BeansListFragment extends Fragment {
         //add an observer on the LiveData (fired every time the data changes)
         _vm.getAllRawBeans().observe(getViewLifecycleOwner(), rawbeans -> {
             adapter.submitList(rawbeans);
+        });
+
+        //XXX when specific item is selected
+        adapter.selected.observe(getViewLifecycleOwner(), selected -> {
+            if(selected){
+                RawBeans selectedRawBeans = adapter.get_selectedRawBeans();
+                if(selectedRawBeans.getRawbeans_name().isEmpty()){
+                    Log.d("YMZdebug", "name is EMPTY");
+                }
+                else{
+                    Log.d("YMZdebug", "name is " + selectedRawBeans.getRawbeans_name());
+                }
+                //send data
+                Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansDetailFragment);
+                adapter.set_selectedRawBeans(null);
+                adapter.selected.setValue(false);
+            }
         });
 
         _binding.buttonBeansListToInsertRawbeans.setOnClickListener(new View.OnClickListener() {

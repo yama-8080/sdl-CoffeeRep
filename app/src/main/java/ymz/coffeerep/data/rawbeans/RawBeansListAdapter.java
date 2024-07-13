@@ -1,25 +1,59 @@
 package ymz.coffeerep.data.rawbeans;
 
+import android.content.Intent;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
+
+import lombok.Getter;
+import lombok.Setter;
+import ymz.coffeerep.R;
+import ymz.coffeerep.databinding.RawbeansItemBinding;
+import ymz.coffeerep.scenes.list.BeansListFragment;
 
 /**
  * processes about rawbeans list
  */
 public class RawBeansListAdapter extends ListAdapter<RawBeans, RawBeansViewHolder> {
 
+    @Getter
+    @Setter
+    private RawBeans _selectedRawBeans;
+
+    public MutableLiveData<Boolean> selected = new MutableLiveData<>(false);
+
     //constructor
     public RawBeansListAdapter(@NonNull DiffUtil.ItemCallback<RawBeans> diffCallback) {
         super(diffCallback);
+        _selectedRawBeans = null;
     }
 
     //make RawBeansViewHolder create 1 line
     @Override
     public RawBeansViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return RawBeansViewHolder.create(parent);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        RawbeansItemBinding binding = RawbeansItemBinding.inflate(inflater, parent, false);
+        RawBeansViewHolder vh = RawBeansViewHolder.create(parent);
+
+        //set specific item(rawbeans) when specific 1 line is selected
+        binding.getRoot().setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int pos = vh.getBindingAdapterPosition();
+                _selectedRawBeans = getItem(pos);
+                selected.setValue(true);
+                Log.d("YMZdebug", "item selected.");
+            }
+        });
+
+        return vh;
     }
 
     //set values to view depending on viewholder and position in list
