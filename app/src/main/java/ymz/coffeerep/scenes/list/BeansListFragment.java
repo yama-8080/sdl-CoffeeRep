@@ -55,7 +55,7 @@ public class BeansListFragment extends Fragment {
 
         _vm = new ViewModelProvider(this).get(BeansListViewModel.class);
 
-        // add an observer on the LiveData (fired every time the data changes)
+        //add an observer on the LiveData (fired every time the data changes)
         _vm.getAllRawBeans().observe(getViewLifecycleOwner(), rawbeans -> {
             adapter.submitList(rawbeans);
         });

@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansInsertBinding;
@@ -44,10 +46,25 @@ public class RawBeansInsertFragment extends Fragment {
 
         _vm = new ViewModelProvider(this).get(RawBeansInsertViewModel.class);
 
+        //check if the inputs are correct
+        _vm.errorMsg.observe(getViewLifecycleOwner(), msg -> {
+            if(!msg.isEmpty()){
+                Snackbar.make(requireView(), msg, Snackbar.LENGTH_SHORT).show();
+                _vm.errorMsg.setValue("");
+            }
+        });
+
+        //go back to previous fragment when complete insert
+        _vm.complete.observe(getViewLifecycleOwner(), complete -> {
+            if(complete){
+                Navigation.findNavController(view).popBackStack();
+            }
+        });
+
+        //insert
         _binding.fabRawbeansInsert.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 insert();
-                Navigation.findNavController(view).navigate(R.id.action_rawBeansInsertFragment_to_beansListFragment);
             }
         });
     }
