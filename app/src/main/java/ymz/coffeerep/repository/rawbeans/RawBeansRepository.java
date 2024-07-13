@@ -34,6 +34,7 @@ public class RawBeansRepository {
     //    return mRawbeans;
     //}
 
+    //insert (DB access is only by worker thread)
     public void insert(RawBeans rawbeans){
         RawBeansDatabase.databaseWriteExecutor.execute(() -> {
             _rawbeansDao.insertRawBeans(rawbeans);

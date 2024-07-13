@@ -34,4 +34,7 @@ public interface RawBeansDAO {
 
     @Delete
     void deleteRawBeans(RawBeans rawbeans);
+
+    @Query("DELETE FROM rawbeans")
+    void deleteAllRawBeans();
 }

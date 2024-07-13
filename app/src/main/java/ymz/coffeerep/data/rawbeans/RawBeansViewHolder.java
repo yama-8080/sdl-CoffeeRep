@@ -18,17 +18,31 @@ class RawBeansViewHolder extends RecyclerView.ViewHolder {
 
     private RawbeansItemBinding _binding;
 
+    private final TextView RawBeansItemNameView;
+    private final TextView RawBeansItemTimeView;
+
     //constructor
     private RawBeansViewHolder(View itemView) {
         super(itemView);
+        RawBeansItemNameView = itemView.findViewById(R.id.name_rawbeans_item);
+        RawBeansItemTimeView = itemView.findViewById(R.id.time_rawbeans_item);
     }
 
     //set specific value to each line
     public void bind(RawBeans rawbeans) {
+        RawBeansItemNameView.setText(rawbeans.getRawBeansName());
+        RawBeansItemTimeView.setText(
+                DateFormat.format("yyyy-MM-dd hh:mm:ss", rawbeans.getRegisteredTime())
+        );
+
+        //NullPointerException occurs below
+        /*
         _binding.nameRawbeansItem.setText(rawbeans.getRawBeansName());
         _binding.timeRawbeansItem.setText(
                 DateFormat.format("yyyy-MM-dd hh:mm:ss", rawbeans.getRegisteredTime())
         );
+
+         */
     }
 
     //create 1 line and return it

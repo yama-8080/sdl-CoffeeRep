@@ -10,6 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeansListAdapter;
@@ -30,6 +33,12 @@ public class BeansListFragment extends Fragment {
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,
                               Bundle savedInstanceState) {
+        //init recyclerview
+        //RecyclerView rv = _binding.recyclerRawbeansList;
+        //rv.setHasFixedSize(true);
+        //rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //rv.setItemAnimator(new DefaultItemAnimator());
+
         _binding = FragmentBeansListBinding.inflate(inflater, container, false);
         View view = _binding.getRoot();
         return view;
