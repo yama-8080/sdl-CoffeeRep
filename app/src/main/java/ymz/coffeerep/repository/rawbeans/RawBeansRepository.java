@@ -1,6 +1,7 @@
 package ymz.coffeerep.repository.rawbeans;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -29,10 +30,11 @@ public class RawBeansRepository {
         return _allRawBeans;
     }
 
-    //public LiveData<RawBeans> getRawBeans(String name, long time){
-    //    mRawbeans = mRawbeansDao.getRawBeans(name, time);
-    //    return mRawbeans;
-    //}
+    //get rawbeans from DAO and return it directly
+    public LiveData<RawBeans> getRawBeans(int id){
+        _rawbeans = _rawbeansDao.getRawBeans(id);
+        return _rawbeans;
+    }
 
     //insert (DB access is only by worker thread)
     public void insert(RawBeans rawbeans){

@@ -53,18 +53,27 @@ public class BeansListFragment extends Fragment {
             adapter.submitList(rawbeans);
         });
 
-        //XXX when specific item is selected
+        //send specific item to detail fragment when it selected
         adapter.selected.observe(getViewLifecycleOwner(), selected -> {
             if(selected){
+                //get data
                 RawBeans selectedRawBeans = adapter.get_selectedRawBeans();
+
+                //debug log
                 if(selectedRawBeans.getRawbeans_name().isEmpty()){
                     Log.d("YMZdebug", "[BeansListFragment.onViewCreated]: name is EMPTY");
                 }
                 else{
                     Log.d("YMZdebug", "[BeansListFragment.onViewCreated]: name is " + selectedRawBeans.getRawbeans_name());
                 }
-                //send data
-                Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansDetailFragment);
+
+                //jump with sending data
+                BeansListFragmentDirections.ActionBeansListFragmentToRawBeansDetailFragment action
+                        = BeansListFragmentDirections.actionBeansListFragmentToRawBeansDetailFragment(
+                                selectedRawBeans
+                );
+                Navigation.findNavController(view).navigate(action);
+
                 adapter.set_selectedRawBeans(null);
                 adapter.selected.setValue(false);
             }

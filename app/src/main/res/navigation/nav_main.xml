@@ -30,5 +30,9 @@
     <fragment
         android:id="@+id/rawBeansDetailFragment"
         android:name="ymz.coffeerep.scenes.detail.RawBeansDetailFragment"
-        android:label="RawBeansDetailFragment" />
+        android:label="RawBeansDetailFragment" >
+        <argument
+            android:name="rawbeans"
+            app:argType="ymz.coffeerep.data.rawbeans.RawBeans" />
+    </fragment>
 </navigation>

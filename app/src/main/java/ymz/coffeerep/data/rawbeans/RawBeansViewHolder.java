@@ -16,7 +16,8 @@ import ymz.coffeerep.databinding.RawbeansItemBinding;
  */
 class RawBeansViewHolder extends RecyclerView.ViewHolder {
 
-    private RawbeansItemBinding _binding;
+    //maybe binding is usable only in Fragment
+    //private RawbeansItemBinding _binding;
 
     private final TextView RawBeansItemNameView;
     private final TextView RawBeansItemTimeView;

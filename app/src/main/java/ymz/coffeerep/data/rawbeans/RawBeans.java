@@ -7,11 +7,13 @@ import androidx.room.PrimaryKey;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity(tableName="rawbeans")
-public class RawBeans {
+public class RawBeans implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
