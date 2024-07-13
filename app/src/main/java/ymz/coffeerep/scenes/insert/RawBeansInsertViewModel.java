@@ -13,6 +13,8 @@ import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
 public class RawBeansInsertViewModel extends AndroidViewModel {
 
     private RawBeansRepository _repository;
+
+    //MutableLiveData must be non-null (observed by fragment)
     protected MutableLiveData<String> errorMsg = new MutableLiveData<>("");
     protected MutableLiveData<Boolean> complete = new MutableLiveData<>(false);
 
@@ -24,7 +26,7 @@ public class RawBeansInsertViewModel extends AndroidViewModel {
 
     void insert(RawBeans rawbeans) {
         //name must be non-null
-        if(rawbeans.getRawBeansName().trim().isEmpty()){
+        if(rawbeans.getRawbeans_name().trim().isEmpty()){
             errorMsg.setValue("名前を入力してください");
         }
         else{

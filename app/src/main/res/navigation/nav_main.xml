@@ -26,11 +26,7 @@
     <fragment
         android:id="@+id/rawBeansInsertFragment"
         android:name="ymz.coffeerep.scenes.insert.RawBeansInsertFragment"
-        android:label="RawBeansInsertFragment" >
-        <action
-            android:id="@+id/action_rawBeansInsertFragment_to_beansListFragment"
-            app:destination="@id/beansListFragment" />
-    </fragment>
+        android:label="RawBeansInsertFragment" />
     <fragment
         android:id="@+id/rawBeansDetailFragment"
         android:name="ymz.coffeerep.scenes.detail.RawBeansDetailFragment"

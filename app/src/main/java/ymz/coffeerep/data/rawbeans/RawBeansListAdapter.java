@@ -40,8 +40,8 @@ public class RawBeansListAdapter extends ListAdapter<RawBeans, RawBeansViewHolde
         //check if the new/old items' content displayed are the same
         @Override
         public boolean areContentsTheSame(@NonNull RawBeans oldItem, @NonNull RawBeans newItem) {
-            return oldItem.getRawBeansName().equals(newItem.getRawBeansName())
-                    && oldItem.getRegisteredTime() == newItem.getRegisteredTime();
+            return oldItem.getRawbeans_name().equals(newItem.getRawbeans_name())
+                    && oldItem.getRegistered_time() == newItem.getRegistered_time();
         }
     }
 }
