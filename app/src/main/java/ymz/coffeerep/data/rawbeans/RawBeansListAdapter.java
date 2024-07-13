@@ -39,17 +39,14 @@ public class RawBeansListAdapter extends ListAdapter<RawBeans, RawBeansViewHolde
     //make RawBeansViewHolder create 1 line
     @Override
     public RawBeansViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        RawbeansItemBinding binding = RawbeansItemBinding.inflate(inflater, parent, false);
         RawBeansViewHolder vh = RawBeansViewHolder.create(parent);
 
-        //set specific item(rawbeans) when specific 1 line is selected
-        binding.getRoot().setOnClickListener(new View.OnClickListener() {
+        vh.itemView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int pos = vh.getBindingAdapterPosition();
                 _selectedRawBeans = getItem(pos);
                 selected.setValue(true);
-                Log.d("YMZdebug", "item selected.");
+                Log.d("YMZdebug", "[RawBeansListAdapter.RawBeansViewHolder]: item selected.");
             }
         });
 

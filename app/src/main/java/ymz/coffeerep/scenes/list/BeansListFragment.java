@@ -58,10 +58,10 @@ public class BeansListFragment extends Fragment {
             if(selected){
                 RawBeans selectedRawBeans = adapter.get_selectedRawBeans();
                 if(selectedRawBeans.getRawbeans_name().isEmpty()){
-                    Log.d("YMZdebug", "name is EMPTY");
+                    Log.d("YMZdebug", "[BeansListFragment.onViewCreated]: name is EMPTY");
                 }
                 else{
-                    Log.d("YMZdebug", "name is " + selectedRawBeans.getRawbeans_name());
+                    Log.d("YMZdebug", "[BeansListFragment.onViewCreated]: name is " + selectedRawBeans.getRawbeans_name());
                 }
                 //send data
                 Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansDetailFragment);
