@@ -14,7 +14,7 @@ public class RawBeansEditViewModel extends AndroidViewModel {
 
     //MutableLiveData must be non-null (observed by fragment)
     protected MutableLiveData<String> errorMsg = new MutableLiveData<>("");
-    protected MutableLiveData<Boolean> complete = new MutableLiveData<>(false);
+    protected MutableLiveData<RawBeans> complete = new MutableLiveData<>(null);
 
     //constructor
     public RawBeansEditViewModel(Application application) {
@@ -29,8 +29,8 @@ public class RawBeansEditViewModel extends AndroidViewModel {
         }
         else{
             try{
-                _repository.update(newRawbeans);
-                complete.setValue(true);
+                RawBeans updated = _repository.update(newRawbeans);
+                complete.setValue(updated);
             }catch (Exception e){
                 errorMsg.setValue(e.getMessage());
             }

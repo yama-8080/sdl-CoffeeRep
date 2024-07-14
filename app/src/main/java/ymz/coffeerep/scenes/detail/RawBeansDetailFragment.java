@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
@@ -22,6 +23,7 @@ public class RawBeansDetailFragment extends Fragment {
 
     private FragmentRawbeansDetailBinding _binding;
     private RawBeansDetailViewModel _vm;
+    private RawBeans _selectedRawbeans;
 
     //constructor
     public RawBeansDetailFragment() {
@@ -48,16 +50,26 @@ public class RawBeansDetailFragment extends Fragment {
         _vm = new ViewModelProvider(this).get(RawBeansDetailViewModel.class);
 
         //get specific item by safe-args
-        RawBeans selectedRawbeans = RawBeansDetailFragmentArgs.fromBundle(getArguments()).getSpecRawbeans();
-        showDetail(selectedRawbeans);
-        Log.d("YMZdebug", "[RawBeansDetailFragment.onViewCreated]: ID is " + selectedRawbeans.getRawbeans_id());
+        _selectedRawbeans = RawBeansDetailFragmentArgs.fromBundle(getArguments()).getSpecRawbeans();
+        showDetail(_selectedRawbeans);
+        Log.d("YMZdebug", "[RawBeansDetailFragment.onViewCreated]: ID is " + _selectedRawbeans.getRawbeans_id());
 
+        //edit
         _binding.editButtonRawbeansDetail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //jump next with specific item
+                //jump to editFragment with specific item
                 RawBeansDetailFragmentDirections.ActionRawBeansDetailFragmentToRawBeansEditFragment
-                        action = RawBeansDetailFragmentDirections.actionRawBeansDetailFragmentToRawBeansEditFragment(selectedRawbeans);
+                        action = RawBeansDetailFragmentDirections.actionRawBeansDetailFragmentToRawBeansEditFragment(_selectedRawbeans);
                 Navigation.findNavController(view).navigate(action);
+            }
+        });
+
+        //update view & specific item when complete update in editFragment
+        getParentFragmentManager().setFragmentResultListener("requestKey_update_rawbeans", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
+                _selectedRawbeans = (RawBeans) bundle.getSerializable("bundleKey_update_rawbeans");
+                showDetail(_selectedRawbeans);
             }
         });
     }

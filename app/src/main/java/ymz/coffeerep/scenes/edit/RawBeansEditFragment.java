@@ -17,7 +17,6 @@ import com.google.android.material.snackbar.Snackbar;
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansEditBinding;
-import ymz.coffeerep.scenes.detail.RawBeansDetailFragmentArgs;
 
 public class RawBeansEditFragment extends Fragment {
 
@@ -60,9 +59,12 @@ public class RawBeansEditFragment extends Fragment {
             }
         });
 
-        //go back to previous fragment when complete update
-        _vm.complete.observe(getViewLifecycleOwner(), complete -> {
-            if(complete){
+        //go back to detail-fragment when complete update
+        _vm.complete.observe(getViewLifecycleOwner(), updatedRawbeans -> {
+            if(updatedRawbeans != null){
+                Bundle result = new Bundle();
+                result.putSerializable("bundleKey_update_rawbeans", updatedRawbeans);
+                getParentFragmentManager().setFragmentResult("requestKey_update_rawbeans", result);
                 Navigation.findNavController(view).popBackStack();
             }
         });
