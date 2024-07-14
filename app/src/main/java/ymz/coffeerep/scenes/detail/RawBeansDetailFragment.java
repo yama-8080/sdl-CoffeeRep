@@ -16,14 +16,12 @@ import androidx.navigation.Navigation;
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansDetailBinding;
+import ymz.coffeerep.scenes.list.BeansListFragmentDirections;
 
 public class RawBeansDetailFragment extends Fragment {
 
     private FragmentRawbeansDetailBinding _binding;
     private RawBeansDetailViewModel _vm;
-
-    private TextView RawBeansNameView;
-    private TextView RawBeansCountryView;
 
     //constructor
     public RawBeansDetailFragment() {
@@ -38,8 +36,6 @@ public class RawBeansDetailFragment extends Fragment {
         _binding = FragmentRawbeansDetailBinding.inflate(inflater, container, false);
         View view = _binding.getRoot();
 
-        initTextView();
-
         return view;
     }
 
@@ -51,13 +47,17 @@ public class RawBeansDetailFragment extends Fragment {
 
         _vm = new ViewModelProvider(this).get(RawBeansDetailViewModel.class);
 
-        RawBeans selectedRawBeans = RawBeansDetailFragmentArgs.fromBundle(getArguments()).getRawbeans();
-        Log.d("YMZdebug", "[RawBeansDetailFragment.onViewCreated]: ID is " + selectedRawBeans.getRawbeans_id());
-        showDetail(selectedRawBeans);
+        //get specific item by safe-args
+        RawBeans selectedRawbeans = RawBeansDetailFragmentArgs.fromBundle(getArguments()).getSpecRawbeans();
+        showDetail(selectedRawbeans);
+        Log.d("YMZdebug", "[RawBeansDetailFragment.onViewCreated]: ID is " + selectedRawbeans.getRawbeans_id());
 
         _binding.editButtonRawbeansDetail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //Navigation.findNavController(view).navigate(R.id.action_rawBeansDetailFragment_to_rawBeansInsertFragment);
+                //jump next with specific item
+                RawBeansDetailFragmentDirections.ActionRawBeansDetailFragmentToRawBeansEditFragment
+                        action = RawBeansDetailFragmentDirections.actionRawBeansDetailFragmentToRawBeansEditFragment(selectedRawbeans);
+                Navigation.findNavController(view).navigate(action);
             }
         });
     }
@@ -68,13 +68,8 @@ public class RawBeansDetailFragment extends Fragment {
         _binding = null;
     }
 
-    private void initTextView(){
-        RawBeansNameView = _binding.nameRawbeansDetail;
-        RawBeansCountryView = _binding.countryRawbeansDatail;
-    }
-
     private void showDetail(RawBeans rawbeans){
-        RawBeansNameView.setText(rawbeans.getRawbeans_name());
-        RawBeansCountryView.setText(rawbeans.getRawbeans_country());
+        _binding.nameRawbeansDetail.setText(rawbeans.getRawbeans_name());
+        _binding.countryRawbeansDatail.setText(rawbeans.getRawbeans_country());
     }
 }

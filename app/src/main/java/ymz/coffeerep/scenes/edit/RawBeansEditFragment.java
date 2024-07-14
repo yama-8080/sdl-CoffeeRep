@@ -1,6 +1,7 @@
-package ymz.coffeerep.scenes.register;
+package ymz.coffeerep.scenes.edit;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +16,17 @@ import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
-import ymz.coffeerep.databinding.FragmentRawbeansRegisterBinding;
+import ymz.coffeerep.databinding.FragmentRawbeansEditBinding;
+import ymz.coffeerep.scenes.detail.RawBeansDetailFragmentArgs;
 
-public class RawBeansRegisterFragment extends Fragment {
+public class RawBeansEditFragment extends Fragment {
 
-    private FragmentRawbeansRegisterBinding _binding;
-    private RawBeansRegisterViewModel _vm;
+    private FragmentRawbeansEditBinding _binding;
+    private RawBeansEditViewModel _vm;
 
     //constructor
-    public RawBeansRegisterFragment() {
-        super(R.layout.fragment_rawbeans_register);
+    public RawBeansEditFragment() {
+        super(R.layout.fragment_rawbeans_edit);
     }
 
     //processes right before the view creating
@@ -32,7 +34,7 @@ public class RawBeansRegisterFragment extends Fragment {
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,
                               Bundle savedInstanceState) {
-        _binding = FragmentRawbeansRegisterBinding.inflate(inflater, container, false);
+        _binding = FragmentRawbeansEditBinding.inflate(inflater, container, false);
         View view = _binding.getRoot();
         return view;
     }
@@ -41,9 +43,14 @@ public class RawBeansRegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        _binding = FragmentRawbeansRegisterBinding.bind(view);
+        _binding = FragmentRawbeansEditBinding.bind(view);
 
-        _vm = new ViewModelProvider(this).get(RawBeansRegisterViewModel.class);
+        _vm = new ViewModelProvider(this).get(RawBeansEditViewModel.class);
+
+        //get specific item by safe-args
+        RawBeans selectedRawbeans = RawBeansEditFragmentArgs.fromBundle(getArguments()).getSpecRawbeans();
+        showDefaultDetail(selectedRawbeans);
+        Log.d("YMZdebug", "[RawBeansEditFragment.onViewCreated]: ID is " + selectedRawbeans.getRawbeans_id());
 
         //check if the inputs are correct
         _vm.errorMsg.observe(getViewLifecycleOwner(), msg -> {
@@ -53,17 +60,18 @@ public class RawBeansRegisterFragment extends Fragment {
             }
         });
 
-        //go back to previous fragment when complete insert
+        //go back to previous fragment when complete update
         _vm.complete.observe(getViewLifecycleOwner(), complete -> {
             if(complete){
                 Navigation.findNavController(view).popBackStack();
             }
         });
 
-        //insert
-        _binding.insertFabRawbeansRegister.setOnClickListener(new View.OnClickListener() {
+        //update
+        _binding.updateFabRawbeansEdit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                insert();
+                //TODO
+                //update(selectedRawbeans.getRawbeans_id());
             }
         });
     }
@@ -74,11 +82,18 @@ public class RawBeansRegisterFragment extends Fragment {
         _binding = null;
     }
 
-    private void insert() {
-        String name = _binding.nameRawbeansRegister.getText().toString();
-        String country = _binding.countryRawbeansRegister.getText().toString();
+    private void showDefaultDetail(RawBeans rawbeans){
+        _binding.nameRawbeansEdit.setText(rawbeans.getRawbeans_name());
+        _binding.countryRawbeansEdit.setText(rawbeans.getRawbeans_country());
+    }
+
+    private void update(int origin_id) {
+        String name = _binding.nameRawbeansEdit.getText().toString();
+        String country = _binding.countryRawbeansEdit.getText().toString();
+        //TODO
         long time = System.currentTimeMillis();
+        //TODO
         RawBeans newRawbeans = new RawBeans(name, country, time);
-        _vm.insert(newRawbeans);
+        _vm.update(newRawbeans);
     }
 }
