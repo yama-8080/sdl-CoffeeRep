@@ -53,17 +53,17 @@ public class RawBeansRegisterFragment extends Fragment {
             }
         });
 
-        //go back to previous fragment when complete insert
+        //go back to list-fragment when complete insert
         _vm.complete.observe(getViewLifecycleOwner(), complete -> {
             if(complete){
                 Navigation.findNavController(view).popBackStack();
             }
         });
 
-        //insert
+        //insert button listener
         _binding.insertFabRawbeansRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                insert();
+                _vm.insert(createNewRawBeans());
             }
         });
     }
@@ -72,10 +72,6 @@ public class RawBeansRegisterFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         _binding = null;
-    }
-
-    private void insert() {
-        _vm.insert(createNewRawBeans());
     }
 
     //create new entity

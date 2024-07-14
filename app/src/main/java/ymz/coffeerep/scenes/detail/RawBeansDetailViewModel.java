@@ -15,11 +15,24 @@ import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
 public class RawBeansDetailViewModel extends AndroidViewModel {
 
     private RawBeansRepository _repository;
-    //private final LiveData<RawBeans> _rawbeans;
+
+    //MutableLiveData must be non-null (observed by fragment)
+    protected MutableLiveData<String> errorMsg = new MutableLiveData<>("");
+    protected MutableLiveData<Boolean> complete = new MutableLiveData<>(false);
 
     //constructor
     public RawBeansDetailViewModel(Application application) {
         super(application);
         _repository = new RawBeansRepository(application);
+    }
+
+    void delete(RawBeans rawbeans) {
+        try{
+            //TODO
+            //_repository.delete(rawbeans);
+            complete.setValue(true);
+        }catch (Exception e){
+            errorMsg.setValue(e.getMessage());
+        }
     }
 }

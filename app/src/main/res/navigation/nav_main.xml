@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_rawBeansDetailFragment_to_rawBeansEditFragment"
             app:destination="@id/rawBeansEditFragment" />
+        <action
+            android:id="@+id/action_rawBeansDetailFragment_to_confirmDeleteFragment"
+            app:destination="@id/confirmDeleteFragment" />
     </fragment>
     <fragment
         android:id="@+id/rawBeansRegisterFragment"
@@ -46,4 +49,8 @@
             android:name="specRawbeans"
             app:argType="ymz.coffeerep.data.rawbeans.RawBeans" />
     </fragment>
+    <dialog
+        android:id="@+id/confirmDeleteFragment"
+        android:name="ymz.coffeerep.scenes.dialog.ConfirmDeleteFragment"
+        android:label="ConfirmDeleteFragment" />
 </navigation>
