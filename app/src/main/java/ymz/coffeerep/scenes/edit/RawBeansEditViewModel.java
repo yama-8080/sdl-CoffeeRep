@@ -22,15 +22,14 @@ public class RawBeansEditViewModel extends AndroidViewModel {
         _repository = new RawBeansRepository(application);
     }
 
-    void update(RawBeans rawbeans) {
+    void update(RawBeans newRawbeans) {
         //name must be non-null
-        if(rawbeans.getRawbeans_name().trim().isEmpty()){
+        if(newRawbeans.getRawbeans_name().trim().isEmpty()){
             errorMsg.setValue("名前を入力してください");
         }
         else{
             try{
-                //TODO
-                //_repository.update(rawbeans);
+                _repository.update(newRawbeans);
                 complete.setValue(true);
             }catch (Exception e){
                 errorMsg.setValue(e.getMessage());
