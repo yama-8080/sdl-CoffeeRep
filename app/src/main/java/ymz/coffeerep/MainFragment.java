@@ -36,7 +36,7 @@ public class MainFragment extends Fragment {
 
         _vm = new ViewModelProvider(this).get(MainViewModel.class);
 
-        _binding.buttonHomeToBeansList.setOnClickListener(new View.OnClickListener() {
+        _binding.cardviewHomeToBeansList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_beansListFragment);
             }
