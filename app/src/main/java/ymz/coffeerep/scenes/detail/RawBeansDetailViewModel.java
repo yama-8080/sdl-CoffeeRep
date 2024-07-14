@@ -28,8 +28,7 @@ public class RawBeansDetailViewModel extends AndroidViewModel {
 
     void delete(RawBeans rawbeans) {
         try{
-            //TODO
-            //_repository.delete(rawbeans);
+            _repository.delete(rawbeans);
             complete.setValue(true);
         }catch (Exception e){
             errorMsg.setValue(e.getMessage());

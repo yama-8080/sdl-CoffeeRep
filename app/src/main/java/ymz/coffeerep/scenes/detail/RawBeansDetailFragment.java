@@ -91,7 +91,7 @@ public class RawBeansDetailFragment extends Fragment {
                 if(which == DialogInterface.BUTTON_POSITIVE){
                     _vm.delete(_selectedRawbeans);
                 }
-                //else? auto-close dialog?
+                //else: auto-close dialogFragment
             }
         });
 
