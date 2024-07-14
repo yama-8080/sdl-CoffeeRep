@@ -54,6 +54,12 @@ public class RawBeansDetailFragment extends Fragment {
         RawBeans selectedRawBeans = RawBeansDetailFragmentArgs.fromBundle(getArguments()).getRawbeans();
         Log.d("YMZdebug", "[RawBeansDetailFragment.onViewCreated]: ID is " + selectedRawBeans.getRawbeans_id());
         showDetail(selectedRawBeans);
+
+        _binding.editButtonRawbeansDetail.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Navigation.findNavController(view).navigate(R.id.action_rawBeansDetailFragment_to_rawBeansInsertFragment);
+            }
+        });
     }
 
     @Override

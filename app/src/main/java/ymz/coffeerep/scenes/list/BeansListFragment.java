@@ -79,9 +79,9 @@ public class BeansListFragment extends Fragment {
             }
         });
 
-        _binding.buttonBeansListToInsertRawbeans.setOnClickListener(new View.OnClickListener() {
+        _binding.buttonBeansListToRawbeansRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansInsertFragment);
+                Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansRegisterFragment);
             }
         });
     }

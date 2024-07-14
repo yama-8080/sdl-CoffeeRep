@@ -1,4 +1,4 @@
-package ymz.coffeerep.scenes.insert;
+package ymz.coffeerep.scenes.register;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,17 +15,17 @@ import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
-import ymz.coffeerep.databinding.FragmentRawbeansInsertBinding;
+import ymz.coffeerep.databinding.FragmentRawbeansRegisterBinding;
 
-public class RawBeansInsertFragment extends Fragment {
+public class RawBeansRegisterFragment extends Fragment {
 
 
-    private FragmentRawbeansInsertBinding _binding;
-    private RawBeansInsertViewModel _vm;
+    private FragmentRawbeansRegisterBinding _binding;
+    private RawBeansRegisterViewModel _vm;
 
     //constructor
-    public RawBeansInsertFragment() {
-        super(R.layout.fragment_rawbeans_insert);
+    public RawBeansRegisterFragment() {
+        super(R.layout.fragment_rawbeans_register);
     }
 
     //processes right before the view creating
@@ -33,7 +33,7 @@ public class RawBeansInsertFragment extends Fragment {
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,
                               Bundle savedInstanceState) {
-        _binding = FragmentRawbeansInsertBinding.inflate(inflater, container, false);
+        _binding = FragmentRawbeansRegisterBinding.inflate(inflater, container, false);
         View view = _binding.getRoot();
         return view;
     }
@@ -42,9 +42,9 @@ public class RawBeansInsertFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        _binding = FragmentRawbeansInsertBinding.bind(view);
+        _binding = FragmentRawbeansRegisterBinding.bind(view);
 
-        _vm = new ViewModelProvider(this).get(RawBeansInsertViewModel.class);
+        _vm = new ViewModelProvider(this).get(RawBeansRegisterViewModel.class);
 
         //check if the inputs are correct
         _vm.errorMsg.observe(getViewLifecycleOwner(), msg -> {
@@ -62,7 +62,7 @@ public class RawBeansInsertFragment extends Fragment {
         });
 
         //insert
-        _binding.fabRawbeansInsert.setOnClickListener(new View.OnClickListener() {
+        _binding.insertFabRawbeansRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 insert();
             }
@@ -76,8 +76,8 @@ public class RawBeansInsertFragment extends Fragment {
     }
 
     private void insert() {
-        String name = _binding.nameRawbeansInsert.getText().toString();
-        String country = _binding.countryRawbeansInsert.getText().toString();
+        String name = _binding.nameRawbeansRegister.getText().toString();
+        String country = _binding.countryRawbeansRegister.getText().toString();
         long time = System.currentTimeMillis();
         RawBeans newRawbeans = new RawBeans(name, country, time);
         _vm.insert(newRawbeans);

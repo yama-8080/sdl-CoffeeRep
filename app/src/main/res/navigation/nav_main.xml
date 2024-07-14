@@ -17,16 +17,12 @@
         android:name="ymz.coffeerep.scenes.list.BeansListFragment"
         android:label="BeansListFragment" >
         <action
-            android:id="@+id/action_beansListFragment_to_rawBeansInsertFragment"
-            app:destination="@id/rawBeansInsertFragment" />
-        <action
             android:id="@+id/action_beansListFragment_to_rawBeansDetailFragment"
             app:destination="@id/rawBeansDetailFragment" />
+        <action
+            android:id="@+id/action_beansListFragment_to_rawBeansRegisterFragment"
+            app:destination="@id/rawBeansRegisterFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/rawBeansInsertFragment"
-        android:name="ymz.coffeerep.scenes.insert.RawBeansInsertFragment"
-        android:label="RawBeansInsertFragment" />
     <fragment
         android:id="@+id/rawBeansDetailFragment"
         android:name="ymz.coffeerep.scenes.detail.RawBeansDetailFragment"
@@ -35,4 +31,8 @@
             android:name="rawbeans"
             app:argType="ymz.coffeerep.data.rawbeans.RawBeans" />
     </fragment>
+    <fragment
+        android:id="@+id/rawBeansRegisterFragment"
+        android:name="ymz.coffeerep.scenes.register.RawBeansRegisterFragment"
+        android:label="RawBeansRegisterFragment" />
 </navigation>
