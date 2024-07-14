@@ -75,10 +75,18 @@ public class RawBeansRegisterFragment extends Fragment {
     }
 
     private void insert() {
-        String name = _binding.nameRawbeansRegister.getText().toString();
-        String country = _binding.countryRawbeansRegister.getText().toString();
-        long time = System.currentTimeMillis();
-        RawBeans newRawbeans = new RawBeans(name, country, time);
-        _vm.insert(newRawbeans);
+        _vm.insert(createNewRawBeans());
+    }
+
+    //create new entity
+    private RawBeans createNewRawBeans(){
+        RawBeans newRawbeans = new RawBeans();
+
+        newRawbeans.setRawbeans_id(0);  //id 0 means initial
+        newRawbeans.setRawbeans_name(_binding.nameRawbeansRegister.getText().toString());
+        newRawbeans.setRawbeans_country(_binding.countryRawbeansRegister.getText().toString());
+        newRawbeans.setRegistered_time(System.currentTimeMillis());   //should be editable
+
+        return newRawbeans;
     }
 }

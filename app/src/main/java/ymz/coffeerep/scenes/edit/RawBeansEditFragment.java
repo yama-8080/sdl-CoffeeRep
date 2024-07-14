@@ -70,8 +70,7 @@ public class RawBeansEditFragment extends Fragment {
         //update
         _binding.updateFabRawbeansEdit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //TODO
-                //update(selectedRawbeans.getRawbeans_id());
+                update(selectedRawbeans);
             }
         });
     }
@@ -87,13 +86,19 @@ public class RawBeansEditFragment extends Fragment {
         _binding.countryRawbeansEdit.setText(rawbeans.getRawbeans_country());
     }
 
-    private void update(int origin_id) {
-        String name = _binding.nameRawbeansEdit.getText().toString();
-        String country = _binding.countryRawbeansEdit.getText().toString();
-        //TODO
-        long time = System.currentTimeMillis();
-        //TODO
-        RawBeans newRawbeans = new RawBeans(name, country, time);
-        _vm.update(newRawbeans);
+    private void update(RawBeans oldRawbeans) {
+        _vm.update(createNewRawBeans(oldRawbeans));
+    }
+
+    //create new entity
+    private RawBeans createNewRawBeans(RawBeans oldRawbeans){
+        RawBeans newRawbeans = new RawBeans();
+
+        newRawbeans.setRawbeans_id(oldRawbeans.getRawbeans_id());
+        newRawbeans.setRawbeans_name(_binding.nameRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_country(_binding.countryRawbeansEdit.getText().toString());
+        newRawbeans.setRegistered_time(oldRawbeans.getRegistered_time());   //should be editable
+
+        return newRawbeans;
     }
 }
