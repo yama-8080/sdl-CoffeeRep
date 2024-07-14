@@ -1,5 +1,6 @@
 package ymz.coffeerep.scenes.detail;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
@@ -54,7 +57,7 @@ public class RawBeansDetailFragment extends Fragment {
         showDetail(_selectedRawbeans);
         Log.d("YMZdebug", "[RawBeansDetailFragment.onViewCreated]: ID is " + _selectedRawbeans.getRawbeans_id());
 
-        //edit
+        //edit button listener
         _binding.editButtonRawbeansDetail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //jump to editFragment with specific item
@@ -70,6 +73,41 @@ public class RawBeansDetailFragment extends Fragment {
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
                 _selectedRawbeans = (RawBeans) bundle.getSerializable("bundleKey_update_rawbeans");
                 showDetail(_selectedRawbeans);
+            }
+        });
+
+        //delete button listener
+        _binding.deleteButtonRawbeansDetail.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_rawBeansDetailFragment_to_confirmDeleteFragment);
+            }
+        });
+
+        //delete or do-nothing when button tapped in dialogFragment
+        getParentFragmentManager().setFragmentResultListener("requestKey_confirm_delete", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
+                int which = bundle.getInt("bundleKey_confirm_delete");
+                if(which == DialogInterface.BUTTON_POSITIVE){
+                    _vm.delete(_selectedRawbeans);
+                }
+                //else: auto-close dialogFragment
+            }
+        });
+
+        //error message in delete
+        _vm.errorMsg.observe(getViewLifecycleOwner(), msg -> {
+            if(!msg.isEmpty()){
+                Snackbar.make(requireView(), msg, Snackbar.LENGTH_SHORT).show();
+                _vm.errorMsg.setValue("");
+            }
+        });
+
+        //go back to list-fragment when complete delete
+        _vm.complete.observe(getViewLifecycleOwner(), complete -> {
+            if(complete){
+                //avoid from close only dialogFragment, specify go-back-destination fragment
+                Navigation.findNavController(view).popBackStack(R.id.beansListFragment, false);
             }
         });
     }

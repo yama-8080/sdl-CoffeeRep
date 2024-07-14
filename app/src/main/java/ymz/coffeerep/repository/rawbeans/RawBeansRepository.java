@@ -37,16 +37,24 @@ public class RawBeansRepository {
     }
 
     //insert (DB access is only by worker thread)
-    public void insert(RawBeans rawbeans){
+    public void insert(RawBeans newRawbeans){
         RawBeansDatabase.databaseWriteExecutor.execute(() -> {
-            _rawbeansDao.insertRawBeans(rawbeans);
+            _rawbeansDao.insertRawBeans(newRawbeans);
         });
     }
 
+    //update (DB access is only by worker thread)
     public RawBeans update(RawBeans newRawbeans){
         RawBeansDatabase.databaseWriteExecutor.execute(() -> {
             _rawbeansDao.updateRawBeans(newRawbeans);
         });
         return newRawbeans;
+    }
+
+    //delete (DB access is only by worker thread)
+    public void delete(RawBeans rawbeans){
+        RawBeansDatabase.databaseWriteExecutor.execute(() -> {
+            _rawbeansDao.deleteRawBeans(rawbeans);
+        });
     }
 }

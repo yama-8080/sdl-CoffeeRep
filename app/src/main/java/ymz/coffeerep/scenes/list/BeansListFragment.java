@@ -77,6 +77,7 @@ public class BeansListFragment extends Fragment {
             }
         });
 
+        //register button listener
         _binding.buttonBeansListToRawbeansRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansRegisterFragment);
