@@ -56,22 +56,20 @@ public class BeansListFragment extends Fragment {
         //send specific item to detail fragment when it selected
         adapter.selected.observe(getViewLifecycleOwner(), selected -> {
             if(selected){
-                //get data
-                RawBeans selectedRawBeans = adapter.get_selectedRawBeans();
+                //get specific item from ListAdapter
+                RawBeans selectedRawbeans = adapter.get_selectedRawBeans();
 
                 //debug log
-                if(selectedRawBeans.getRawbeans_name().isEmpty()){
+                if(selectedRawbeans.getRawbeans_name().isEmpty()){
                     Log.d("YMZdebug", "[BeansListFragment.onViewCreated]: name is EMPTY");
                 }
                 else{
-                    Log.d("YMZdebug", "[BeansListFragment.onViewCreated]: name is " + selectedRawBeans.getRawbeans_name());
+                    Log.d("YMZdebug", "[BeansListFragment.onViewCreated]: name is " + selectedRawbeans.getRawbeans_name());
                 }
 
-                //jump with sending data
-                BeansListFragmentDirections.ActionBeansListFragmentToRawBeansDetailFragment action
-                        = BeansListFragmentDirections.actionBeansListFragmentToRawBeansDetailFragment(
-                                selectedRawBeans
-                );
+                //jump next with specific item
+                BeansListFragmentDirections.ActionBeansListFragmentToRawBeansDetailFragment
+                        action = BeansListFragmentDirections.actionBeansListFragmentToRawBeansDetailFragment(selectedRawbeans);
                 Navigation.findNavController(view).navigate(action);
 
                 adapter.set_selectedRawBeans(null);
@@ -79,9 +77,9 @@ public class BeansListFragment extends Fragment {
             }
         });
 
-        _binding.buttonBeansListToInsertRawbeans.setOnClickListener(new View.OnClickListener() {
+        _binding.buttonBeansListToRawbeansRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansInsertFragment);
+                Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansRegisterFragment);
             }
         });
     }

@@ -43,4 +43,10 @@ public class RawBeansRepository {
         });
     }
 
+    public RawBeans update(RawBeans newRawbeans){
+        RawBeansDatabase.databaseWriteExecutor.execute(() -> {
+            _rawbeansDao.updateRawBeans(newRawbeans);
+        });
+        return newRawbeans;
+    }
 }

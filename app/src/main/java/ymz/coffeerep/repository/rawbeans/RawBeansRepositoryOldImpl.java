@@ -4,7 +4,7 @@ import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.data.rawbeans.RawBeansDAO;
 
 public class RawBeansRepositoryOldImpl implements RawBeansRepositoryOld {
-
+    /*
     private RawBeansDAO _rawbeansDao;
 
     public RawBeansRepositoryOldImpl(RawBeansDAO rawbeansDao){
@@ -20,4 +20,5 @@ public class RawBeansRepositoryOldImpl implements RawBeansRepositoryOld {
         //}
         //no idea to implement for Java...
     }
+    */
 }

@@ -1,16 +1,14 @@
-package ymz.coffeerep.scenes.insert;
+package ymz.coffeerep.scenes.register;
 
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import java.util.List;
-
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
 
-public class RawBeansInsertViewModel extends AndroidViewModel {
+public class RawBeansRegisterViewModel extends AndroidViewModel {
 
     private RawBeansRepository _repository;
 
@@ -19,7 +17,7 @@ public class RawBeansInsertViewModel extends AndroidViewModel {
     protected MutableLiveData<Boolean> complete = new MutableLiveData<>(false);
 
     //constructor
-    public RawBeansInsertViewModel(Application application) {
+    public RawBeansRegisterViewModel(Application application) {
         super(application);
         _repository = new RawBeansRepository(application);
     }

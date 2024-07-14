@@ -10,20 +10,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansDetailBinding;
+import ymz.coffeerep.scenes.list.BeansListFragmentDirections;
 
 public class RawBeansDetailFragment extends Fragment {
 
     private FragmentRawbeansDetailBinding _binding;
     private RawBeansDetailViewModel _vm;
-
-    private TextView RawBeansNameView;
-    private TextView RawBeansCountryView;
+    private RawBeans _selectedRawbeans;
 
     //constructor
     public RawBeansDetailFragment() {
@@ -38,8 +38,6 @@ public class RawBeansDetailFragment extends Fragment {
         _binding = FragmentRawbeansDetailBinding.inflate(inflater, container, false);
         View view = _binding.getRoot();
 
-        initTextView();
-
         return view;
     }
 
@@ -51,9 +49,29 @@ public class RawBeansDetailFragment extends Fragment {
 
         _vm = new ViewModelProvider(this).get(RawBeansDetailViewModel.class);
 
-        RawBeans selectedRawBeans = RawBeansDetailFragmentArgs.fromBundle(getArguments()).getRawbeans();
-        Log.d("YMZdebug", "[RawBeansDetailFragment.onViewCreated]: ID is " + selectedRawBeans.getRawbeans_id());
-        showDetail(selectedRawBeans);
+        //get specific item by safe-args
+        _selectedRawbeans = RawBeansDetailFragmentArgs.fromBundle(getArguments()).getSpecRawbeans();
+        showDetail(_selectedRawbeans);
+        Log.d("YMZdebug", "[RawBeansDetailFragment.onViewCreated]: ID is " + _selectedRawbeans.getRawbeans_id());
+
+        //edit
+        _binding.editButtonRawbeansDetail.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //jump to editFragment with specific item
+                RawBeansDetailFragmentDirections.ActionRawBeansDetailFragmentToRawBeansEditFragment
+                        action = RawBeansDetailFragmentDirections.actionRawBeansDetailFragmentToRawBeansEditFragment(_selectedRawbeans);
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
+
+        //update view & specific item when complete update in editFragment
+        getParentFragmentManager().setFragmentResultListener("requestKey_update_rawbeans", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
+                _selectedRawbeans = (RawBeans) bundle.getSerializable("bundleKey_update_rawbeans");
+                showDetail(_selectedRawbeans);
+            }
+        });
     }
 
     @Override
@@ -62,13 +80,8 @@ public class RawBeansDetailFragment extends Fragment {
         _binding = null;
     }
 
-    private void initTextView(){
-        RawBeansNameView = _binding.nameRawbeansDetail;
-        RawBeansCountryView = _binding.countryRawbeansDatail;
-    }
-
     private void showDetail(RawBeans rawbeans){
-        RawBeansNameView.setText(rawbeans.getRawbeans_name());
-        RawBeansCountryView.setText(rawbeans.getRawbeans_country());
+        _binding.nameRawbeansDetail.setText(rawbeans.getRawbeans_name());
+        _binding.countryRawbeansDatail.setText(rawbeans.getRawbeans_country());
     }
 }
