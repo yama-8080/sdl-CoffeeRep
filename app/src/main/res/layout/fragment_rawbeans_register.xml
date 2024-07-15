@@ -3,54 +3,89 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/brown_raw"
+    >
 
-    <TextView
-        android:id="@+id/title_rawbeans_register"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:text="生豆の登録"
-        android:textAppearance="?attr/textAppearanceTitleLarge"
+    <LinearLayout
+        android:id="@+id/topbar_rawbeans_register"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/brown_light_roast">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_name_rawbeans_register"
-        android:layout_width="0dp"
+        <TextView
+            android:id="@+id/title_rawbeans_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/register_rawbeans"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_rawbeans_register">
+        app:layout_constraintTop_toBottomOf="@+id/topbar_rawbeans_register"
+        >
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/name_rawbeans_register"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/name"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            >
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_country_rawbeans_register"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_name_rawbeans_register">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_name_rawbeans_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_rawbeans_register">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/country_rawbeans_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/country"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_rawbeans_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name"
+                    android:inputType="text"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_country_rawbeans_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_name_rawbeans_register">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/country_rawbeans_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/country"
+                    android:inputType="text"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/insert_fab_rawbeans_register"
@@ -61,6 +96,8 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_check_24" />
+        app:srcCompat="@drawable/baseline_check_24"
+        android:backgroundTint="@color/brown_cinnamon_roast"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
