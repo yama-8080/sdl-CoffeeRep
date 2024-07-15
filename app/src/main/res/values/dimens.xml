@@ -10,4 +10,6 @@
     <dimen name="detail_text_size">16sp</dimen>
     <dimen name="detail_sub_text_size">10sp</dimen>
     <dimen name="input_text_size">16sp</dimen>
+
+    <dimen name="scrollview_underlimit">100dp</dimen>
 </resources>
