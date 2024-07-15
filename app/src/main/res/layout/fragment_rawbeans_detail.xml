@@ -303,9 +303,8 @@
                         android:textSize="@dimen/detail_sub_text_size"
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
-
                     <CheckBox
-                        android:id="@+id/checkbox_rawbeans_datail"
+                        android:id="@+id/caffeineless_checkbox_rawbeans_datail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="false"
@@ -321,14 +320,14 @@
                         android:textSize="@dimen/detail_sub_text_size"
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
-
                     <RatingBar
-                        android:id="@+id/ratingbar_rawbeans_datail"
+                        android:id="@+id/review_ratingbar_rawbeans_datail"
                         style="?android:attr/ratingBarStyleIndicator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:stepSize="1" />
+                        android:stepSize="1"
+                        />
 
                     <TextView
                         android:layout_width="match_parent"

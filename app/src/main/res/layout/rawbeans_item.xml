@@ -40,7 +40,7 @@
             tools:text="2024-7-17"
             />
         <RatingBar
-            android:id="@+id/ratingbar_rawbeans_item"
+            android:id="@+id/review_ratingbar_rawbeans_item"
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
