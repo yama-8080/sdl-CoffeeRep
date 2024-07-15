@@ -49,7 +49,7 @@
 
         <!-- for rawbeans/roastbeans table -->
         <string name="purchased_date">購入日</string>
-    <string name="purchased_shop">購入店</string>
+        <string name="purchased_shop">購入店</string>
         <string name="amount">内容量[g]</string>
         <string name="country">原産国</string>
         <string name="place">原産地</string>
@@ -68,6 +68,8 @@
         <string name="drink_place">飲んだ場所</string>
         <string name="drink_amount">飲んだ量[mL]</string>
         <string name="drink_method">飲み方</string>
+        <string name="drink_method_temperature">温度</string>
+        <string name="drink_method_type">タイプ</string>
         <string name="taste">味</string>
         <string name="flavor">フレーバー</string>
         <string name="match_food">相性の良い食べ物</string>
@@ -76,4 +78,73 @@
         <!-- for dripmethod table -->
         <string name="method">方法</string>
 
+    <string-array name="variety_list">
+        <item>ロブスタ種</item>
+        <item>アラビカ種</item>
+        <item>その他</item>
+    </string-array>
+
+    <string-array name="process_list">
+        <item>ナチュラル</item>
+        <item>ウォッシュド</item>
+        <item>セミウォッシュド（パルプドナチュラル）</item>
+        <item>ハニープロセス</item>
+        <item>スマトラ式</item>
+        <item>嫌気性発酵（アナエロビック）</item>
+        <item>その他</item>
+    </string-array>
+
+    <string-array name="brend_list">
+        <item>シングル</item>
+        <item>ブレンド</item>
+    </string-array>
+
+    <string-array name="roast_level_list">
+        <item>ライトロースト</item>
+        <item>シナモンロースト</item>
+        <item>ミディアムロースト</item>
+        <item>ハイロースト</item>
+        <item>シティロースト</item>
+        <item>フルシティロースト</item>
+        <item>フレンチロースト</item>
+        <item>イタリアンロースト</item>
+    </string-array>
+
+    <string-array name="drink_method_temperature_list">
+        <item>ホット</item>
+        <item>アイス</item>
+    </string-array>
+
+    <string-array name="drink_method_type_list">
+        <item>・・・</item>
+        <item>その他</item>
+    </string-array>
+
+    <string-array name="flavor_list">
+        <item>・・・</item>
+        <item>その他</item>
+    </string-array>
+
+    <string-array name="match_food_list">
+        <item>・・・</item>
+        <item>その他</item>
+    </string-array>
+
+    <string-array name="atmosphere_list">
+        <item>・・・</item>
+        <item>その他</item>
+    </string-array>
+
+    <string-array name="dripmethod_list">
+        <item>ペーパードリップ</item>
+        <item>ネルドリップ</item>
+        <item>メタルフィルター</item>
+        <item>サイフォン</item>
+        <item>エスプレッソ</item>
+        <item>フレンチプレス</item>
+        <item>エアロプレス</item>
+        <item>水出し（コールドブリュー）</item>
+        <item>パーコレーター</item>
+        <item>その他</item>
+    </string-array>
 </resources>

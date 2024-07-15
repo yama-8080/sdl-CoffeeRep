@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Objects;
 
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
@@ -66,12 +70,29 @@ public class RawBeansRegisterFragment extends Fragment {
                 _vm.insert(createNewRawBeans());
             }
         });
+
+        //varietySpinnerConfig();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         _binding = null;
+    }
+
+    //configure variety spinner
+    private void varietySpinnerConfig(){
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.requireContext(), R.layout.variety_item);
+        adapter.setDropDownViewResource(R.layout.variety_item);
+        adapter.add("ロブスタ種");
+        adapter.add("アラビカ種");
+        adapter.add("その他");
+        _binding.varietySpinnerRawbeansRegister.setAdapter(adapter);
+    }
+
+    //configure process spinner
+    private void processSpinnerConfig(){
+
     }
 
     //create new entity
@@ -95,8 +116,18 @@ public class RawBeansRegisterFragment extends Fragment {
         newRawbeans.setRawbeans_country(_binding.countryRawbeansRegister.getText().toString());
         newRawbeans.setRawbeans_place(_binding.placeRawbeansRegister.getText().toString());
         newRawbeans.setRawbeans_farm(_binding.farmRawbeansRegister.getText().toString());
-        newRawbeans.setRawbeans_variety(_binding.varietyRawbeansRegister.getText().toString());
-        newRawbeans.setRawbeans_process(_binding.processRawbeansRegister.getText().toString());
+        if(_binding.varietySpinnerRawbeansRegister.getSelectedItem() == null){
+            newRawbeans.setRawbeans_variety("");
+        }
+        else{
+            newRawbeans.setRawbeans_variety(_binding.varietySpinnerRawbeansRegister.getSelectedItem().toString());
+        }
+        if(_binding.processSpinnerRawbeansRegister.getSelectedItem() == null){
+            newRawbeans.setRawbeans_variety("");
+        }
+        else{
+            newRawbeans.setRawbeans_process(_binding.processSpinnerRawbeansRegister.getSelectedItem().toString());
+        }
         newRawbeans.setRawbeans_caffeineless(_binding.caffeinelessCheckboxRawbeansRegister.isChecked());
         newRawbeans.setRawbeans_review(_binding.reviewSeekBarRawbeansRegister.getProgress());
         newRawbeans.setRawbeans_memo(_binding.memoRawbeansRegister.getText().toString());
