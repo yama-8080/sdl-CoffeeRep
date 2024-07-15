@@ -60,6 +60,7 @@
             <!-- for roastbeans table only-->
             <string name="brend">配合</string>
             <string name="self_roast">自家焙煎</string>
+            <string name="roast_rawbeans">焙煎した生豆</string>
             <string name="roast_level">焙煎度</string>
 
         <!-- for selfdripcoffee/readymadecoffee table -->
