@@ -103,7 +103,7 @@ public class RawBeans implements Serializable {
     @Getter
     @Setter
     @ColumnInfo(name = "rawbeans_caffeineless")
-    boolean rawbeans_caffeineless;
+    Boolean rawbeans_caffeineless;
 
     //総合評価
     @Getter
