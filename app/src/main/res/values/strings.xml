@@ -50,7 +50,7 @@
         <!-- for rawbeans/roastbeans table -->
         <string name="purchased_date">購入日</string>
     <string name="purchased_shop">購入店</string>
-        <string name="amount">内容量</string>
+        <string name="amount">内容量[g]</string>
         <string name="country">原産国</string>
         <string name="place">原産地</string>
         <string name="farm">農園</string>
@@ -65,7 +65,7 @@
         <!-- for selfdripcoffee/readymadecoffee table -->
         <string name="drink_date">飲んだ日時</string>
         <string name="drink_place">飲んだ場所</string>
-        <string name="drink_amount">飲んだ量</string>
+        <string name="drink_amount">飲んだ量[mL]</string>
         <string name="drink_method">飲み方</string>
         <string name="taste">味</string>
         <string name="flavor">フレーバー</string>
