@@ -24,7 +24,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/registered_beans"
             android:textAppearance="?attr/textAppearanceTitleLarge"
-            android:textSize="22sp"
+            android:textSize="@dimen/title_text_size"
             android:textStyle="bold"
             android:fontFamily="serif"
             />
@@ -64,7 +64,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/rawbeans"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/cardview_text_size"
                     android:textStyle="bold"
                     android:fontFamily="serif"
                     />
@@ -78,7 +78,7 @@
                     android:layout_marginEnd="5dp"
                     android:text="@string/register_rawbeans"
                     android:fontFamily="serif"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/button_text_size"
                     android:textStyle="bold"
                     android:backgroundTint="@color/brown_city_roast"
                     />
@@ -113,7 +113,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/roastbeans"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/cardview_text_size"
                     android:textStyle="bold"
                     android:fontFamily="serif"
                     />
@@ -127,7 +127,7 @@
                     android:layout_marginEnd="5dp"
                     android:text="@string/register_roastbeans"
                     android:fontFamily="serif"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/button_text_size"
                     android:textStyle="bold"
                     android:backgroundTint="@color/brown_city_roast"
                     />
