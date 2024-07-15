@@ -3,47 +3,150 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/brown_raw">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_rawbeans_list"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/topbar_beans_list"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/brown_light_roast">
+
+        <TextView
+            android:id="@+id/title_beans_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/registered_beans"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_rawbeans_list" />
-
-    <Button
-        android:id="@+id/button_beans_list_to_rawbeans_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:text="生豆を登録"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_rawbeans_list" />
-
-    <TextView
-        android:id="@+id/title_rawbeans_list"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:text="生豆"
-        android:textAppearance="?attr/textAppearanceTitleMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_beans_list" />
+        app:layout_constraintTop_toBottomOf="@+id/topbar_beans_list"
+        >
 
-    <TextView
-        android:id="@+id/title_beans_list"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:text="登録した豆"
-        android:textAppearance="?attr/textAppearanceTitleLarge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_rawbeans_beans_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="10dp">
+
+                <TextView
+                    android:id="@+id/text_rawbeans_beans_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/rawbeans"
+                    android:textSize="@dimen/cardview_text_size"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    />
+
+                <Button
+                    android:id="@+id/button_beans_list_to_rawbeans_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/register_rawbeans"
+                    android:fontFamily="serif"
+                    android:textSize="@dimen/button_text_size"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/brown_city_roast"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_rawbeans_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="60dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_roastbeans_beans_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="10dp">
+
+                <TextView
+                    android:id="@+id/text_roastbeans_beans_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/roastbeans"
+                    android:textSize="@dimen/cardview_text_size"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    />
+
+                <Button
+                    android:id="@+id/button_beans_list_to_roastbeans_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/register_roastbeans"
+                    android:fontFamily="serif"
+                    android:textSize="@dimen/button_text_size"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/brown_city_roast"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_roastbeans_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="60dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/scrollview_underlimit"
+                />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

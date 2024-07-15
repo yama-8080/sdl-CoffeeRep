@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="brown_raw">#FFFFEAD4</color>
+    <color name="brown_light_roast">#FFD2B18E</color>
+    <color name="brown_cinnamon_roast">#FFBE9971</color>
+    <color name="brown_medium_roast">#FFA97D4E</color>
+    <color name="brown_city_roast">#FF8D5A25</color>
+    <color name="brown_french_roast">#FF6B3B07</color>
+    <color name="brown_italian_roast">#FF3F2000</color>
 </resources>
