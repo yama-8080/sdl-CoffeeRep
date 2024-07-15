@@ -51,17 +51,17 @@ public class RawBeans implements Serializable {
     @Setter
     String rawbeans_picture3;
 
-    //購入店
-    @Getter
-    @Setter
-    @ColumnInfo(name = "rawbeans_purchased_shop")
-    String rawbeans_purchased_shop;
-
     //購入日
     @Getter
     @Setter
     @ColumnInfo(name = "rawbeans_purchased_date")
     String rawbeans_purchased_date;
+
+    //購入店
+    @Getter
+    @Setter
+    @ColumnInfo(name = "rawbeans_purchased_shop")
+    String rawbeans_purchased_shop;
 
     //内容量（単位[g]）
     @Getter
