@@ -1,14 +1,55 @@
 <resources>
     <string name="app_name">CoffeeRep.</string>
-    <string name="confirm_delete">本当に削除しますか？</string>
-    <string name="ok">はい</string>
-    <string name="cancel">いいえ</string>
 
     <string name="registered_beans">登録した豆</string>
     <string name="registered_coffee">登録したコーヒー</string>
     <string name="registered_dripmethod">登録した抽出方法</string>
-    <string name="registered_rawbeans">登録した生豆</string>
 
+    <string name="rawbeans">生豆</string>
+    <string name="roastbeans">焙煎豆</string>
+    <string name="selfdripcoffee">自家抽出コーヒー</string>
+    <string name="readymadecoffee">市販品コーヒー</string>
+    <string name="dripmethod">抽出方法</string>
+
+    <string name="register_rawbeans">生豆の登録</string>
+    <string name="register_roastbeans">焙煎豆の登録</string>
+    <string name="register_selfdripcoffee">自家抽出コーヒーの登録</string>
+    <string name="register_readymadecoffee">市販品コーヒーの登録</string>
+    <string name="register_dripmethod">抽出方法の登録</string>
+
+    <string name="detail_rawbeans">生豆の詳細</string>
+    <string name="detail_roastbeans">焙煎豆の詳細</string>
+    <string name="detail_selfdripcoffee">自家抽出コーヒーの詳細</string>
+    <string name="detail_readymadecoffee">市販品コーヒーの詳細</string>
+    <string name="detail_dripmethod">抽出方法の詳細</string>
+
+    <string name="edit_rawbeans">生豆の編集</string>
+    <string name="edit_roastbeans">焙煎豆の編集</string>
+    <string name="edit_selfdripcoffee">自家抽出コーヒーの編集</string>
+    <string name="edit_readymadecoffee">市販品コーヒーの編集</string>
+    <string name="edit_dripmethod">抽出方法の編集</string>
+
+    <string name="register">登録</string>
+    <string name="edit">編集</string>
+    <string name="delete">削除</string>
+    <string name="confirm_delete">本当に削除しますか？</string>
+    <string name="ok">はい</string>
+    <string name="cancel">いいえ</string>
+
+    <!-- for common table -->
     <string name="name">名前（必須）</string>
+
+    <!-- for rawbeans/roastbeans table -->
     <string name="country">原産国</string>
+
+    <!-- for rawbeans table -->
+    <!-- for roastbeans table -->
+
+    <!-- for selfdripcoffee/readymadecoffee table -->
+
+    <!-- for selfdripcoffee table -->
+    <!-- for readymadecoffee table -->
+
+    <!-- for dripmethod table -->
+
 </resources>
