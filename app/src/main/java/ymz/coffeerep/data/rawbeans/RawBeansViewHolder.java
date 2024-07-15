@@ -4,6 +4,7 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,12 +22,14 @@ class RawBeansViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView RawBeansItemNameView;
     private final TextView RawBeansItemTimeView;
+    private final RatingBar RawBeansReviewRatingBar;
 
     //constructor
     private RawBeansViewHolder(View itemView) {
         super(itemView);
         RawBeansItemNameView = itemView.findViewById(R.id.name_rawbeans_item);
         RawBeansItemTimeView = itemView.findViewById(R.id.time_rawbeans_item);
+        RawBeansReviewRatingBar = itemView.findViewById(R.id.review_ratingbar_rawbeans_item);
     }
 
     //set specific value to each line
@@ -35,6 +38,7 @@ class RawBeansViewHolder extends RecyclerView.ViewHolder {
         RawBeansItemTimeView.setText(
                 DateFormat.format("yyyy-MM-dd hh:mm:ss", rawbeans.getRegistered_time())
         );
+        RawBeansReviewRatingBar.setRating(rawbeans.getRawbeans_review());
 
         //NullPointerException occurs below
         /*

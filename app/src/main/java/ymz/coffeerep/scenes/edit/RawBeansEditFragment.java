@@ -1,6 +1,7 @@
 package ymz.coffeerep.scenes.edit;
 
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,6 +87,19 @@ public class RawBeansEditFragment extends Fragment {
     private void showDefaultDetail(RawBeans rawbeans){
         _binding.nameRawbeansEdit.setText(rawbeans.getRawbeans_name());
         _binding.countryRawbeansEdit.setText(rawbeans.getRawbeans_country());
+
+        _binding.nameRawbeansEdit.setText(rawbeans.getRawbeans_name());
+        _binding.purchasedDateRawbeansEdit.setText(rawbeans.getRawbeans_purchased_date());
+        _binding.purchasedShopRawbeansEdit.setText(rawbeans.getRawbeans_purchased_shop());
+        _binding.amountRawbeansEdit.setText(Integer.toString(rawbeans.getRawbeans_amount()));
+        _binding.countryRawbeansEdit.setText(rawbeans.getRawbeans_country());
+        _binding.placeRawbeansEdit.setText(rawbeans.getRawbeans_place());
+        _binding.farmRawbeansEdit.setText(rawbeans.getRawbeans_farm());
+        _binding.varietyRawbeansEdit.setText(rawbeans.getRawbeans_variety());
+        _binding.processRawbeansEdit.setText(rawbeans.getRawbeans_process());
+        _binding.caffeinelessCheckboxRawbeansEdit.setChecked(rawbeans.getRawbeans_caffeineless());
+        _binding.reviewSeekBarRawbeansEdit.setProgress(rawbeans.getRawbeans_review());
+        _binding.memoRawbeansEdit.setText(rawbeans.getRawbeans_memo());
     }
 
     private void update(RawBeans oldRawbeans) {
@@ -96,10 +110,32 @@ public class RawBeansEditFragment extends Fragment {
     private RawBeans createNewRawBeans(RawBeans oldRawbeans){
         RawBeans newRawbeans = new RawBeans();
 
-        newRawbeans.setRawbeans_id(oldRawbeans.getRawbeans_id());
+
         newRawbeans.setRawbeans_name(_binding.nameRawbeansEdit.getText().toString());
         newRawbeans.setRawbeans_country(_binding.countryRawbeansEdit.getText().toString());
-        newRawbeans.setRegistered_time(oldRawbeans.getRegistered_time());   //should be editable
+
+        newRawbeans.setRawbeans_id(oldRawbeans.getRawbeans_id());
+        newRawbeans.setRegistered_time(oldRawbeans.getRegistered_time());
+        newRawbeans.setRawbeans_name(_binding.nameRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_purchased_date(_binding.purchasedDateRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_purchased_shop(_binding.purchasedShopRawbeansEdit.getText().toString());
+        if(_binding.amountRawbeansEdit.getText().toString().isEmpty()){
+            newRawbeans.setRawbeans_amount(0);
+        }
+        else if(_vm.isNumeric(_binding.amountRawbeansEdit.getText().toString())) {
+            newRawbeans.setRawbeans_amount(Integer.valueOf(_binding.amountRawbeansEdit.getText().toString()));
+        }
+        else{
+            newRawbeans.setRawbeans_amount(_vm.WRONG_AMOUNT);
+        }
+        newRawbeans.setRawbeans_country(_binding.countryRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_place(_binding.placeRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_farm(_binding.farmRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_variety(_binding.varietyRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_process(_binding.processRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_caffeineless(_binding.caffeinelessCheckboxRawbeansEdit.isChecked());
+        newRawbeans.setRawbeans_review(_binding.reviewSeekBarRawbeansEdit.getProgress());
+        newRawbeans.setRawbeans_memo(_binding.memoRawbeansEdit.getText().toString());
 
         return newRawbeans;
     }

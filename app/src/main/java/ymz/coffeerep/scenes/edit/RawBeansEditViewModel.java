@@ -12,6 +12,8 @@ public class RawBeansEditViewModel extends AndroidViewModel {
 
     private RawBeansRepository _repository;
 
+    final int WRONG_AMOUNT = -1;
+
     //MutableLiveData must be non-null (observed by fragment)
     protected MutableLiveData<String> errorMsg = new MutableLiveData<>("");
     protected MutableLiveData<RawBeans> complete = new MutableLiveData<>(null);
@@ -27,6 +29,9 @@ public class RawBeansEditViewModel extends AndroidViewModel {
         if(newRawbeans.getRawbeans_name().trim().isEmpty()){
             errorMsg.setValue("名前を入力してください");
         }
+        else if(newRawbeans.getRawbeans_amount() == WRONG_AMOUNT){
+            errorMsg.setValue("内容量には自然数を入力してください");
+        }
         else{
             try{
                 RawBeans updated = _repository.update(newRawbeans);
@@ -35,5 +40,13 @@ public class RawBeansEditViewModel extends AndroidViewModel {
                 errorMsg.setValue(e.getMessage());
             }
         }
+    }
+
+    boolean isNumeric(String str){
+        for(int i=0; i<str.length(); i++)
+            if(!Character.isDigit(str.charAt(i)))
+                return false;
+
+        return true;
     }
 }

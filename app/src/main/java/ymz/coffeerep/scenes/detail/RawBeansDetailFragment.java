@@ -2,6 +2,7 @@ package ymz.coffeerep.scenes.detail;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -120,6 +121,19 @@ public class RawBeansDetailFragment extends Fragment {
 
     private void showDetail(RawBeans rawbeans){
         _binding.nameRawbeansDetail.setText(rawbeans.getRawbeans_name());
+        _binding.registeredDateRawbeansDetail.setText(
+                DateFormat.format("yyyy-MM-dd hh:mm:ss", rawbeans.getRegistered_time())
+        );
+        _binding.purchasedDateRawbeansDetail.setText(rawbeans.getRawbeans_purchased_date());
+        _binding.purchasedShopRawbeansDetail.setText(rawbeans.getRawbeans_purchased_shop());
+        _binding.amountRawbeansDetail.setText(Integer.toString(rawbeans.getRawbeans_amount()));
         _binding.countryRawbeansDatail.setText(rawbeans.getRawbeans_country());
+        _binding.placeRawbeansDatail.setText(rawbeans.getRawbeans_place());
+        _binding.farmRawbeansDatail.setText(rawbeans.getRawbeans_farm());
+        _binding.varietyRawbeansDatail.setText(rawbeans.getRawbeans_variety());
+        _binding.processRawbeansDatail.setText(rawbeans.getRawbeans_process());
+        _binding.caffeinelessCheckboxRawbeansDatail.setChecked(rawbeans.getRawbeans_caffeineless());
+        _binding.reviewRatingbarRawbeansDatail.setRating(rawbeans.getRawbeans_review());
+        _binding.memoRawbeansDatail.setText(rawbeans.getRawbeans_memo());
     }
 }
