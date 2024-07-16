@@ -134,8 +134,25 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/amount"
                             android:inputType="text"
-                            android:textSize="@dimen/input_text_size"
-                            />
+                            android:textSize="@dimen/input_text_size" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/price_rawbeans_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/price"
+                            android:inputType="text"
+                            android:textSize="@dimen/input_text_size" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
