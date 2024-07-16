@@ -1,0 +1,61 @@
+package ymz.coffeerep.data.dropdown;
+
+import android.widget.ArrayAdapter;
+
+public class RoastLevelItem {
+
+    public enum RoastLevel{
+        DEFAULT(0, "-"),
+        LIGHT(1, "ライトロースト"),
+        CINNAMON(2, "シナモンロースト"),
+        MEDIUM(3, "ミディアムロースト"),
+        HIGH(4, "ハイロースト"),
+        CITY(5, "シティロースト"),
+        FULLCITY(6, "フルシティロースト"),
+        FRENCH(7, "フレンチロースト"),
+        ITALIAN(8, "イタリアンロースト"),
+        OTHER(9, "その他"),
+        ;
+
+        private final int id;
+        private final String text;
+
+        private RoastLevel(final int id, final String text) {
+            this.id = id;
+            this.text = text;
+        }
+
+        public int getInt() {
+            return this.id;
+        }
+
+        public String getString() {
+            return this.text;
+        }
+
+        //search items by id
+        public static RoastLevelItem.RoastLevel getType(final int id) {
+            RoastLevelItem.RoastLevel[] items = RoastLevelItem.RoastLevel.values();
+            for (RoastLevelItem.RoastLevel item : items) {
+                if (item.getInt() == id) {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        //return the number of items
+        public static int getNumber(){
+            return RoastLevelItem.RoastLevel.values().length;
+        }
+    }
+
+    //set items to dropdown list
+    public static void setItemsToAdapter(ArrayAdapter<String> adapter){
+        int loop = RoastLevelItem.RoastLevel.getNumber();
+        for(int i=0; i<loop; i++){
+            if(RoastLevelItem.RoastLevel.getType(i) != null)
+                adapter.add(RoastLevelItem.RoastLevel.getType(i).getString());
+        }
+    }
+}

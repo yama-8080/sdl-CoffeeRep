@@ -2,6 +2,7 @@ package ymz.coffeerep.scenes.detail;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,8 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
+import ymz.coffeerep.data.dropdown.ProcessItem;
+import ymz.coffeerep.data.dropdown.VarietyItem;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansDetailBinding;
 import ymz.coffeerep.scenes.list.BeansListFragmentDirections;
@@ -89,9 +92,20 @@ public class RawBeansDetailFragment extends Fragment {
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
                 int which = bundle.getInt("bundleKey_confirm_delete");
                 if(which == DialogInterface.BUTTON_POSITIVE){
-                    _vm.delete(_selectedRawbeans);
+                    //find & update roastbeans which need update, having rawbeans_id in roast_rawbeans_id
+                    _vm.getRoastbeansNeedUpdate(_selectedRawbeans.getRawbeans_id())
+                                        .observe(getViewLifecycleOwner(), roastbeansNeedUpdate -> {
+                        _vm.updateRoastbeansRoastRawbeansId(roastbeansNeedUpdate);
+                    });
                 }
                 //else: auto-close dialogFragment
+            }
+        });
+
+        //delete after roastbeans update
+        _vm.completeUpdate.observe(getViewLifecycleOwner(), completeUpdate -> {
+            if(completeUpdate){
+                _vm.delete(_selectedRawbeans);
             }
         });
 
@@ -103,9 +117,9 @@ public class RawBeansDetailFragment extends Fragment {
             }
         });
 
-        //go back to list-fragment when complete delete
-        _vm.complete.observe(getViewLifecycleOwner(), complete -> {
-            if(complete){
+        //go back to list-fragment after delete
+        _vm.completeDelete.observe(getViewLifecycleOwner(), completeDelete -> {
+            if(completeDelete){
                 //avoid from close only dialogFragment, specify go-back-destination fragment
                 Navigation.findNavController(view).popBackStack(R.id.beansListFragment, false);
             }
@@ -120,6 +134,27 @@ public class RawBeansDetailFragment extends Fragment {
 
     private void showDetail(RawBeans rawbeans){
         _binding.nameRawbeansDetail.setText(rawbeans.getRawbeans_name());
+        _binding.registeredDateRawbeansDetail.setText(
+                DateFormat.format("yyyy-MM-dd hh:mm:ss", rawbeans.getRegistered_time())
+        );
+        _binding.purchasedDateRawbeansDetail.setText(rawbeans.getRawbeans_purchased_date());
+        _binding.purchasedShopRawbeansDetail.setText(rawbeans.getRawbeans_purchased_shop());
+        _binding.amountRawbeansDetail.setText(Integer.toString(rawbeans.getRawbeans_amount()));
         _binding.countryRawbeansDatail.setText(rawbeans.getRawbeans_country());
+        _binding.placeRawbeansDatail.setText(rawbeans.getRawbeans_place());
+        _binding.farmRawbeansDatail.setText(rawbeans.getRawbeans_farm());
+        _binding.varietyRawbeansDatail.setText(
+                VarietyItem.Variety.getType(
+                        rawbeans.getRawbeans_variety()
+                ).getString()
+        );
+        _binding.processRawbeansDatail.setText(
+                ProcessItem.Process.getType(
+                    rawbeans.getRawbeans_process()
+                ).getString()
+        );
+        _binding.caffeinelessCheckboxRawbeansDatail.setChecked(rawbeans.getRawbeans_caffeineless());
+        _binding.reviewRatingbarRawbeansDatail.setRating(rawbeans.getRawbeans_review());
+        _binding.memoRawbeansDatail.setText(rawbeans.getRawbeans_memo());
     }
 }

@@ -8,22 +8,33 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 import ymz.coffeerep.data.rawbeans.RawBeans;
+import ymz.coffeerep.data.roastbeans.RoastBeans;
 import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
+import ymz.coffeerep.repository.roastbeans.RoastBeansRepository;
 
 public class BeansListViewModel extends AndroidViewModel {
 
-    private RawBeansRepository _repository;
+    private RawBeansRepository _rawRep;
+    private RoastBeansRepository _roastRep;
     private final LiveData<List<RawBeans>> _allRawBeans;
+    private final LiveData<List<RoastBeans>> _allRoastBeans;
 
     //constructor
     public BeansListViewModel(Application application) {
         super(application);
-        _repository = new RawBeansRepository(application);
-        _allRawBeans = _repository.getAllRawBeans();
+        _rawRep = new RawBeansRepository(application);
+        _roastRep = new RoastBeansRepository(application);
+        _allRawBeans = _rawRep.getAllRawBeans();
+        _allRoastBeans = _roastRep.getAllRoastBeans();
     }
 
-    //get list from repository and return it directly
+    //get rawbeans list from repository and return it directly
     LiveData<List<RawBeans>> getAllRawBeans() {
         return _allRawBeans;
+    }
+
+    //get roastbeans list from repository and return it directly
+    LiveData<List<RoastBeans>> getAllRoastBeans() {
+        return _allRoastBeans;
     }
 }

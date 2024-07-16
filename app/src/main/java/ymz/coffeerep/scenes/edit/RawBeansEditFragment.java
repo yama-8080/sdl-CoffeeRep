@@ -1,10 +1,12 @@
 package ymz.coffeerep.scenes.edit;
 
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +17,8 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
+import ymz.coffeerep.data.dropdown.ProcessItem;
+import ymz.coffeerep.data.dropdown.VarietyItem;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansEditBinding;
 
@@ -45,6 +49,8 @@ public class RawBeansEditFragment extends Fragment {
         _binding = FragmentRawbeansEditBinding.bind(view);
 
         _vm = new ViewModelProvider(this).get(RawBeansEditViewModel.class);
+
+        spinnerConfig();
 
         //get specific item by safe-args
         RawBeans selectedRawbeans = RawBeansEditFragmentArgs.fromBundle(getArguments()).getSpecRawbeans();
@@ -86,6 +92,34 @@ public class RawBeansEditFragment extends Fragment {
     private void showDefaultDetail(RawBeans rawbeans){
         _binding.nameRawbeansEdit.setText(rawbeans.getRawbeans_name());
         _binding.countryRawbeansEdit.setText(rawbeans.getRawbeans_country());
+
+        _binding.nameRawbeansEdit.setText(rawbeans.getRawbeans_name());
+        _binding.purchasedDateRawbeansEdit.setText(rawbeans.getRawbeans_purchased_date());
+        _binding.purchasedShopRawbeansEdit.setText(rawbeans.getRawbeans_purchased_shop());
+        _binding.amountRawbeansEdit.setText(Integer.toString(rawbeans.getRawbeans_amount()));
+        _binding.countryRawbeansEdit.setText(rawbeans.getRawbeans_country());
+        _binding.placeRawbeansEdit.setText(rawbeans.getRawbeans_place());
+        _binding.farmRawbeansEdit.setText(rawbeans.getRawbeans_farm());
+        _binding.varietySpinnerRawbeansEdit.setSelection(rawbeans.getRawbeans_variety());
+        _binding.processSpinnerRawbeansEdit.setSelection(rawbeans.getRawbeans_process());
+        _binding.caffeinelessCheckboxRawbeansEdit.setChecked(rawbeans.getRawbeans_caffeineless());
+        _binding.reviewSeekBarRawbeansEdit.setProgress(rawbeans.getRawbeans_review());
+        _binding.memoRawbeansEdit.setText(rawbeans.getRawbeans_memo());
+    }
+
+    //configure spinner
+    private void spinnerConfig(){
+        //for variety
+        ArrayAdapter<String> varietyAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        varietyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        VarietyItem.setItemsToAdapter(varietyAdapter);
+        _binding.varietySpinnerRawbeansEdit.setAdapter(varietyAdapter);
+
+        //for process
+        ArrayAdapter<String> processAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        processAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ProcessItem.setItemsToAdapter(processAdapter);
+        _binding.processSpinnerRawbeansEdit.setAdapter(processAdapter);
     }
 
     private void update(RawBeans oldRawbeans) {
@@ -97,9 +131,26 @@ public class RawBeansEditFragment extends Fragment {
         RawBeans newRawbeans = new RawBeans();
 
         newRawbeans.setRawbeans_id(oldRawbeans.getRawbeans_id());
+        newRawbeans.setRegistered_time(oldRawbeans.getRegistered_time());
         newRawbeans.setRawbeans_name(_binding.nameRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_purchased_date(_binding.purchasedDateRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_purchased_shop(_binding.purchasedShopRawbeansEdit.getText().toString());
+
+        if(_binding.amountRawbeansEdit.getText().toString().isEmpty())
+            newRawbeans.setRawbeans_amount(0);
+        else if(_vm.isNumeric(_binding.amountRawbeansEdit.getText().toString()))
+            newRawbeans.setRawbeans_amount(Integer.valueOf(_binding.amountRawbeansEdit.getText().toString()));
+        else
+            newRawbeans.setRawbeans_amount(_vm.WRONG_AMOUNT);
+
         newRawbeans.setRawbeans_country(_binding.countryRawbeansEdit.getText().toString());
-        newRawbeans.setRegistered_time(oldRawbeans.getRegistered_time());   //should be editable
+        newRawbeans.setRawbeans_place(_binding.placeRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_farm(_binding.farmRawbeansEdit.getText().toString());
+        newRawbeans.setRawbeans_variety(_binding.varietySpinnerRawbeansEdit.getSelectedItemPosition());
+        newRawbeans.setRawbeans_process(_binding.processSpinnerRawbeansEdit.getSelectedItemPosition());
+        newRawbeans.setRawbeans_caffeineless(_binding.caffeinelessCheckboxRawbeansEdit.isChecked());
+        newRawbeans.setRawbeans_review(_binding.reviewSeekBarRawbeansEdit.getProgress());
+        newRawbeans.setRawbeans_memo(_binding.memoRawbeansEdit.getText().toString());
 
         return newRawbeans;
     }

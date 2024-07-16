@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,9 +15,13 @@ import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Objects;
+
 import ymz.coffeerep.R;
+import ymz.coffeerep.data.dropdown.ProcessItem;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansRegisterBinding;
+import ymz.coffeerep.data.dropdown.VarietyItem;
 
 public class RawBeansRegisterFragment extends Fragment {
 
@@ -44,6 +50,8 @@ public class RawBeansRegisterFragment extends Fragment {
         _binding = FragmentRawbeansRegisterBinding.bind(view);
 
         _vm = new ViewModelProvider(this).get(RawBeansRegisterViewModel.class);
+
+        spinnerConfig();
 
         //check if the inputs are correct
         _vm.errorMsg.observe(getViewLifecycleOwner(), msg -> {
@@ -74,14 +82,46 @@ public class RawBeansRegisterFragment extends Fragment {
         _binding = null;
     }
 
+    //configure spinner
+    private void spinnerConfig(){
+        //for variety
+        ArrayAdapter<String> varietyAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        varietyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        VarietyItem.setItemsToAdapter(varietyAdapter);
+        _binding.varietySpinnerRawbeansRegister.setAdapter(varietyAdapter);
+
+        //for process
+        ArrayAdapter<String> processAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        processAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ProcessItem.setItemsToAdapter(processAdapter);
+        _binding.processSpinnerRawbeansRegister.setAdapter(processAdapter);
+    }
+
     //create new entity
     private RawBeans createNewRawBeans(){
         RawBeans newRawbeans = new RawBeans();
 
         newRawbeans.setRawbeans_id(0);  //id 0 means initial
+        newRawbeans.setRegistered_time(System.currentTimeMillis());
         newRawbeans.setRawbeans_name(_binding.nameRawbeansRegister.getText().toString());
+        newRawbeans.setRawbeans_purchased_date(_binding.purchasedDateRawbeansRegister.getText().toString());
+        newRawbeans.setRawbeans_purchased_shop(_binding.purchasedShopRawbeansRegister.getText().toString());
+
+        if(_binding.amountRawbeansRegister.getText().toString().isEmpty())
+            newRawbeans.setRawbeans_amount(0);
+        else if(_vm.isNumeric(_binding.amountRawbeansRegister.getText().toString()))
+            newRawbeans.setRawbeans_amount(Integer.valueOf(_binding.amountRawbeansRegister.getText().toString()));
+        else
+            newRawbeans.setRawbeans_amount(_vm.WRONG_AMOUNT);
+
         newRawbeans.setRawbeans_country(_binding.countryRawbeansRegister.getText().toString());
-        newRawbeans.setRegistered_time(System.currentTimeMillis());   //should be editable
+        newRawbeans.setRawbeans_place(_binding.placeRawbeansRegister.getText().toString());
+        newRawbeans.setRawbeans_farm(_binding.farmRawbeansRegister.getText().toString());
+        newRawbeans.setRawbeans_variety(_binding.varietySpinnerRawbeansRegister.getSelectedItemPosition());
+        newRawbeans.setRawbeans_process(_binding.processSpinnerRawbeansRegister.getSelectedItemPosition());
+        newRawbeans.setRawbeans_caffeineless(_binding.caffeinelessCheckboxRawbeansRegister.isChecked());
+        newRawbeans.setRawbeans_review(_binding.reviewSeekBarRawbeansRegister.getProgress());
+        newRawbeans.setRawbeans_memo(_binding.memoRawbeansRegister.getText().toString());
 
         return newRawbeans;
     }
