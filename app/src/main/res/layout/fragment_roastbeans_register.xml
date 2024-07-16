@@ -174,7 +174,7 @@
                         android:orientation="horizontal"
                         >
                         <CheckBox
-                            android:id="@+id/self_roast_roastbeans_register"
+                            android:id="@+id/self_roast_checkbox_roastbeans_register"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -199,7 +199,7 @@
                             android:textAppearance="?attr/textAppearanceBody1"
                             />
                         <Spinner
-                            android:id="@+id/roast_rawbeans_roastbeans_register"
+                            android:id="@+id/roast_rawbeans_spinner_roastbeans_register"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/input_text_size"
