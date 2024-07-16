@@ -4,9 +4,10 @@ import android.widget.ArrayAdapter;
 
 public class BrendItem {
     public enum Brend{
-        SINGLE(0, "シングル"),
-        BREND(1, "ブレンド"),
-        OTHER(2, "その他"),
+        DEFAULT(0, "-"),
+        SINGLE(1, "シングル"),
+        BREND(2, "ブレンド"),
+        OTHER(3, "その他"),
         ;
 
         private final int id;
