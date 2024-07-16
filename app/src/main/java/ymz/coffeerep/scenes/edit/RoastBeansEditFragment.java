@@ -17,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.dropdown.BrendItem;
+import ymz.coffeerep.data.dropdown.DropDownDefault;
 import ymz.coffeerep.data.dropdown.ProcessItem;
 import ymz.coffeerep.data.dropdown.RoastLevelItem;
 import ymz.coffeerep.data.dropdown.VarietyItem;
@@ -66,6 +67,13 @@ public class RoastBeansEditFragment extends Fragment {
             }
         });
 
+        //update
+        _binding.updateFabRoastbeansEdit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                update(selectedRoastbeans);
+            }
+        });
+
         //go back to detail-fragment when complete update
         _vm.complete.observe(getViewLifecycleOwner(), updatedRoastbeans -> {
             if(updatedRoastbeans != null){
@@ -73,13 +81,6 @@ public class RoastBeansEditFragment extends Fragment {
                 result.putSerializable("bundleKey_update_roastbeans", updatedRoastbeans);
                 getParentFragmentManager().setFragmentResult("requestKey_update_roastbeans", result);
                 Navigation.findNavController(view).popBackStack();
-            }
-        });
-
-        //update
-        _binding.updateFabRoastbeansEdit.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                update(selectedRoastbeans);
             }
         });
     }
@@ -140,14 +141,11 @@ public class RoastBeansEditFragment extends Fragment {
         //avoid from executed this before vm make position-rawbeans_id array
         _vm.makeOutArray.observe(getViewLifecycleOwner(), makeOutArray -> {
             if(makeOutArray){
-                //null checking in case rawbeans deleted
-                if(_vm.idToPosition(roastbeans.getRoastbeans_roast_rawbeans_id()) != _vm.ID_NOT_FOUND){
-                    _binding.roastRawbeansSpinnerRoastbeansEdit.setSelection(
-                            _vm.idToPosition(
-                                    roastbeans.getRoastbeans_roast_rawbeans_id()
-                            )
-                    );
-                }
+                _binding.roastRawbeansSpinnerRoastbeansEdit.setSelection(
+                        _vm.idToPosition(
+                                roastbeans.getRoastbeans_roast_rawbeans_id()
+                        )
+                );
             }
         });
 
@@ -186,7 +184,6 @@ public class RoastBeansEditFragment extends Fragment {
         newRoastbeans.setRoastbeans_brend(_binding.brendSpinnerRoastbeansEdit.getSelectedItemPosition());
         newRoastbeans.setRoastbeans_self_roast(_binding.selfRoastCheckboxRoastbeansEdit.isChecked());
 
-        //null checking in case rawbeans deleted
         if(_binding.roastRawbeansSpinnerRoastbeansEdit.getSelectedItemPosition() >= 0){
             newRoastbeans.setRoastbeans_roast_rawbeans_id(
                     _vm.positionToId(

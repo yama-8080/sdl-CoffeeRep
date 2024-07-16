@@ -5,15 +5,16 @@ import android.widget.ArrayAdapter;
 public class RoastLevelItem {
 
     public enum RoastLevel{
-        LIGHT(0, "ライトロースト"),
-        CINNAMON(1, "シナモンロースト"),
-        MEDIUM(2, "ミディアムロースト"),
-        HIGH(3, "ハイロースト"),
-        CITY(4, "シティロースト"),
-        FULLCITY(5, "フルシティロースト"),
-        FRENCH(6, "フレンチロースト"),
-        ITALIAN(7, "イタリアンロースト"),
-        OTHER(8, "その他"),
+        DEFAULT(0, "-"),
+        LIGHT(1, "ライトロースト"),
+        CINNAMON(2, "シナモンロースト"),
+        MEDIUM(3, "ミディアムロースト"),
+        HIGH(4, "ハイロースト"),
+        CITY(5, "シティロースト"),
+        FULLCITY(6, "フルシティロースト"),
+        FRENCH(7, "フレンチロースト"),
+        ITALIAN(8, "イタリアンロースト"),
+        OTHER(9, "その他"),
         ;
 
         private final int id;

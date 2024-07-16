@@ -5,13 +5,14 @@ import android.widget.ArrayAdapter;
 public class ProcessItem {
 
     public enum Process{
-        NATURAL(0, "ナチュラル"),
-        WASHED(1, "ウォッシュド"),
-        SEMIWASHED(2, "セミウォッシュド（パルプドナチュラル）"),
-        HONEY(3, "ハニープロセス"),
-        SUMATRA(4, "スマトラ式"),
-        ANAEROBIC(5, "嫌気性発酵（アナエロビック）"),
-        OTHER(6, "その他"),
+        DEFAULT(0, "-"),
+        NATURAL(1, "ナチュラル"),
+        WASHED(2, "ウォッシュド"),
+        SEMIWASHED(3, "セミウォッシュド（パルプドナチュラル）"),
+        HONEY(4, "ハニープロセス"),
+        SUMATRA(5, "スマトラ式"),
+        ANAEROBIC(6, "嫌気性発酵（アナエロビック）"),
+        OTHER(7, "その他"),
         ;
 
         private final int id;

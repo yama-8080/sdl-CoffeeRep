@@ -19,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.dropdown.BrendItem;
+import ymz.coffeerep.data.dropdown.DropDownDefault;
 import ymz.coffeerep.data.dropdown.ProcessItem;
 import ymz.coffeerep.data.dropdown.RoastLevelItem;
 import ymz.coffeerep.data.dropdown.VarietyItem;
@@ -135,15 +136,23 @@ public class RoastBeansDetailFragment extends Fragment {
                 ).getString()
         );
         _binding.selfRoastCheckboxRoastbeansDatail.setChecked(roastbeans.getRoastbeans_self_roast());
-        _vm.getRawBeans(roastbeans.getRoastbeans_roast_rawbeans_id())
-                .observe(getViewLifecycleOwner(), rawbeans -> {
+
+        //null checking in case rawbeans deleted
+        if(roastbeans.getRoastbeans_roast_rawbeans_id() == DropDownDefault.getDefault_id()){
+            _binding.roastRawbeansRoastbeansDatail.setText(
+                    DropDownDefault.getDefault_str()
+            );
+        }
+        else{
             //LiveData does not have a value unless it has an observer
-            if(rawbeans != null){   //null checking in case rawbeans deleted
+            _vm.getRawBeans(roastbeans.getRoastbeans_roast_rawbeans_id())
+                                .observe(getViewLifecycleOwner(), rawbeans -> {
                 _binding.roastRawbeansRoastbeansDatail.setText(
                         rawbeans.getRawbeans_name()
                 );
-            }
-        });
+            });
+        }
+
         _binding.roastLevelRoastbeansDatail.setText(
                 RoastLevelItem.RoastLevel.getType(
                         roastbeans.getRoastbeans_roast_level()

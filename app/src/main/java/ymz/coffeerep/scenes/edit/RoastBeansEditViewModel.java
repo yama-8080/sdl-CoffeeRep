@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import ymz.coffeerep.data.dropdown.DropDownDefault;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.data.roastbeans.RoastBeans;
 import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
@@ -42,12 +43,19 @@ public class RoastBeansEditViewModel extends AndroidViewModel {
 
     //set items to dropdown list
     void setRoastRawbeansItemsToAdapter(ArrayAdapter<String> adapter, List<RawBeans> rawbeans){
+        //default item
+        adapter.add(DropDownDefault.getDefault_str());
+        _allRawBeansId.add(DropDownDefault.getDefault_id());
+
+        //read all items
         Iterator<RawBeans> iterator = rawbeans.iterator();
         while (iterator.hasNext()) {
             RawBeans item = iterator.next();
             adapter.add(item.getRawbeans_name());
             _allRawBeansId.add(item.getRawbeans_id());
         }
+
+        //send set-completed message
         makeOutArray.setValue(true);
     }
 

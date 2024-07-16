@@ -5,10 +5,11 @@ import android.widget.ArrayAdapter;
 public class VarietyItem {
 
     public enum Variety{
-        ROBUSTA(0, "ロブスタ種"),
-        ARABICA(1, "アラビカ種"),
-        LIBERICA(2, "リベリカ種"),
-        OTHER(3, "その他"),
+        DEFAULT(0, "-"),
+        ROBUSTA(1, "ロブスタ種"),
+        ARABICA(2, "アラビカ種"),
+        LIBERICA(3, "リベリカ種"),
+        OTHER(4, "その他"),
         ;
 
         private final int id;

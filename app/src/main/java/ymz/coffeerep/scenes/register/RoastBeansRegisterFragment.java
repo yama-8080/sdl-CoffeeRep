@@ -137,7 +137,6 @@ public class RoastBeansRegisterFragment extends Fragment {
         newRoastbeans.setRoastbeans_brend(_binding.brendSpinnerRoastbeansRegister.getSelectedItemPosition());
         newRoastbeans.setRoastbeans_self_roast(_binding.selfRoastCheckboxRoastbeansRegister.isChecked());
 
-        //null checking in case rawbeans deleted
         if(_binding.roastRawbeansSpinnerRoastbeansRegister.getSelectedItemPosition() >= 0){
             newRoastbeans.setRoastbeans_roast_rawbeans_id(
                     _vm.positionToId(
