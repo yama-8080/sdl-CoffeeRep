@@ -8,7 +8,7 @@
     >
 
     <LinearLayout
-        android:id="@+id/topbar_roastbeans_detail"
+        android:id="@+id/topbar_readymadecoffee_detail"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="vertical"
@@ -18,12 +18,12 @@
         android:background="@color/brown_light_roast">
 
         <TextView
-            android:id="@+id/title_roastbeans_detail"
+            android:id="@+id/title_readymadecoffee_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
-            android:text="@string/detail_roastbeans"
+            android:text="@string/detail_readymadecoffee"
             android:textAppearance="?attr/textAppearanceTitleLarge"
             android:textSize="@dimen/title_text_size"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topbar_roastbeans_detail"
+        app:layout_constraintTop_toBottomOf="@+id/topbar_readymadecoffee_detail"
         >
 
         <LinearLayout
@@ -46,7 +46,7 @@
             >
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardview_details_roastbeans_detail"
+                android:id="@+id/cardview_details_readymadecoffee_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -74,7 +74,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/name_roastbeans_detail"
+                        android:id="@+id/name_readymadecoffee_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -97,7 +97,7 @@
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
                     <TextView
-                        android:id="@+id/registered_date_roastbeans_detail"
+                        android:id="@+id/registered_date_readymadecoffee_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -115,12 +115,12 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="@string/purchased_date"
+                        android:text="@string/drink_date"
                         android:textSize="@dimen/detail_sub_text_size"
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
                     <TextView
-                        android:id="@+id/purchased_date_roastbeans_detail"
+                        android:id="@+id/drink_date_readymadecoffee_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -129,7 +129,7 @@
                         android:layout_marginBottom="5dp"
                         android:text=""
                         android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/purchased_date"
+                        tools:text="@string/drink_date"
                         />
 
                     <TextView
@@ -138,12 +138,12 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="@string/purchased_shop"
+                        android:text="@string/drink_place"
                         android:textSize="@dimen/detail_sub_text_size"
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
                     <TextView
-                        android:id="@+id/purchased_shop_roastbeans_detail"
+                        android:id="@+id/drink_place_readymadecoffee_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -152,7 +152,7 @@
                         android:layout_marginBottom="5dp"
                         android:text=""
                         android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/purchased_shop"
+                        tools:text="@string/drink_place"
                         />
 
                     <TextView
@@ -161,12 +161,12 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="@string/amount"
+                        android:text="@string/drink_amount"
                         android:textSize="@dimen/detail_sub_text_size"
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
                     <TextView
-                        android:id="@+id/amount_roastbeans_detail"
+                        android:id="@+id/drink_amount_readymadecoffee_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -175,7 +175,7 @@
                         android:layout_marginBottom="5dp"
                         android:text=""
                         android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/amount"
+                        tools:text="@string/drink_amount"
                         />
 
                     <TextView
@@ -189,7 +189,7 @@
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
                     <TextView
-                        android:id="@+id/price_roastbeans_detail"
+                        android:id="@+id/price_readymadecoffee_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -207,12 +207,12 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="@string/brend"
+                        android:text="@string/drink_method"
                         android:textSize="@dimen/detail_sub_text_size"
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
                     <TextView
-                        android:id="@+id/brend_roastbeans_datail"
+                        android:id="@+id/drink_method_temperature_readymadecoffee_datail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -221,184 +221,264 @@
                         android:layout_marginBottom="5dp"
                         android:text=""
                         android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/brend" />
+                        tools:text="@string/drink_method_temperature" />
+                    <TextView
+                        android:id="@+id/drink_method_type_readymadecoffee_datail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:text=""
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        tools:text="@string/drink_method_type" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/taste"
+                        android:textSize="@dimen/detail_sub_text_size"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        >
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/taste_sweet"
+                            android:textSize="@dimen/taste_text_size"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            />
+                        <RatingBar
+                            android:id="@+id/taste_sweet_ratingbar_readymadecoffee_datail"
+                            style="?android:attr/ratingBarStyleIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:stepSize="1"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        >
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/taste_bitter"
+                            android:textSize="@dimen/taste_text_size"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            />
+                        <RatingBar
+                            android:id="@+id/taste_bitter_ratingbar_readymadecoffee_datail"
+                            style="?android:attr/ratingBarStyleIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:stepSize="1"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        >
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/taste_sour"
+                            android:textSize="@dimen/taste_text_size"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            />
+                        <RatingBar
+                            android:id="@+id/taste_sour"
+                            style="?android:attr/ratingBarStyleIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:stepSize="1"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        >
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/taste_scent"
+                            android:textSize="@dimen/taste_text_size"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            />
+                        <RatingBar
+                            android:id="@+id/taste_scent_ratingbar_readymadecoffee_datail"
+                            style="?android:attr/ratingBarStyleIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:stepSize="1"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        >
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/taste_body"
+                            android:textSize="@dimen/taste_text_size"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            />
+                        <RatingBar
+                            android:id="@+id/taste_body_ratingbar_readymadecoffee_datail"
+                            style="?android:attr/ratingBarStyleIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:stepSize="1"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        >
+                        <TextView
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/taste_rich"
+                            android:textSize="@dimen/taste_text_size"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            />
+                        <RatingBar
+                            android:id="@+id/taste_rich_ratingbar_readymadecoffee_datail"
+                            style="?android:attr/ratingBarStyleIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:stepSize="1"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/flavor"
+                        android:textSize="@dimen/detail_sub_text_size"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        />
+                    <TextView
+                        android:id="@+id/flavor_readymadecoffee_datail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="5dp"
+                        android:text=""
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        tools:text="@string/flavor"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/match_food"
+                        android:textSize="@dimen/detail_sub_text_size"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        />
+                    <TextView
+                        android:id="@+id/match_food_readymadecoffee_datail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="5dp"
+                        android:text=""
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        tools:text="@string/match_food"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/atmosphere"
+                        android:textSize="@dimen/detail_sub_text_size"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        />
+                    <TextView
+                        android:id="@+id/atmosphere_readymadecoffee_datail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="5dp"
+                        android:text=""
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        tools:text="@string/atmosphere"
+                        />
 
                     <CheckBox
-                        android:id="@+id/self_roast_checkbox_roastbeans_datail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="false"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/self_roast"
-                        android:textSize="@dimen/input_text_size"
-                        />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="14dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/roast_rawbeans"
-                        android:textSize="@dimen/detail_sub_text_size"
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        />
-                    <TextView
-                        android:id="@+id/roast_rawbeans_roastbeans_datail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/roast_rawbeans" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="14dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/roast_level"
-                        android:textSize="@dimen/detail_sub_text_size"
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        />
-                    <TextView
-                        android:id="@+id/roast_level_roastbeans_datail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/roast_level" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="14dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/country"
-                        android:textSize="@dimen/detail_sub_text_size"
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        />
-                    <TextView
-                        android:id="@+id/country_roastbeans_datail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/country" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="14dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/place"
-                        android:textSize="@dimen/detail_sub_text_size"
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        />
-                    <TextView
-                        android:id="@+id/place_roastbeans_datail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/place"
-                        />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="14dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/farm"
-                        android:textSize="@dimen/detail_sub_text_size"
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        />
-                    <TextView
-                        android:id="@+id/farm_roastbeans_datail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/farm"
-                        />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="14dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/variety"
-                        android:textSize="@dimen/detail_sub_text_size"
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        />
-                    <TextView
-                        android:id="@+id/variety_roastbeans_datail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/variety"
-                        />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="14dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/process"
-                        android:textSize="@dimen/detail_sub_text_size"
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        />
-                    <TextView
-                        android:id="@+id/process_roastbeans_datail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textAppearance="?attr/textAppearanceBody1"
-                        tools:text="@string/process"
-                        />
-
-                    <CheckBox
-                        android:id="@+id/caffeineless_checkbox_roastbeans_datail"
+                        android:id="@+id/caffeineless_checkbox_readymadecoffee_datail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:layout_marginStart="10dp"
                         android:text="@string/caffeineless"
-                        android:textSize="@dimen/input_text_size"/>
+                        android:textSize="@dimen/input_text_size"
+                        />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -411,7 +491,7 @@
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
                     <RatingBar
-                        android:id="@+id/review_ratingbar_roastbeans_datail"
+                        android:id="@+id/review_ratingbar_readymadecoffee_datail"
                         style="?android:attr/ratingBarStyleIndicator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -431,7 +511,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/memo_roastbeans_datail"
+                        android:id="@+id/memo_readymadecoffee_datail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -448,7 +528,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardview_buttons_roastbeans_detail"
+                android:id="@+id/cardview_buttons_readymadecoffee_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -459,7 +539,7 @@
                 >
 
                 <Button
-                    android:id="@+id/edit_button_roastbeans_detail"
+                    android:id="@+id/edit_button_readymadecoffee_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
@@ -473,7 +553,7 @@
                     />
 
                 <Button
-                    android:id="@+id/delete_button_roastbeans_detail"
+                    android:id="@+id/delete_button_readymadecoffee_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"

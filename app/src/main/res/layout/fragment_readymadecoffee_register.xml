@@ -8,7 +8,7 @@
     >
 
     <LinearLayout
-        android:id="@+id/topbar_roastbeans_edit"
+        android:id="@+id/topbar_readymadecoffee_register"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="vertical"
@@ -18,12 +18,12 @@
         android:background="@color/brown_light_roast">
 
         <TextView
-            android:id="@+id/title_roastbeans_edit"
+            android:id="@+id/title_readymadecoffee_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
-            android:text="@string/edit_roastbeans"
+            android:text="@string/register_readymadecoffee"
             android:textAppearance="?attr/textAppearanceTitleLarge"
             android:textSize="@dimen/title_text_size"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topbar_roastbeans_edit"
+        app:layout_constraintTop_toBottomOf="@+id/topbar_readymadecoffee_register"
         >
 
         <LinearLayout
@@ -46,7 +46,7 @@
             >
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardview_roastbeans_edit"
+                android:id="@+id/cardview_readymadecoffee_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -72,7 +72,7 @@
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/name_roastbeans_edit"
+                            android:id="@+id/name_readymadecoffee_register"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/name_must"
@@ -91,10 +91,10 @@
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/purchased_date_roastbeans_edit"
+                            android:id="@+id/drink_date_readymadecoffee_register"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/purchased_date"
+                            android:hint="@string/drink_date"
                             android:inputType="text"
                             android:textSize="@dimen/input_text_size"
                             />
@@ -110,10 +110,10 @@
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/purchased_shop_roastbeans_edit"
+                            android:id="@+id/drink_place_readymadecoffee_register"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/purchased_shop"
+                            android:hint="@string/drink_place"
                             android:inputType="text"
                             android:textSize="@dimen/input_text_size"
                             />
@@ -129,10 +129,10 @@
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/amount_roastbeans_edit"
+                            android:id="@+id/drink_amount_readymadecoffee_register"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/amount"
+                            android:hint="@string/drink_amount_hint"
                             android:inputType="text"
                             android:textSize="@dimen/input_text_size"
                             />
@@ -148,7 +148,7 @@
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/price_roastbeans_edit"
+                            android:id="@+id/price_readymadecoffee_register"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/price"
@@ -171,65 +171,215 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="@string/brend"
+                            android:text="@string/drink_method"
                             android:textSize="@dimen/input_text_size"
                             android:textAppearance="?attr/textAppearanceBody1"
                             />
-                        <Spinner
-                            android:id="@+id/brend_spinner_roastbeans_edit"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
+                            >
+                            <Spinner
+                                android:id="@+id/drink_method_temperature_spinner_readymadecoffee_register"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:textSize="@dimen/input_text_size"
+                                android:spinnerMode="dropdown"
+                                />
+                            <Spinner
+                                android:id="@+id/drink_method_type_spinner_readymadecoffee_register"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:textSize="@dimen/input_text_size"
+                                android:spinnerMode="dropdown"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/taste"
                             android:textSize="@dimen/input_text_size"
-                            android:text="@string/brend"
+                            android:textAppearance="?attr/textAppearanceBody1"
                             />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            >
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/taste_sweet"
+                                android:textSize="@dimen/input_text_size"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                />
+                            <SeekBar
+                                android:id="@+id/taste_sweet_seekBar_readymadecoffee_register"
+                                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="10dp"
+                                android:max="5"
+                                android:progress="0"
+                            />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            >
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/taste_bitter"
+                                android:textSize="@dimen/input_text_size"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                />
+                            <SeekBar
+                                android:id="@+id/taste_bitter_seekBar_readymadecoffee_register"
+                                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="10dp"
+                                android:max="5"
+                                android:progress="0"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            >
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/taste_sour"
+                                android:textSize="@dimen/input_text_size"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                />
+                            <SeekBar
+                                android:id="@+id/taste_sour_seekBar_readymadecoffee_register"
+                                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="10dp"
+                                android:max="5"
+                                android:progress="0"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            >
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/taste_body"
+                                android:textSize="@dimen/input_text_size"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                />
+                            <SeekBar
+                                android:id="@+id/taste_body_seekBar_readymadecoffee_register"
+                                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="10dp"
+                                android:max="5"
+                                android:progress="0"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            >
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/taste_rich"
+                                android:textSize="@dimen/input_text_size"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                />
+                            <SeekBar
+                                android:id="@+id/taste_rich_seekBar_readymadecoffee_register"
+                                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="10dp"
+                                android:max="5"
+                                android:progress="0"
+                                />
+                        </LinearLayout>
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        >
-                        <CheckBox
-                            android:id="@+id/self_roast_checkbox_roastbeans_edit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:clickable="true"
-                            android:text="@string/self_roast"
-                            android:textSize="@dimen/input_text_size" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:text="->"
-                            android:textSize="@dimen/input_text_size"
-                            android:textAppearance="?attr/textAppearanceBody1"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:text="@string/roast_rawbeans"
-                            android:textSize="@dimen/input_text_size"
-                            android:textAppearance="?attr/textAppearanceBody1"
-                            />
-                        <Spinner
-                            android:id="@+id/roast_rawbeans_spinner_roastbeans_edit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/input_text_size"
-                            android:text="@string/roast_rawbeans"
-                            />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         >
@@ -240,99 +390,12 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="@string/roast_level"
+                            android:text="@string/flavor"
                             android:textSize="@dimen/input_text_size"
                             android:textAppearance="?attr/textAppearanceBody1"
                             />
                         <Spinner
-                            android:id="@+id/roast_level_spinner_roastbeans_edit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:textSize="@dimen/input_text_size"
-                            android:text="@string/roast_level"
-                            />
-                    </LinearLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/country_roastbeans_edit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/country"
-                            android:inputType="text"
-                            android:textSize="@dimen/input_text_size"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/place_roastbeans_edit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/place"
-                            android:inputType="text"
-                            android:textSize="@dimen/input_text_size"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/farm_roastbeans_edit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/farm"
-                            android:inputType="text"
-                            android:textSize="@dimen/input_text_size"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:text="@string/variety"
-                            android:textSize="@dimen/input_text_size"
-                            android:textAppearance="?attr/textAppearanceBody1"
-                            />
-                        <Spinner
-                            android:id="@+id/variety_spinner_roastbeans_edit"
+                            android:id="@+id/flavor_spinner_readymadecoffee_register"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
@@ -357,12 +420,42 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="@string/process"
+                            android:text="@string/match_food"
                             android:textSize="@dimen/input_text_size"
                             android:textAppearance="?attr/textAppearanceBody1"
                             />
                         <Spinner
-                            android:id="@+id/process_spinner_roastbeans_edit"
+                            android:id="@+id/match_food_spinner_readymadecoffee_register"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="@dimen/input_text_size"
+                            android:spinnerMode="dropdown"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/atmosphere"
+                            android:textSize="@dimen/input_text_size"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            />
+                        <Spinner
+                            android:id="@+id/atmosphere_spinner_readymadecoffee_register"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
@@ -374,11 +467,11 @@
                     </LinearLayout>
 
                     <CheckBox
-                        android:id="@+id/caffeineless_checkbox_roastbeans_edit"
+                        android:id="@+id/caffeineless_checkbox_readymadecoffee_register"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
                         android:clickable="true"
+                        android:layout_marginStart="10dp"
                         android:text="@string/caffeineless"
                         android:textSize="@dimen/input_text_size" />
 
@@ -393,7 +486,7 @@
                         android:textAppearance="?attr/textAppearanceBody1"
                         />
                     <SeekBar
-                        android:id="@+id/review_seekBar_roastbeans_edit"
+                        android:id="@+id/review_seekBar_readymadecoffee_register"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -414,7 +507,7 @@
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/memo_roastbeans_edit"
+                            android:id="@+id/memo_readymadecoffee_register"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/memo"
@@ -433,7 +526,7 @@
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/update_fab_roastbeans_edit"
+        android:id="@+id/insert_fab_readymadecoffee_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
