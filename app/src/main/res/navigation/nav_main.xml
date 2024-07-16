@@ -73,6 +73,9 @@
         <action
             android:id="@+id/action_roastBeansDetailFragment_to_roastBeansEditFragment"
             app:destination="@id/roastBeansEditFragment" />
+        <action
+            android:id="@+id/action_roastBeansDetailFragment_to_confirmDeleteFragment"
+            app:destination="@id/confirmDeleteFragment" />
     </fragment>
     <fragment
         android:id="@+id/roastBeansEditFragment"

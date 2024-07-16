@@ -82,7 +82,7 @@ public class RoastBeansDetailFragment extends Fragment {
         //delete button listener
         _binding.deleteButtonRoastbeansDetail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //Navigation.findNavController(view).navigate(R.id.action_roastBeansDetailFragment_to_confirmDeleteFragment);
+                Navigation.findNavController(view).navigate(R.id.action_roastBeansDetailFragment_to_confirmDeleteFragment);
             }
         });
 
