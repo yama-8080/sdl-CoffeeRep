@@ -15,6 +15,7 @@ import androidx.navigation.Navigation;
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.data.rawbeans.RawBeansListAdapter;
+import ymz.coffeerep.data.roastbeans.RoastBeansListAdapter;
 import ymz.coffeerep.databinding.FragmentBeansListBinding;
 
 public class BeansListFragment extends Fragment {
@@ -43,21 +44,23 @@ public class BeansListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         _binding = FragmentBeansListBinding.bind(view);
 
-        final RawBeansListAdapter adapter = new RawBeansListAdapter(new RawBeansListAdapter.WordDiff());
-        _binding.recyclerRawbeansList.setAdapter(adapter);
-
         _vm = new ViewModelProvider(this).get(BeansListViewModel.class);
 
-        //add an observer on the LiveData (fired every time the data changes)
+        final RawBeansListAdapter rawbeansAdapter = new RawBeansListAdapter(new RawBeansListAdapter.WordDiff());
+        _binding.recyclerRawbeansList.setAdapter(rawbeansAdapter);
+        final RoastBeansListAdapter roastbeansAdapter = new RoastBeansListAdapter(new RoastBeansListAdapter.WordDiff());
+        _binding.recyclerRoastbeansList.setAdapter(roastbeansAdapter);
+
+        //add an observer on the rawbeans LiveData (fired every time the data changes)
         _vm.getAllRawBeans().observe(getViewLifecycleOwner(), rawbeans -> {
-            adapter.submitList(rawbeans);
+            rawbeansAdapter.submitList(rawbeans);
         });
 
-        //send specific item to detail fragment when it selected
-        adapter.selected.observe(getViewLifecycleOwner(), selected -> {
+        //send specific rawbeans item to detail fragment when it selected
+        rawbeansAdapter.selected.observe(getViewLifecycleOwner(), selected -> {
             if(selected){
                 //get specific item from ListAdapter
-                RawBeans selectedRawbeans = adapter.get_selectedRawBeans();
+                RawBeans selectedRawbeans = rawbeansAdapter.get_selectedRawBeans();
 
                 //debug log
                 if(selectedRawbeans.getRawbeans_name().isEmpty()){
@@ -72,15 +75,31 @@ public class BeansListFragment extends Fragment {
                         action = BeansListFragmentDirections.actionBeansListFragmentToRawBeansDetailFragment(selectedRawbeans);
                 Navigation.findNavController(view).navigate(action);
 
-                adapter.set_selectedRawBeans(null);
-                adapter.selected.setValue(false);
+                rawbeansAdapter.set_selectedRawBeans(null);
+                rawbeansAdapter.selected.setValue(false);
             }
         });
 
-        //register button listener
+        //register rawbeans button listener
         _binding.buttonBeansListToRawbeansRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_rawBeansRegisterFragment);
+            }
+        });
+
+
+
+        //add an observer on the roastbeans LiveData (fired every time the data changes)
+        _vm.getAllRoastBeans().observe(getViewLifecycleOwner(), roastbeans -> {
+            roastbeansAdapter.submitList(roastbeans);
+        });
+
+        //send specific roastbeans item to detail fragment when it selected
+
+        //register roastbeans button listener
+        _binding.buttonBeansListToRoastbeansRegister.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_beansListFragment_to_roastBeansRegisterFragment);
             }
         });
     }
