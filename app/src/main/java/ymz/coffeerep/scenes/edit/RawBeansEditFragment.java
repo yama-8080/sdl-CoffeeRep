@@ -50,12 +50,12 @@ public class RawBeansEditFragment extends Fragment {
 
         _vm = new ViewModelProvider(this).get(RawBeansEditViewModel.class);
 
+        spinnerConfig();
+
         //get specific item by safe-args
         RawBeans selectedRawbeans = RawBeansEditFragmentArgs.fromBundle(getArguments()).getSpecRawbeans();
         showDefaultDetail(selectedRawbeans);
         Log.d("YMZdebug", "[RawBeansEditFragment.onViewCreated]: ID is " + selectedRawbeans.getRawbeans_id());
-
-        spinnerConfig();
 
         //check if the inputs are correct
         _vm.errorMsg.observe(getViewLifecycleOwner(), msg -> {
@@ -100,13 +100,8 @@ public class RawBeansEditFragment extends Fragment {
         _binding.countryRawbeansEdit.setText(rawbeans.getRawbeans_country());
         _binding.placeRawbeansEdit.setText(rawbeans.getRawbeans_place());
         _binding.farmRawbeansEdit.setText(rawbeans.getRawbeans_farm());
-        if(_binding.varietySpinnerRawbeansEdit.getSelectedItem() != null){
-            //_binding.varietySpinnerRawbeansEdit.setSelection(rawbeans.getRawbeans_variety());
-            //int value (selection id) is useful?
-        }
-        if(_binding.processSpinnerRawbeansEdit.getSelectedItem() != null){
-            //_binding.processSpinnerRawbeansEdit.setSelection(rawbeans.getRawbeans_process());
-        }
+        _binding.varietySpinnerRawbeansEdit.setSelection(rawbeans.getRawbeans_variety());
+        _binding.processSpinnerRawbeansEdit.setSelection(rawbeans.getRawbeans_process());
         _binding.caffeinelessCheckboxRawbeansEdit.setChecked(rawbeans.getRawbeans_caffeineless());
         _binding.reviewSeekBarRawbeansEdit.setProgress(rawbeans.getRawbeans_review());
         _binding.memoRawbeansEdit.setText(rawbeans.getRawbeans_memo());
@@ -125,8 +120,6 @@ public class RawBeansEditFragment extends Fragment {
         processAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ProcessItem.setItemsToAdapter(processAdapter);
         _binding.processSpinnerRawbeansEdit.setAdapter(processAdapter);
-
-        //TODO: set default
     }
 
     private void update(RawBeans oldRawbeans) {
@@ -136,9 +129,6 @@ public class RawBeansEditFragment extends Fragment {
     //create new entity
     private RawBeans createNewRawBeans(RawBeans oldRawbeans){
         RawBeans newRawbeans = new RawBeans();
-
-        newRawbeans.setRawbeans_name(_binding.nameRawbeansEdit.getText().toString());
-        newRawbeans.setRawbeans_country(_binding.countryRawbeansEdit.getText().toString());
 
         newRawbeans.setRawbeans_id(oldRawbeans.getRawbeans_id());
         newRawbeans.setRegistered_time(oldRawbeans.getRegistered_time());
@@ -157,18 +147,8 @@ public class RawBeansEditFragment extends Fragment {
         newRawbeans.setRawbeans_country(_binding.countryRawbeansEdit.getText().toString());
         newRawbeans.setRawbeans_place(_binding.placeRawbeansEdit.getText().toString());
         newRawbeans.setRawbeans_farm(_binding.farmRawbeansEdit.getText().toString());
-        if(_binding.varietySpinnerRawbeansEdit.getSelectedItem() == null){
-            newRawbeans.setRawbeans_variety("");
-        }
-        else{
-            newRawbeans.setRawbeans_variety(_binding.varietySpinnerRawbeansEdit.getSelectedItem().toString());
-        }
-        if(_binding.processSpinnerRawbeansEdit.getSelectedItem() == null){
-            newRawbeans.setRawbeans_variety("");
-        }
-        else{
-            newRawbeans.setRawbeans_process(_binding.processSpinnerRawbeansEdit.getSelectedItem().toString());
-        }
+        newRawbeans.setRawbeans_variety(_binding.varietySpinnerRawbeansEdit.getSelectedItemPosition());
+        newRawbeans.setRawbeans_process(_binding.processSpinnerRawbeansEdit.getSelectedItemPosition());
         newRawbeans.setRawbeans_caffeineless(_binding.caffeinelessCheckboxRawbeansEdit.isChecked());
         newRawbeans.setRawbeans_review(_binding.reviewSeekBarRawbeansEdit.getProgress());
         newRawbeans.setRawbeans_memo(_binding.memoRawbeansEdit.getText().toString());

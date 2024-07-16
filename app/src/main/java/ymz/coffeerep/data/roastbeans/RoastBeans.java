@@ -91,13 +91,13 @@ public class RoastBeans implements Serializable {
     @Getter
     @Setter
     @ColumnInfo(name = "roastbeans_variety")
-    String roastbeans_variety;
+    int roastbeans_variety;
 
     //精製方法
     @Getter
     @Setter
     @ColumnInfo(name = "roastbeans_process")
-    String roastbeans_process;
+    int roastbeans_process;
 
     //カフェインレス
     @Getter
@@ -110,21 +110,6 @@ public class RoastBeans implements Serializable {
     @Setter
     @ColumnInfo(name = "roastbeans_brend")
     int roastbeans_brend;
-    public enum Brend {
-        SINGLE(0),
-        BREND(1),
-        ;
-
-        private final int id;
-
-        private Brend(final int id) {
-            this.id = id;
-        }
-
-        public int getInt() {
-            return this.id;
-        }
-    }
 
     //自家焙煎
     @Getter
@@ -142,7 +127,7 @@ public class RoastBeans implements Serializable {
     @Getter
     @Setter
     @ColumnInfo(name = "roastbeans_roast_level")
-    String roastbeans_roast_level;
+    int roastbeans_roast_level;
 
     //総合評価
     @Getter

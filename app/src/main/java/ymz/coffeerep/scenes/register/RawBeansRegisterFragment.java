@@ -118,18 +118,8 @@ public class RawBeansRegisterFragment extends Fragment {
         newRawbeans.setRawbeans_country(_binding.countryRawbeansRegister.getText().toString());
         newRawbeans.setRawbeans_place(_binding.placeRawbeansRegister.getText().toString());
         newRawbeans.setRawbeans_farm(_binding.farmRawbeansRegister.getText().toString());
-        if(_binding.varietySpinnerRawbeansRegister.getSelectedItem() == null){
-            newRawbeans.setRawbeans_variety("");
-        }
-        else{
-            newRawbeans.setRawbeans_variety(_binding.varietySpinnerRawbeansRegister.getSelectedItem().toString());
-        }
-        if(_binding.processSpinnerRawbeansRegister.getSelectedItem() == null){
-            newRawbeans.setRawbeans_variety("");
-        }
-        else{
-            newRawbeans.setRawbeans_process(_binding.processSpinnerRawbeansRegister.getSelectedItem().toString());
-        }
+        newRawbeans.setRawbeans_variety(_binding.varietySpinnerRawbeansRegister.getSelectedItemPosition());
+        newRawbeans.setRawbeans_process(_binding.processSpinnerRawbeansRegister.getSelectedItemPosition());
         newRawbeans.setRawbeans_caffeineless(_binding.caffeinelessCheckboxRawbeansRegister.isChecked());
         newRawbeans.setRawbeans_review(_binding.reviewSeekBarRawbeansRegister.getProgress());
         newRawbeans.setRawbeans_memo(_binding.memoRawbeansRegister.getText().toString());

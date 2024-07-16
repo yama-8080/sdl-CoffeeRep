@@ -91,13 +91,13 @@ public class RawBeans implements Serializable {
     @Getter
     @Setter
     @ColumnInfo(name = "rawbeans_variety")
-    String rawbeans_variety;
+    int rawbeans_variety;
 
     //精製方法
     @Getter
     @Setter
     @ColumnInfo(name = "rawbeans_process")
-    String rawbeans_process;
+    int rawbeans_process;
 
     //カフェインレス
     @Getter

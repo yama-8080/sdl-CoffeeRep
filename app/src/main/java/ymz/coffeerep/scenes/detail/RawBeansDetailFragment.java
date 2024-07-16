@@ -19,6 +19,8 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
+import ymz.coffeerep.data.dropdown.ProcessItem;
+import ymz.coffeerep.data.dropdown.VarietyItem;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansDetailBinding;
 import ymz.coffeerep.scenes.list.BeansListFragmentDirections;
@@ -130,8 +132,16 @@ public class RawBeansDetailFragment extends Fragment {
         _binding.countryRawbeansDatail.setText(rawbeans.getRawbeans_country());
         _binding.placeRawbeansDatail.setText(rawbeans.getRawbeans_place());
         _binding.farmRawbeansDatail.setText(rawbeans.getRawbeans_farm());
-        _binding.varietyRawbeansDatail.setText(rawbeans.getRawbeans_variety());
-        _binding.processRawbeansDatail.setText(rawbeans.getRawbeans_process());
+        _binding.varietyRawbeansDatail.setText(
+                VarietyItem.Variety.getType(
+                        rawbeans.getRawbeans_variety()
+                ).getString()
+        );
+        _binding.processRawbeansDatail.setText(
+                ProcessItem.Process.getType(
+                    rawbeans.getRawbeans_process()
+                ).getString()
+        );
         _binding.caffeinelessCheckboxRawbeansDatail.setChecked(rawbeans.getRawbeans_caffeineless());
         _binding.reviewRatingbarRawbeansDatail.setRating(rawbeans.getRawbeans_review());
         _binding.memoRawbeansDatail.setText(rawbeans.getRawbeans_memo());
