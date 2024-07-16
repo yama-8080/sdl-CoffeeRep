@@ -18,8 +18,10 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.Objects;
 
 import ymz.coffeerep.R;
+import ymz.coffeerep.data.dropdown.ProcessItem;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansRegisterBinding;
+import ymz.coffeerep.data.dropdown.VarietyItem;
 
 public class RawBeansRegisterFragment extends Fragment {
 
@@ -49,6 +51,8 @@ public class RawBeansRegisterFragment extends Fragment {
 
         _vm = new ViewModelProvider(this).get(RawBeansRegisterViewModel.class);
 
+        spinnerConfig();
+
         //check if the inputs are correct
         _vm.errorMsg.observe(getViewLifecycleOwner(), msg -> {
             if(!msg.isEmpty()){
@@ -70,8 +74,6 @@ public class RawBeansRegisterFragment extends Fragment {
                 _vm.insert(createNewRawBeans());
             }
         });
-
-        //varietySpinnerConfig();
     }
 
     @Override
@@ -80,19 +82,19 @@ public class RawBeansRegisterFragment extends Fragment {
         _binding = null;
     }
 
-    //configure variety spinner
-    private void varietySpinnerConfig(){
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.requireContext(), R.layout.variety_item);
-        adapter.setDropDownViewResource(R.layout.variety_item);
-        adapter.add("ロブスタ種");
-        adapter.add("アラビカ種");
-        adapter.add("その他");
-        _binding.varietySpinnerRawbeansRegister.setAdapter(adapter);
-    }
+    //configure spinner
+    private void spinnerConfig(){
+        //for variety
+        ArrayAdapter<String> varietyAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        varietyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        VarietyItem.setItemsToAdapter(varietyAdapter);
+        _binding.varietySpinnerRawbeansRegister.setAdapter(varietyAdapter);
 
-    //configure process spinner
-    private void processSpinnerConfig(){
-
+        //for process
+        ArrayAdapter<String> processAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        processAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ProcessItem.setItemsToAdapter(processAdapter);
+        _binding.processSpinnerRawbeansRegister.setAdapter(processAdapter);
     }
 
     //create new entity

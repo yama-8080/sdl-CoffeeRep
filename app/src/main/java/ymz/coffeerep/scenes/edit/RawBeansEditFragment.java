@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,8 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
+import ymz.coffeerep.data.dropdown.ProcessItem;
+import ymz.coffeerep.data.dropdown.VarietyItem;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.databinding.FragmentRawbeansEditBinding;
 
@@ -51,6 +54,8 @@ public class RawBeansEditFragment extends Fragment {
         RawBeans selectedRawbeans = RawBeansEditFragmentArgs.fromBundle(getArguments()).getSpecRawbeans();
         showDefaultDetail(selectedRawbeans);
         Log.d("YMZdebug", "[RawBeansEditFragment.onViewCreated]: ID is " + selectedRawbeans.getRawbeans_id());
+
+        spinnerConfig();
 
         //check if the inputs are correct
         _vm.errorMsg.observe(getViewLifecycleOwner(), msg -> {
@@ -105,6 +110,23 @@ public class RawBeansEditFragment extends Fragment {
         _binding.caffeinelessCheckboxRawbeansEdit.setChecked(rawbeans.getRawbeans_caffeineless());
         _binding.reviewSeekBarRawbeansEdit.setProgress(rawbeans.getRawbeans_review());
         _binding.memoRawbeansEdit.setText(rawbeans.getRawbeans_memo());
+    }
+
+    //configure spinner
+    private void spinnerConfig(){
+        //for variety
+        ArrayAdapter<String> varietyAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        varietyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        VarietyItem.setItemsToAdapter(varietyAdapter);
+        _binding.varietySpinnerRawbeansEdit.setAdapter(varietyAdapter);
+
+        //for process
+        ArrayAdapter<String> processAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        processAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ProcessItem.setItemsToAdapter(processAdapter);
+        _binding.processSpinnerRawbeansEdit.setAdapter(processAdapter);
+
+        //TODO: set default
     }
 
     private void update(RawBeans oldRawbeans) {
