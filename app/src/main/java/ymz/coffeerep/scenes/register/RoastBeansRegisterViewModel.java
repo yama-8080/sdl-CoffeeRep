@@ -48,7 +48,7 @@ public class RoastBeansRegisterViewModel extends AndroidViewModel {
         }
     }
 
-    //change position in rawbeans dropdown list  into rawbeans_id
+    //transform position in rawbeans dropdown list into rawbeans_id
     int positionToId(int pos){
         return _allRawBeansId.get(pos);
     }

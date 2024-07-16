@@ -138,9 +138,11 @@ public class RoastBeansDetailFragment extends Fragment {
         _vm.getRawBeans(roastbeans.getRoastbeans_roast_rawbeans_id())
                 .observe(getViewLifecycleOwner(), rawbeans -> {
             //LiveData does not have a value unless it has an observer
-            _binding.roastRawbeansRoastbeansDatail.setText(
-                    rawbeans.getRawbeans_name()
-            );
+            if(rawbeans != null){   //null checking in case rawbeans deleted
+                _binding.roastRawbeansRoastbeansDatail.setText(
+                        rawbeans.getRawbeans_name()
+                );
+            }
         });
         _binding.roastLevelRoastbeansDatail.setText(
                 RoastLevelItem.RoastLevel.getType(

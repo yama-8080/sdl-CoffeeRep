@@ -90,28 +90,6 @@ public class RoastBeansEditFragment extends Fragment {
         _binding = null;
     }
 
-    private void showDefaultDetail(RoastBeans roastbeans){
-        _binding.nameRoastbeansEdit.setText(roastbeans.getRoastbeans_name());
-        _binding.countryRoastbeansEdit.setText(roastbeans.getRoastbeans_country());
-
-        _binding.nameRoastbeansEdit.setText(roastbeans.getRoastbeans_name());
-        _binding.purchasedDateRoastbeansEdit.setText(roastbeans.getRoastbeans_purchased_date());
-        _binding.purchasedShopRoastbeansEdit.setText(roastbeans.getRoastbeans_purchased_shop());
-        _binding.amountRoastbeansEdit.setText(Integer.toString(roastbeans.getRoastbeans_amount()));
-        _binding.brendSpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_brend());
-        _binding.selfRoastCheckboxRoastbeansEdit.setChecked(roastbeans.getRoastbeans_self_roast());
-        //_binding.roastRawbeansSpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_roast_rawbeans_id()); //TODO
-        _binding.roastLevelSpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_roast_level());
-        _binding.countryRoastbeansEdit.setText(roastbeans.getRoastbeans_country());
-        _binding.placeRoastbeansEdit.setText(roastbeans.getRoastbeans_place());
-        _binding.farmRoastbeansEdit.setText(roastbeans.getRoastbeans_farm());
-        _binding.varietySpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_variety());
-        _binding.processSpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_process());
-        _binding.caffeinelessCheckboxRoastbeansEdit.setChecked(roastbeans.getRoastbeans_caffeineless());
-        _binding.reviewSeekBarRoastbeansEdit.setProgress(roastbeans.getRoastbeans_review());
-        _binding.memoRoastbeansEdit.setText(roastbeans.getRoastbeans_memo());
-    }
-
     //configure spinner
     private void spinnerConfig(){
         //for brend
@@ -129,7 +107,10 @@ public class RoastBeansEditFragment extends Fragment {
         //for roast_rawbeans
         ArrayAdapter<String> roastRawbeansAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
         roastRawbeansAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //RoastRawbeansItem.setItemsToAdapter(roastRawbeansAdapter);
+        _vm.getAllRawBeans().observe(getViewLifecycleOwner(), rawbeans -> {
+            //LiveData does not have a value unless it has an observer
+            _vm.setRoastRawbeansItemsToAdapter(roastRawbeansAdapter, rawbeans);
+        });
         _binding.roastRawbeansSpinnerRoastbeansEdit.setAdapter(roastRawbeansAdapter);
 
         //for variety
@@ -143,6 +124,42 @@ public class RoastBeansEditFragment extends Fragment {
         processAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ProcessItem.setItemsToAdapter(processAdapter);
         _binding.processSpinnerRoastbeansEdit.setAdapter(processAdapter);
+    }
+
+    private void showDefaultDetail(RoastBeans roastbeans){
+        _binding.nameRoastbeansEdit.setText(roastbeans.getRoastbeans_name());
+        _binding.countryRoastbeansEdit.setText(roastbeans.getRoastbeans_country());
+
+        _binding.nameRoastbeansEdit.setText(roastbeans.getRoastbeans_name());
+        _binding.purchasedDateRoastbeansEdit.setText(roastbeans.getRoastbeans_purchased_date());
+        _binding.purchasedShopRoastbeansEdit.setText(roastbeans.getRoastbeans_purchased_shop());
+        _binding.amountRoastbeansEdit.setText(Integer.toString(roastbeans.getRoastbeans_amount()));
+        _binding.brendSpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_brend());
+        _binding.selfRoastCheckboxRoastbeansEdit.setChecked(roastbeans.getRoastbeans_self_roast());
+
+        //avoid from executed this before vm make position-rawbeans_id array
+        _vm.makeOutArray.observe(getViewLifecycleOwner(), makeOutArray -> {
+            if(makeOutArray){
+                //null checking in case rawbeans deleted
+                if(_vm.idToPosition(roastbeans.getRoastbeans_roast_rawbeans_id()) != _vm.ID_NOT_FOUND){
+                    _binding.roastRawbeansSpinnerRoastbeansEdit.setSelection(
+                            _vm.idToPosition(
+                                    roastbeans.getRoastbeans_roast_rawbeans_id()
+                            )
+                    );
+                }
+            }
+        });
+
+        _binding.roastLevelSpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_roast_level());
+        _binding.countryRoastbeansEdit.setText(roastbeans.getRoastbeans_country());
+        _binding.placeRoastbeansEdit.setText(roastbeans.getRoastbeans_place());
+        _binding.farmRoastbeansEdit.setText(roastbeans.getRoastbeans_farm());
+        _binding.varietySpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_variety());
+        _binding.processSpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_process());
+        _binding.caffeinelessCheckboxRoastbeansEdit.setChecked(roastbeans.getRoastbeans_caffeineless());
+        _binding.reviewSeekBarRoastbeansEdit.setProgress(roastbeans.getRoastbeans_review());
+        _binding.memoRoastbeansEdit.setText(roastbeans.getRoastbeans_memo());
     }
 
     private void update(RoastBeans oldRoastbeans) {
@@ -168,7 +185,16 @@ public class RoastBeansEditFragment extends Fragment {
 
         newRoastbeans.setRoastbeans_brend(_binding.brendSpinnerRoastbeansEdit.getSelectedItemPosition());
         newRoastbeans.setRoastbeans_self_roast(_binding.selfRoastCheckboxRoastbeansEdit.isChecked());
-        //newRoastbeans.setRoastbeans_roast_rawbeans_id(...); //TODO
+
+        //null checking in case rawbeans deleted
+        if(_binding.roastRawbeansSpinnerRoastbeansEdit.getSelectedItemPosition() >= 0){
+            newRoastbeans.setRoastbeans_roast_rawbeans_id(
+                    _vm.positionToId(
+                            _binding.roastRawbeansSpinnerRoastbeansEdit.getSelectedItemPosition()
+                    )
+            );
+        }
+
         newRoastbeans.setRoastbeans_roast_level(_binding.roastLevelSpinnerRoastbeansEdit.getSelectedItemPosition());
         newRoastbeans.setRoastbeans_country(_binding.countryRoastbeansEdit.getText().toString());
         newRoastbeans.setRoastbeans_place(_binding.placeRoastbeansEdit.getText().toString());
