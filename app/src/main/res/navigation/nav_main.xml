@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_beansListFragment_to_roastBeansRegisterFragment"
             app:destination="@id/roastBeansRegisterFragment" />
+        <action
+            android:id="@+id/action_beansListFragment_to_roastBeansDetailFragment"
+            app:destination="@id/roastBeansDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/rawBeansDetailFragment"
@@ -60,4 +63,12 @@
         android:id="@+id/roastBeansRegisterFragment"
         android:name="ymz.coffeerep.scenes.register.RoastBeansRegisterFragment"
         android:label="RoastBeansRegisterFragment" />
+    <fragment
+        android:id="@+id/roastBeansDetailFragment"
+        android:name="ymz.coffeerep.scenes.detail.RoastBeansDetailFragment"
+        android:label="RoastBeansDetailFragment" >
+        <argument
+            android:name="specRoastbeans"
+            app:argType="ymz.coffeerep.data.roastbeans.RoastBeans" />
+    </fragment>
 </navigation>

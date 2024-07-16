@@ -15,6 +15,7 @@ import androidx.navigation.Navigation;
 import ymz.coffeerep.R;
 import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.data.rawbeans.RawBeansListAdapter;
+import ymz.coffeerep.data.roastbeans.RoastBeans;
 import ymz.coffeerep.data.roastbeans.RoastBeansListAdapter;
 import ymz.coffeerep.databinding.FragmentBeansListBinding;
 
@@ -95,6 +96,28 @@ public class BeansListFragment extends Fragment {
         });
 
         //send specific roastbeans item to detail fragment when it selected
+        roastbeansAdapter.selected.observe(getViewLifecycleOwner(), selected -> {
+            if(selected){
+                //get specific item from ListAdapter
+                RoastBeans selectedRoastbeans = roastbeansAdapter.get_selectedRoastBeans();
+
+                //debug log
+                if(selectedRoastbeans.getRoastbeans_name().isEmpty()){
+                    Log.d("YMZdebug", "[BeansListFragment.onViewCreated]: name is EMPTY");
+                }
+                else{
+                    Log.d("YMZdebug", "[BeansListFragment.onViewCreated]: name is " + selectedRoastbeans.getRoastbeans_name());
+                }
+
+                //jump next with specific item
+                BeansListFragmentDirections.ActionBeansListFragmentToRoastBeansDetailFragment
+                        action = BeansListFragmentDirections.actionBeansListFragmentToRoastBeansDetailFragment(selectedRoastbeans);
+                Navigation.findNavController(view).navigate(action);
+
+                roastbeansAdapter.set_selectedRoastBeans(null);
+                roastbeansAdapter.selected.setValue(false);
+            }
+        });
 
         //register roastbeans button listener
         _binding.buttonBeansListToRoastbeansRegister.setOnClickListener(new View.OnClickListener() {
