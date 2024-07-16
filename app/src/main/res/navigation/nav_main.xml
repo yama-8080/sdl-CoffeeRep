@@ -70,5 +70,16 @@
         <argument
             android:name="specRoastbeans"
             app:argType="ymz.coffeerep.data.roastbeans.RoastBeans" />
+        <action
+            android:id="@+id/action_roastBeansDetailFragment_to_roastBeansEditFragment"
+            app:destination="@id/roastBeansEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roastBeansEditFragment"
+        android:name="ymz.coffeerep.scenes.edit.RoastBeansEditFragment"
+        android:label="RoastBeansEditFragment" >
+        <argument
+            android:name="specRoastbeans"
+            app:argType="ymz.coffeerep.data.roastbeans.RoastBeans" />
     </fragment>
 </navigation>

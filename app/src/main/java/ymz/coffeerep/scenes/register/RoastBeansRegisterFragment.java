@@ -133,7 +133,7 @@ public class RoastBeansRegisterFragment extends Fragment {
 
         newRoastbeans.setRoastbeans_brend(_binding.brendSpinnerRoastbeansRegister.getSelectedItemPosition());
         newRoastbeans.setRoastbeans_self_roast(_binding.selfRoastCheckboxRoastbeansRegister.isChecked());
-        //newRoastbeans.setRoastbeans_roast_rawbeans_id(...);
+        //newRoastbeans.setRoastbeans_roast_rawbeans_id(...); //TODO
         newRoastbeans.setRoastbeans_roast_level(_binding.roastLevelSpinnerRoastbeansRegister.getSelectedItemPosition());
         newRoastbeans.setRoastbeans_country(_binding.countryRoastbeansRegister.getText().toString());
         newRoastbeans.setRoastbeans_place(_binding.placeRoastbeansRegister.getText().toString());

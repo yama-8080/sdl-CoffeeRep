@@ -5,36 +5,36 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import ymz.coffeerep.data.rawbeans.RawBeans;
-import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
+import ymz.coffeerep.data.roastbeans.RoastBeans;
+import ymz.coffeerep.repository.roastbeans.RoastBeansRepository;
 
-public class RawBeansEditViewModel extends AndroidViewModel {
+public class RoastBeansEditViewModel extends AndroidViewModel {
 
-    private RawBeansRepository _repository;
+    private RoastBeansRepository _repository;
 
     final int WRONG_AMOUNT = -1;
 
     //MutableLiveData must be non-null (observed by fragment)
     protected MutableLiveData<String> errorMsg = new MutableLiveData<>("");
-    protected MutableLiveData<RawBeans> complete = new MutableLiveData<>(null);
+    protected MutableLiveData<RoastBeans> complete = new MutableLiveData<>(null);
 
     //constructor
-    public RawBeansEditViewModel(Application application) {
+    public RoastBeansEditViewModel(Application application) {
         super(application);
-        _repository = new RawBeansRepository(application);
+        _repository = new RoastBeansRepository(application);
     }
 
-    void update(RawBeans newRawbeans) {
+    void update(RoastBeans newRoastbeans) {
         //name must be non-null
-        if(newRawbeans.getRawbeans_name().trim().isEmpty()){
+        if(newRoastbeans.getRoastbeans_name().trim().isEmpty()){
             errorMsg.setValue("名前を入力してください");
         }
-        else if(newRawbeans.getRawbeans_amount() == WRONG_AMOUNT){
+        else if(newRoastbeans.getRoastbeans_amount() == WRONG_AMOUNT){
             errorMsg.setValue("内容量には自然数を入力してください");
         }
         else{
             try{
-                RawBeans updated = _repository.update(newRawbeans);
+                RoastBeans updated = _repository.update(newRoastbeans);
                 complete.setValue(updated);
             }catch (Exception e){
                 errorMsg.setValue(e.getMessage());

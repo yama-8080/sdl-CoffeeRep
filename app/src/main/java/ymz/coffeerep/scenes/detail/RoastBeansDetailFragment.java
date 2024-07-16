@@ -64,9 +64,9 @@ public class RoastBeansDetailFragment extends Fragment {
         _binding.editButtonRoastbeansDetail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //jump to editFragment with specific item
-                //RoastBeansDetailFragmentDirections.ActionRoastBeansDetailFragmentToRoastBeansEditFragment
-                //        action = RoastBeansDetailFragmentDirections.actionRoastBeansDetailFragmentToRoastBeansEditFragment(_selectedRoastbeans);
-                //Navigation.findNavController(view).navigate(action);
+                RoastBeansDetailFragmentDirections.ActionRoastBeansDetailFragmentToRoastBeansEditFragment
+                        action = RoastBeansDetailFragmentDirections.actionRoastBeansDetailFragmentToRoastBeansEditFragment(_selectedRoastbeans);
+                Navigation.findNavController(view).navigate(action);
             }
         });
 
