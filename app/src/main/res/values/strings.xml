@@ -43,6 +43,7 @@
     <string name="picture1">写真１</string>
     <string name="picture2">写真２</string>
     <string name="picture3">写真３</string>
+    <string name="price">価格[円]</string>
     <string name="caffeineless">カフェインレス</string>
     <string name="review">総合評価</string>
     <string name="memo">メモ</string>
@@ -67,10 +68,17 @@
         <string name="drink_date">飲んだ日時</string>
         <string name="drink_place">飲んだ場所</string>
         <string name="drink_amount">飲んだ量[mL]</string>
+        <string name="drink_amount_hint">飲んだ量[mL] （コップ1杯は約200mL）</string>
         <string name="drink_method">飲み方</string>
         <string name="drink_method_temperature">温度</string>
         <string name="drink_method_type">タイプ</string>
         <string name="taste">味</string>
+        <string name="taste_sweet">甘味</string>
+        <string name="taste_bitter">苦味</string>
+        <string name="taste_sour">酸味</string>
+        <string name="taste_scent">香り</string>
+        <string name="taste_body">ボディ・濃度</string>
+        <string name="taste_rich">コク・余韻</string>
         <string name="flavor">フレーバー</string>
         <string name="match_food">相性の良い食べ物</string>
         <string name="atmosphere">雰囲気</string>
