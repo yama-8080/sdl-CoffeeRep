@@ -81,6 +81,63 @@
                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/purchased_date_roastbeans_register"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/purchased_date"
+                            android:inputType="text"
+                            android:textSize="@dimen/input_text_size"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/purchased_shop_roastbeans_register"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/purchased_shop"
+                            android:inputType="text"
+                            android:textSize="@dimen/input_text_size"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/amount_roastbeans_register"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/amount"
+                            android:inputType="text"
+                            android:textSize="@dimen/input_text_size"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -190,63 +247,6 @@
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/purchased_date_roastbeans_register"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/purchased_date"
-                            android:inputType="text"
-                            android:textSize="@dimen/input_text_size"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/purchased_shop_roastbeans_register"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/purchased_shop"
-                            android:inputType="text"
-                            android:textSize="@dimen/input_text_size"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/amount_roastbeans_register"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/amount"
-                            android:inputType="text"
-                            android:textSize="@dimen/input_text_size"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/country_roastbeans_register"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -294,43 +294,65 @@
                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
                         >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/variety_roastbeans_register"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="@string/variety"
-                            android:inputType="text"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/variety"
                             android:textSize="@dimen/input_text_size"
+                            android:textAppearance="?attr/textAppearanceBody1"
                             />
-                    </com.google.android.material.textfield.TextInputLayout>
+                        <Spinner
+                            android:id="@+id/variety_spinner_roastbeans_register"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="@dimen/input_text_size"
+                            android:spinnerMode="dropdown"
+                            />
+                    </LinearLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
                         >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/process_roastbeans_register"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="@string/process"
-                            android:inputType="text"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/process"
                             android:textSize="@dimen/input_text_size"
+                            android:textAppearance="?attr/textAppearanceBody1"
                             />
-                    </com.google.android.material.textfield.TextInputLayout>
+                        <Spinner
+                            android:id="@+id/process_spinner_roastbeans_register"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="@dimen/input_text_size"
+                            android:spinnerMode="dropdown"
+                            />
+                    </LinearLayout>
 
                     <CheckBox
                         android:id="@+id/caffeineless_checkbox_roastbeans_register"
