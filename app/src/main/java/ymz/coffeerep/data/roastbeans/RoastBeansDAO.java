@@ -28,6 +28,9 @@ public interface RoastBeansDAO {
     LiveData<List<RoastBeans>> getAllRoastBeans();
     //getAllRoastBeansSortedByTime() is more suitable
 
+    @Query("SELECT * FROM roastbeans WHERE roastbeans_roast_rawbeans_id = :rawbeans_id")
+    LiveData<List<RoastBeans>> getRoastBeansByRoastRawbeansId(int rawbeans_id);
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertRoastBeans(RoastBeans roastbeans);
 

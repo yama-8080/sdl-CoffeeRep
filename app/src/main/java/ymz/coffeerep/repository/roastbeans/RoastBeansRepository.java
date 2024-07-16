@@ -15,7 +15,6 @@ public class RoastBeansRepository {
     private RoastBeansDAO _roastbeansDao;
     private LiveData<RoastBeans> _roastbeans;
     private LiveData<List<RoastBeans>> _allRoastBeans;
-    //private int flag = 0;
 
     //constructor
     public RoastBeansRepository(Application application) {
@@ -24,9 +23,14 @@ public class RoastBeansRepository {
         _allRoastBeans = _roastbeansDao.getAllRoastBeans();
     }
 
-    //get list from DAO and return it directly
+    //get roastbeans-list from DAO and return it directly
     public LiveData<List<RoastBeans>> getAllRoastBeans() {
         return _allRoastBeans;
+    }
+
+    //get roastbeans-list, whose roast_rawbeans_id is this rawbeans_id, from DAO and return it directly
+    public LiveData<List<RoastBeans>> getRoastBeansByRoastRawbeansId(int rawbeans_id){
+        return _roastbeansDao.getRoastBeansByRoastRawbeansId(rawbeans_id);
     }
 
     //get roastbeans from DAO and return it directly

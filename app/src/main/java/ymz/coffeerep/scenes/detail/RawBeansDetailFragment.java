@@ -92,9 +92,20 @@ public class RawBeansDetailFragment extends Fragment {
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
                 int which = bundle.getInt("bundleKey_confirm_delete");
                 if(which == DialogInterface.BUTTON_POSITIVE){
-                    _vm.delete(_selectedRawbeans);
+                    //find & update roastbeans which need update, having rawbeans_id in roast_rawbeans_id
+                    _vm.getRoastbeansNeedUpdate(_selectedRawbeans.getRawbeans_id())
+                                        .observe(getViewLifecycleOwner(), roastbeansNeedUpdate -> {
+                        _vm.updateRoastbeansRoastRawbeansId(roastbeansNeedUpdate);
+                    });
                 }
                 //else: auto-close dialogFragment
+            }
+        });
+
+        //delete after roastbeans update
+        _vm.completeUpdate.observe(getViewLifecycleOwner(), completeUpdate -> {
+            if(completeUpdate){
+                _vm.delete(_selectedRawbeans);
             }
         });
 
@@ -106,9 +117,9 @@ public class RawBeansDetailFragment extends Fragment {
             }
         });
 
-        //go back to list-fragment when complete delete
-        _vm.complete.observe(getViewLifecycleOwner(), complete -> {
-            if(complete){
+        //go back to list-fragment after delete
+        _vm.completeDelete.observe(getViewLifecycleOwner(), completeDelete -> {
+            if(completeDelete){
                 //avoid from close only dialogFragment, specify go-back-destination fragment
                 Navigation.findNavController(view).popBackStack(R.id.beansListFragment, false);
             }

@@ -15,7 +15,7 @@ import ymz.coffeerep.repository.roastbeans.RoastBeansRepository;
 public class BeansListViewModel extends AndroidViewModel {
 
     private RawBeansRepository _rawRep;
-    private RoastBeansRepository _RoastRep;
+    private RoastBeansRepository _roastRep;
     private final LiveData<List<RawBeans>> _allRawBeans;
     private final LiveData<List<RoastBeans>> _allRoastBeans;
 
@@ -23,9 +23,9 @@ public class BeansListViewModel extends AndroidViewModel {
     public BeansListViewModel(Application application) {
         super(application);
         _rawRep = new RawBeansRepository(application);
-        _RoastRep = new RoastBeansRepository(application);
+        _roastRep = new RoastBeansRepository(application);
         _allRawBeans = _rawRep.getAllRawBeans();
-        _allRoastBeans = _RoastRep.getAllRoastBeans();
+        _allRoastBeans = _roastRep.getAllRoastBeans();
     }
 
     //get rawbeans list from repository and return it directly
