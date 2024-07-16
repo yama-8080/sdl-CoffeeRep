@@ -97,6 +97,7 @@ public class RawBeansEditFragment extends Fragment {
         _binding.purchasedDateRawbeansEdit.setText(rawbeans.getRawbeans_purchased_date());
         _binding.purchasedShopRawbeansEdit.setText(rawbeans.getRawbeans_purchased_shop());
         _binding.amountRawbeansEdit.setText(Integer.toString(rawbeans.getRawbeans_amount()));
+        _binding.priceRawbeansEdit.setText(Integer.toString(rawbeans.getRawbeans_price()));
         _binding.countryRawbeansEdit.setText(rawbeans.getRawbeans_country());
         _binding.placeRawbeansEdit.setText(rawbeans.getRawbeans_place());
         _binding.farmRawbeansEdit.setText(rawbeans.getRawbeans_farm());
@@ -142,6 +143,13 @@ public class RawBeansEditFragment extends Fragment {
             newRawbeans.setRawbeans_amount(Integer.valueOf(_binding.amountRawbeansEdit.getText().toString()));
         else
             newRawbeans.setRawbeans_amount(_vm.WRONG_AMOUNT);
+
+        if(_binding.priceRawbeansEdit.getText().toString().isEmpty())
+            newRawbeans.setRawbeans_price(0);
+        else if(_vm.isNumeric(_binding.priceRawbeansEdit.getText().toString()))
+            newRawbeans.setRawbeans_price(Integer.valueOf(_binding.priceRawbeansEdit.getText().toString()));
+        else
+            newRawbeans.setRawbeans_price(_vm.WRONG_PRICE);
 
         newRawbeans.setRawbeans_country(_binding.countryRawbeansEdit.getText().toString());
         newRawbeans.setRawbeans_place(_binding.placeRawbeansEdit.getText().toString());

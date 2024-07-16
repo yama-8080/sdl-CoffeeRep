@@ -130,6 +130,7 @@ public class RoastBeansDetailFragment extends Fragment {
         _binding.purchasedDateRoastbeansDetail.setText(roastbeans.getRoastbeans_purchased_date());
         _binding.purchasedShopRoastbeansDetail.setText(roastbeans.getRoastbeans_purchased_shop());
         _binding.amountRoastbeansDetail.setText(Integer.toString(roastbeans.getRoastbeans_amount()));
+        _binding.priceRoastbeansDetail.setText(Integer.toString(roastbeans.getRoastbeans_price()));
         _binding.brendRoastbeansDatail.setText(
                 BrendItem.Brend.getType(
                         roastbeans.getRoastbeans_brend()
