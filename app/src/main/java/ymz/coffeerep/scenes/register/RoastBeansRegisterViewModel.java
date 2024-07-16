@@ -1,16 +1,27 @@
 package ymz.coffeerep.scenes.register;
 
 import android.app.Application;
+import android.widget.ArrayAdapter;
 
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.data.roastbeans.RoastBeans;
+import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
 import ymz.coffeerep.repository.roastbeans.RoastBeansRepository;
 
 public class RoastBeansRegisterViewModel extends AndroidViewModel {
 
-    private RoastBeansRepository _repository;
+    private RoastBeansRepository _roastRep;
+    private RawBeansRepository _rawRep;
+    private final LiveData<List<RawBeans>> _allRawBeans;
+    private List<Integer> _allRawBeansId;
 
     final int WRONG_AMOUNT = -1;
 
@@ -21,7 +32,30 @@ public class RoastBeansRegisterViewModel extends AndroidViewModel {
     //constructor
     public RoastBeansRegisterViewModel(Application application) {
         super(application);
-        _repository = new RoastBeansRepository(application);
+        _roastRep = new RoastBeansRepository(application);
+        _rawRep = new RawBeansRepository(application);
+        _allRawBeans = _rawRep.getAllRawBeans();
+        _allRawBeansId = new ArrayList<Integer>();
+    }
+
+    //set items to dropdown list
+    void setRoastRawbeansItemsToAdapter(ArrayAdapter<String> adapter, List<RawBeans> rawbeans){
+        Iterator<RawBeans> iterator = rawbeans.iterator();
+        while (iterator.hasNext()) {
+            RawBeans item = iterator.next();
+            adapter.add(item.getRawbeans_name());
+            _allRawBeansId.add(item.getRawbeans_id());
+        }
+    }
+
+    //change position in rawbeans dropdown list  into rawbeans_id
+    int positionToId(int pos){
+        return _allRawBeansId.get(pos);
+    }
+
+    //get rawbeans list from repository and return it directly
+    LiveData<List<RawBeans>> getAllRawBeans() {
+        return _allRawBeans;
     }
 
     void insert(RoastBeans roastbeans) {
@@ -34,7 +68,7 @@ public class RoastBeansRegisterViewModel extends AndroidViewModel {
         }
         else{
             try{
-                _repository.insert(roastbeans);
+                _roastRep.insert(roastbeans);
                 complete.setValue(true);
             }catch (Exception e){
                 errorMsg.setValue(e.getMessage());

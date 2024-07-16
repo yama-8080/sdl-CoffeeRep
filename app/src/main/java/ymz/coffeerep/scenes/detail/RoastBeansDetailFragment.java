@@ -135,12 +135,13 @@ public class RoastBeansDetailFragment extends Fragment {
                 ).getString()
         );
         _binding.selfRoastCheckboxRoastbeansDatail.setChecked(roastbeans.getRoastbeans_self_roast());
-        _binding.roastRawbeansRoastbeansDatail.setText(
-                //RoastRawbeansItem.RoastRawbeans.getType(
-                //        roastbeans.getRoastbeans_roast_rawbeans_id()
-                //).getString()
-                ""                  //TODO
-        );
+        _vm.getRawBeans(roastbeans.getRoastbeans_roast_rawbeans_id())
+                .observe(getViewLifecycleOwner(), rawbeans -> {
+            //LiveData does not have a value unless it has an observer
+            _binding.roastRawbeansRoastbeansDatail.setText(
+                    rawbeans.getRawbeans_name()
+            );
+        });
         _binding.roastLevelRoastbeansDatail.setText(
                 RoastLevelItem.RoastLevel.getType(
                         roastbeans.getRoastbeans_roast_level()
