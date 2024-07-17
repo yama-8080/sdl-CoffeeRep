@@ -15,8 +15,11 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 
 import ymz.coffeerep.R;
+import ymz.coffeerep.data.dropdown.AtmosphereItem;
 import ymz.coffeerep.data.dropdown.DrinkMethodTemperatureItem;
 import ymz.coffeerep.data.dropdown.DrinkMethodTypeItem;
+import ymz.coffeerep.data.dropdown.FlavorItem;
+import ymz.coffeerep.data.dropdown.MatchFoodItem;
 import ymz.coffeerep.data.dropdown.ProcessItem;
 import ymz.coffeerep.data.dropdown.VarietyItem;
 import ymz.coffeerep.data.readymadecoffee.ReadyMadeCoffee;
@@ -96,13 +99,22 @@ public class ReadyMadeCoffeeRegisterFragment extends Fragment {
         _binding.drinkMethodTypeSpinnerReadymadecoffeeRegister.setAdapter(drinkMethodTypeAdapter);
 
         //for flavor
-        //TODO
+        ArrayAdapter<String> flavorAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        flavorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        FlavorItem.setItemsToAdapter(flavorAdapter);
+        _binding.flavorSpinnerReadymadecoffeeRegister.setAdapter(flavorAdapter);
 
         //for match_food
-        //TODO
+        ArrayAdapter<String> matchFoodAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        matchFoodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        MatchFoodItem.setItemsToAdapter(matchFoodAdapter);
+        _binding.matchFoodSpinnerReadymadecoffeeRegister.setAdapter(matchFoodAdapter);
 
         //for atmosphere
-        //TODO
+        ArrayAdapter<String> atmosphereAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        atmosphereAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        AtmosphereItem.setItemsToAdapter(atmosphereAdapter);
+        _binding.atmosphereSpinnerReadymadecoffeeRegister.setAdapter(atmosphereAdapter);
     }
 
     //create new entity
