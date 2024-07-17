@@ -327,6 +327,36 @@
                                 android:layout_marginStart="10dp"
                                 android:layout_marginEnd="10dp"
                                 android:layout_marginTop="5dp"
+                                android:text="@string/taste_scent"
+                                android:textSize="@dimen/input_text_size"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                />
+                            <SeekBar
+                                android:id="@+id/taste_scent_seekBar_readymadecoffee_edit"
+                                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="10dp"
+                                android:max="5"
+                                android:progress="0"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            >
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="5dp"
                                 android:text="@string/taste_body"
                                 android:textSize="@dimen/input_text_size"
                                 android:textAppearance="?attr/textAppearanceBody1"

@@ -85,8 +85,7 @@ public class CoffeeListFragment extends Fragment {
         //register readymadecoffee button listener
         _binding.buttonCoffeeListToReadymadecoffeeRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //TODO
-                //Navigation.findNavController(view).navigate(R.id.action_coffeeListFragment_to_readyMadeCoffeeRegisterFragment);
+                Navigation.findNavController(view).navigate(R.id.action_coffeeListFragment_to_readyMadeCoffeeRegisterFragment);
             }
         });
 

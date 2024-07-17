@@ -91,5 +91,13 @@
     <fragment
         android:id="@+id/coffeeListFragment"
         android:name="ymz.coffeerep.scenes.list.CoffeeListFragment"
-        android:label="CoffeeListFragment" />
+        android:label="CoffeeListFragment" >
+        <action
+            android:id="@+id/action_coffeeListFragment_to_readyMadeCoffeeRegisterFragment"
+            app:destination="@id/readyMadeCoffeeRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/readyMadeCoffeeRegisterFragment"
+        android:name="ymz.coffeerep.scenes.register.ReadyMadeCoffeeRegisterFragment"
+        android:label="ReadyMadeCoffeeRegisterFragment" />
 </navigation>
