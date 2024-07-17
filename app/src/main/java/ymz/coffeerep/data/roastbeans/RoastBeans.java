@@ -69,6 +69,12 @@ public class RoastBeans implements Serializable {
     @ColumnInfo(name = "roastbeans_amount")
     int roastbeans_amount;
 
+    //価格[円]
+    @Getter
+    @Setter
+    @ColumnInfo(name = "roastbeans_price")
+    int roastbeans_price;
+
     //原産国
     @Getter
     @Setter

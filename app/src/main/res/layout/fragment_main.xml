@@ -101,6 +101,7 @@
                     />
             </androidx.cardview.widget.CardView>
 
+            <!--
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview_home_to_dripmethod_list"
                 android:layout_width="match_parent"
@@ -129,6 +130,7 @@
                     android:fontFamily="serif"
                     />
             </androidx.cardview.widget.CardView>
+            -->
 
             <View
                 android:layout_width="match_parent"

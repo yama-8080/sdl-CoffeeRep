@@ -135,6 +135,7 @@ public class RoastBeansEditFragment extends Fragment {
         _binding.purchasedDateRoastbeansEdit.setText(roastbeans.getRoastbeans_purchased_date());
         _binding.purchasedShopRoastbeansEdit.setText(roastbeans.getRoastbeans_purchased_shop());
         _binding.amountRoastbeansEdit.setText(Integer.toString(roastbeans.getRoastbeans_amount()));
+        _binding.priceRoastbeansEdit.setText(Integer.toString(roastbeans.getRoastbeans_price()));
         _binding.brendSpinnerRoastbeansEdit.setSelection(roastbeans.getRoastbeans_brend());
         _binding.selfRoastCheckboxRoastbeansEdit.setChecked(roastbeans.getRoastbeans_self_roast());
 
@@ -180,6 +181,13 @@ public class RoastBeansEditFragment extends Fragment {
             newRoastbeans.setRoastbeans_amount(Integer.valueOf(_binding.amountRoastbeansEdit.getText().toString()));
         else
             newRoastbeans.setRoastbeans_amount(_vm.WRONG_AMOUNT);
+
+        if(_binding.priceRoastbeansEdit.getText().toString().isEmpty())
+            newRoastbeans.setRoastbeans_price(0);
+        else if(_vm.isNumeric(_binding.priceRoastbeansEdit.getText().toString()))
+            newRoastbeans.setRoastbeans_price(Integer.valueOf(_binding.priceRoastbeansEdit.getText().toString()));
+        else
+            newRoastbeans.setRoastbeans_price(_vm.WRONG_PRICE);
 
         newRoastbeans.setRoastbeans_brend(_binding.brendSpinnerRoastbeansEdit.getSelectedItemPosition());
         newRoastbeans.setRoastbeans_self_roast(_binding.selfRoastCheckboxRoastbeansEdit.isChecked());

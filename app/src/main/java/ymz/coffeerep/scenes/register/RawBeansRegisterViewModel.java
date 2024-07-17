@@ -13,6 +13,7 @@ public class RawBeansRegisterViewModel extends AndroidViewModel {
     private RawBeansRepository _repository;
 
     final int WRONG_AMOUNT = -1;
+    final int WRONG_PRICE = -1;
 
     //MutableLiveData must be non-null (observed by fragment)
     protected MutableLiveData<String> errorMsg = new MutableLiveData<>("");
@@ -30,7 +31,10 @@ public class RawBeansRegisterViewModel extends AndroidViewModel {
             errorMsg.setValue("名前を入力してください");
         }
         else if(rawbeans.getRawbeans_amount() == WRONG_AMOUNT){
-            errorMsg.setValue("内容量には自然数を入力してください");
+            errorMsg.setValue("内容量には整数値を入力してください");
+        }
+        else if(rawbeans.getRawbeans_price() == WRONG_PRICE){
+            errorMsg.setValue("価格には整数値を入力してください");
         }
         else{
             try{

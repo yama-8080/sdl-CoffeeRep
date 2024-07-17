@@ -134,6 +134,13 @@ public class RoastBeansRegisterFragment extends Fragment {
         else
             newRoastbeans.setRoastbeans_amount(_vm.WRONG_AMOUNT);
 
+        if(_binding.priceRoastbeansRegister.getText().toString().isEmpty())
+            newRoastbeans.setRoastbeans_price(0);
+        else if(_vm.isNumeric(_binding.priceRoastbeansRegister.getText().toString()))
+            newRoastbeans.setRoastbeans_price(Integer.valueOf(_binding.priceRoastbeansRegister.getText().toString()));
+        else
+            newRoastbeans.setRoastbeans_price(_vm.WRONG_PRICE);
+
         newRoastbeans.setRoastbeans_brend(_binding.brendSpinnerRoastbeansRegister.getSelectedItemPosition());
         newRoastbeans.setRoastbeans_self_roast(_binding.selfRoastCheckboxRoastbeansRegister.isChecked());
 

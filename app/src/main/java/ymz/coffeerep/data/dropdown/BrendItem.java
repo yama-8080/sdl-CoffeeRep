@@ -3,6 +3,7 @@ package ymz.coffeerep.data.dropdown;
 import android.widget.ArrayAdapter;
 
 public class BrendItem {
+
     public enum Brend{
         DEFAULT(0, "-"),
         SINGLE(1, "シングル"),

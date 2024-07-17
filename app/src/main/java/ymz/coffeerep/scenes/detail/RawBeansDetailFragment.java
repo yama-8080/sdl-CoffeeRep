@@ -140,6 +140,7 @@ public class RawBeansDetailFragment extends Fragment {
         _binding.purchasedDateRawbeansDetail.setText(rawbeans.getRawbeans_purchased_date());
         _binding.purchasedShopRawbeansDetail.setText(rawbeans.getRawbeans_purchased_shop());
         _binding.amountRawbeansDetail.setText(Integer.toString(rawbeans.getRawbeans_amount()));
+        _binding.priceRawbeansDetail.setText(Integer.toString(rawbeans.getRawbeans_price()));
         _binding.countryRawbeansDatail.setText(rawbeans.getRawbeans_country());
         _binding.placeRawbeansDatail.setText(rawbeans.getRawbeans_place());
         _binding.farmRawbeansDatail.setText(rawbeans.getRawbeans_farm());
