@@ -123,8 +123,7 @@ public class CoffeeListFragment extends Fragment {
         //register selfdripcoffee button listener
         _binding.buttonCoffeeListToSelfdripcoffeeRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //TODO
-                //Navigation.findNavController(view).navigate(R.id.action_coffeeListFragment_to_selfDripCoffeeRegisterFragment);
+                Navigation.findNavController(view).navigate(R.id.action_coffeeListFragment_to_selfDripCoffeeRegisterFragment);
             }
         });
     }

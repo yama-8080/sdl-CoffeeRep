@@ -98,6 +98,9 @@
         <action
             android:id="@+id/action_coffeeListFragment_to_readyMadeCoffeeDetailFragment"
             app:destination="@id/readyMadeCoffeeDetailFragment" />
+        <action
+            android:id="@+id/action_coffeeListFragment_to_selfDripCoffeeRegisterFragment"
+            app:destination="@id/selfDripCoffeeRegisterFragment" />
     </fragment>
     <fragment
         android:id="@+id/readyMadeCoffeeRegisterFragment"
@@ -125,4 +128,8 @@
             android:name="specReadymadecoffee"
             app:argType="ymz.coffeerep.data.readymadecoffee.ReadyMadeCoffee" />
     </fragment>
+    <fragment
+        android:id="@+id/selfDripCoffeeRegisterFragment"
+        android:name="ymz.coffeerep.scenes.register.SelfDripCoffeeRegisterFragment"
+        android:label="SelfDripCoffeeRegisterFragment" />
 </navigation>

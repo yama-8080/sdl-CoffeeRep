@@ -12,17 +12,17 @@ import java.util.Iterator;
 import java.util.List;
 
 import ymz.coffeerep.data.dropdown.DropDownDefault;
-import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.data.roastbeans.RoastBeans;
-import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
+import ymz.coffeerep.data.selfdripcoffee.SelfDripCoffee;
 import ymz.coffeerep.repository.roastbeans.RoastBeansRepository;
+import ymz.coffeerep.repository.selfdripcoffee.SelfDripCoffeeRepository;
 
-public class RoastBeansRegisterViewModel extends AndroidViewModel {
+public class SelfDripCoffeeRegisterViewModel extends AndroidViewModel {
 
+    private SelfDripCoffeeRepository _selfRep;
     private RoastBeansRepository _roastRep;
-    private RawBeansRepository _rawRep;
-    private final LiveData<List<RawBeans>> _allRawBeans;
-    private List<Integer> _allRawBeansId;
+    private final LiveData<List<RoastBeans>> _allRoastBeans;
+    private List<Integer> _allRoastBeansId;
 
     final int WRONG_AMOUNT = -1;
     final int WRONG_PRICE = -1;
@@ -32,53 +32,53 @@ public class RoastBeansRegisterViewModel extends AndroidViewModel {
     protected MutableLiveData<Boolean> complete = new MutableLiveData<>(false);
 
     //constructor
-    public RoastBeansRegisterViewModel(Application application) {
+    public SelfDripCoffeeRegisterViewModel(Application application) {
         super(application);
+        _selfRep = new SelfDripCoffeeRepository(application);
         _roastRep = new RoastBeansRepository(application);
-        _rawRep = new RawBeansRepository(application);
-        _allRawBeans = _rawRep.getAllRawBeans();
-        _allRawBeansId = new ArrayList<Integer>();
+        _allRoastBeans = _roastRep.getAllRoastBeans();
+        _allRoastBeansId = new ArrayList<Integer>();
     }
 
     //set items to dropdown list
-    void setRoastRawbeansItemsToAdapter(ArrayAdapter<String> adapter, List<RawBeans> rawbeans){
+    void setRoastbeansItemsToAdapter(ArrayAdapter<String> adapter, List<RoastBeans> roastbeans){
         //default item
         adapter.add(DropDownDefault.getDefault_str());
-        _allRawBeansId.add(DropDownDefault.getDefault_id());
+        _allRoastBeansId.add(DropDownDefault.getDefault_id());
 
         //read all items
-        Iterator<RawBeans> iterator = rawbeans.iterator();
+        Iterator<RoastBeans> iterator = roastbeans.iterator();
         while (iterator.hasNext()) {
-            RawBeans item = iterator.next();
-            adapter.add(item.getRawbeans_name());
-            _allRawBeansId.add(item.getRawbeans_id());
+            RoastBeans item = iterator.next();
+            adapter.add(item.getRoastbeans_name());
+            _allRoastBeansId.add(item.getRoastbeans_id());
         }
     }
 
-    //transform position in rawbeans dropdown list into rawbeans_id
+    //transform position in roastbeans dropdown list into roastbeans_id
     int positionToId(int pos){
-        return _allRawBeansId.get(pos);
+        return _allRoastBeansId.get(pos);
     }
 
-    //get rawbeans list from repository and return it directly
-    LiveData<List<RawBeans>> getAllRawBeans() {
-        return _allRawBeans;
+    //get roastbeans list from repository and return it directly
+    LiveData<List<RoastBeans>> getAllRoastBeans() {
+        return _allRoastBeans;
     }
 
-    void insert(RoastBeans roastbeans) {
+    void insert(SelfDripCoffee selfdripcoffee) {
         //name must be non-null
-        if(roastbeans.getRoastbeans_name().trim().isEmpty()){
+        if(selfdripcoffee.getSelfdripcoffee_name().trim().isEmpty()){
             errorMsg.setValue("名前を入力してください");
         }
-        else if(roastbeans.getRoastbeans_amount() == WRONG_AMOUNT){
-            errorMsg.setValue("内容量には整数値を入力してください");
+        else if(selfdripcoffee.getSelfdripcoffee_drink_amount() == WRONG_AMOUNT){
+            errorMsg.setValue("飲んだ量には整数値を入力してください");
         }
-        else if(roastbeans.getRoastbeans_price() == WRONG_PRICE){
+        else if(selfdripcoffee.getSelfdripcoffee_price() == WRONG_PRICE){
             errorMsg.setValue("価格には整数値を入力してください");
         }
         else{
             try{
-                _roastRep.insert(roastbeans);
+                _selfRep.insert(selfdripcoffee);
                 complete.setValue(true);
             }catch (Exception e){
                 errorMsg.setValue(e.getMessage());
