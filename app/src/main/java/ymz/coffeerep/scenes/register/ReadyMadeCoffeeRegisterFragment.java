@@ -143,15 +143,18 @@ public class ReadyMadeCoffeeRegisterFragment extends Fragment {
 
         newReadymadecoffee.setReadymadecoffee_drink_method_temperature(_binding.drinkMethodTemperatureSpinnerReadymadecoffeeRegister.getSelectedItemPosition());
         newReadymadecoffee.setReadymadecoffee_drink_method_type(_binding.drinkMethodTypeSpinnerReadymadecoffeeRegister.getSelectedItemPosition());
+
         newReadymadecoffee.setReadymadecoffee_taste_sweet(_binding.tasteSweetSeekBarReadymadecoffeeRegister.getProgress());
         newReadymadecoffee.setReadymadecoffee_taste_bitter(_binding.tasteBitterSeekBarReadymadecoffeeRegister.getProgress());
         newReadymadecoffee.setReadymadecoffee_taste_sour(_binding.tasteSourSeekBarReadymadecoffeeRegister.getProgress());
         newReadymadecoffee.setReadymadecoffee_taste_scent(_binding.tasteScentSeekBarReadymadecoffeeRegister.getProgress());
         newReadymadecoffee.setReadymadecoffee_taste_body(_binding.tasteBodySeekBarReadymadecoffeeRegister.getProgress());
         newReadymadecoffee.setReadymadecoffee_taste_rich(_binding.tasteRichSeekBarReadymadecoffeeRegister.getProgress());
+
         newReadymadecoffee.setReadymadecoffee_flavor(_binding.flavorSpinnerReadymadecoffeeRegister.getSelectedItemPosition());
         newReadymadecoffee.setReadymadecoffee_match_food(_binding.matchFoodSpinnerReadymadecoffeeRegister.getSelectedItemPosition());
         newReadymadecoffee.setReadymadecoffee_atmosphere(_binding.atmosphereSpinnerReadymadecoffeeRegister.getSelectedItemPosition());
+
         newReadymadecoffee.setReadymadecoffee_caffeineless(_binding.caffeinelessCheckboxReadymadecoffeeRegister.isChecked());
         newReadymadecoffee.setReadymadecoffee_review(_binding.reviewSeekBarReadymadecoffeeRegister.getProgress());
         newReadymadecoffee.setReadymadecoffee_memo(_binding.memoReadymadecoffeeRegister.getText().toString());

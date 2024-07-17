@@ -91,9 +91,6 @@ public class RawBeansEditFragment extends Fragment {
 
     private void showDefaultDetail(RawBeans rawbeans){
         _binding.nameRawbeansEdit.setText(rawbeans.getRawbeans_name());
-        _binding.countryRawbeansEdit.setText(rawbeans.getRawbeans_country());
-
-        _binding.nameRawbeansEdit.setText(rawbeans.getRawbeans_name());
         _binding.purchasedDateRawbeansEdit.setText(rawbeans.getRawbeans_purchased_date());
         _binding.purchasedShopRawbeansEdit.setText(rawbeans.getRawbeans_purchased_shop());
         _binding.amountRawbeansEdit.setText(Integer.toString(rawbeans.getRawbeans_amount()));

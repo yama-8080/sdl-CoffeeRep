@@ -314,7 +314,7 @@
                             android:textAppearance="?attr/textAppearanceBody1"
                             />
                         <RatingBar
-                            android:id="@+id/taste_sour"
+                            android:id="@+id/taste_sour_ratingbar_readymadecoffee_datail"
                             style="?android:attr/ratingBarStyleIndicator"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

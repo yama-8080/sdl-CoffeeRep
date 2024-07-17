@@ -95,9 +95,34 @@
         <action
             android:id="@+id/action_coffeeListFragment_to_readyMadeCoffeeRegisterFragment"
             app:destination="@id/readyMadeCoffeeRegisterFragment" />
+        <action
+            android:id="@+id/action_coffeeListFragment_to_readyMadeCoffeeDetailFragment"
+            app:destination="@id/readyMadeCoffeeDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/readyMadeCoffeeRegisterFragment"
         android:name="ymz.coffeerep.scenes.register.ReadyMadeCoffeeRegisterFragment"
         android:label="ReadyMadeCoffeeRegisterFragment" />
+    <fragment
+        android:id="@+id/readyMadeCoffeeDetailFragment"
+        android:name="ymz.coffeerep.scenes.detail.ReadyMadeCoffeeDetailFragment"
+        android:label="ReadyMadeCoffeeDetailFragment" >
+        <argument
+            android:name="specReadymadecoffee"
+            app:argType="ymz.coffeerep.data.readymadecoffee.ReadyMadeCoffee" />
+        <action
+            android:id="@+id/action_readyMadeCoffeeDetailFragment_to_confirmDeleteFragment"
+            app:destination="@id/confirmDeleteFragment" />
+        <action
+            android:id="@+id/action_readyMadeCoffeeDetailFragment_to_readyMadeCoffeeEditFragment"
+            app:destination="@id/readyMadeCoffeeEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/readyMadeCoffeeEditFragment"
+        android:name="ymz.coffeerep.scenes.edit.ReadyMadeCoffeeEditFragment"
+        android:label="ReadyMadeCoffeeEditFragment" >
+        <argument
+            android:name="specReadymadecoffee"
+            app:argType="ymz.coffeerep.data.readymadecoffee.ReadyMadeCoffee" />
+    </fragment>
 </navigation>

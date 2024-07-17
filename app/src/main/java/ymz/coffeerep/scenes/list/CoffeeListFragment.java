@@ -72,10 +72,9 @@ public class CoffeeListFragment extends Fragment {
                 }
 
                 //jump next with specific item
-                //TODO
-                //CoffeeListFragmentDirections.ActionCoffeeListFragmentToReadyMadeCoffeeDetailFragment
-                //        action = CoffeeListFragmentDirections.actionCoffeeListFragmentToReadyMadeCoffeeDetailFragment(selectedReadymadecoffee);
-                //Navigation.findNavController(view).navigate(action);
+                CoffeeListFragmentDirections.ActionCoffeeListFragmentToReadyMadeCoffeeDetailFragment
+                        action = CoffeeListFragmentDirections.actionCoffeeListFragmentToReadyMadeCoffeeDetailFragment(selectedReadymadecoffee);
+                Navigation.findNavController(view).navigate(action);
 
                 readymadecoffeeAdapter.set_selectedReadyMadeCoffee(null);
                 readymadecoffeeAdapter.selected.setValue(false);
