@@ -101,6 +101,9 @@
         <action
             android:id="@+id/action_coffeeListFragment_to_selfDripCoffeeRegisterFragment"
             app:destination="@id/selfDripCoffeeRegisterFragment" />
+        <action
+            android:id="@+id/action_coffeeListFragment_to_selfDripCoffeeDetailFragment"
+            app:destination="@id/selfDripCoffeeDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/readyMadeCoffeeRegisterFragment"
@@ -132,4 +135,26 @@
         android:id="@+id/selfDripCoffeeRegisterFragment"
         android:name="ymz.coffeerep.scenes.register.SelfDripCoffeeRegisterFragment"
         android:label="SelfDripCoffeeRegisterFragment" />
+    <fragment
+        android:id="@+id/selfDripCoffeeDetailFragment"
+        android:name="ymz.coffeerep.scenes.detail.SelfDripCoffeeDetailFragment"
+        android:label="SelfDripCoffeeDetailFragment" >
+        <action
+            android:id="@+id/action_selfDripCoffeeDetailFragment_to_confirmDeleteFragment"
+            app:destination="@id/confirmDeleteFragment" />
+        <argument
+            android:name="specSelfdripcoffee"
+            app:argType="ymz.coffeerep.data.selfdripcoffee.SelfDripCoffee" />
+        <action
+            android:id="@+id/action_selfDripCoffeeDetailFragment_to_selfDripCoffeeEditFragment"
+            app:destination="@id/selfDripCoffeeEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selfDripCoffeeEditFragment"
+        android:name="ymz.coffeerep.scenes.edit.SelfDripCoffeeEditFragment"
+        android:label="SelfDripCoffeeEditFragment" >
+        <argument
+            android:name="specSelfdripcoffee"
+            app:argType="ymz.coffeerep.data.selfdripcoffee.SelfDripCoffee" />
+    </fragment>
 </navigation>

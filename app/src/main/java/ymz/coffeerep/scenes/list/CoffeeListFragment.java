@@ -110,10 +110,9 @@ public class CoffeeListFragment extends Fragment {
                 }
 
                 //jump next with specific item
-                //TODO
-                //CoffeeListFragmentDirections.ActionCoffeeListFragmentToSelfDripCoffeeDetailFragment
-                //        action = CoffeeListFragmentDirections.actionCoffeeListFragmentToSelfDripCoffeeDetailFragment(selectedSelfdripcoffee);
-                //Navigation.findNavController(view).navigate(action);
+                CoffeeListFragmentDirections.ActionCoffeeListFragmentToSelfDripCoffeeDetailFragment
+                        action = CoffeeListFragmentDirections.actionCoffeeListFragmentToSelfDripCoffeeDetailFragment(selectedSelfdripcoffee);
+                Navigation.findNavController(view).navigate(action);
 
                 selfdripcoffeeAdapter.set_selectedSelfDripCoffee(null);
                 selfdripcoffeeAdapter.selected.setValue(false);
