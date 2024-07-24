@@ -5,40 +5,40 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import ymz.coffeerep.data.rawbeans.RawBeans;
-import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
+import ymz.coffeerep.data.readymadecoffee.ReadyMadeCoffee;
+import ymz.coffeerep.repository.readymadecoffee.ReadyMadeCoffeeRepository;
 
-public class RawBeansEditViewModel extends AndroidViewModel {
+public class ReadyMadeCoffeeEditViewModel extends AndroidViewModel {
 
-    private RawBeansRepository _repository;
+    private ReadyMadeCoffeeRepository _repository;
 
     final int WRONG_AMOUNT = -1;
     final int WRONG_PRICE = -1;
 
     //MutableLiveData must be non-null (observed by fragment)
     protected MutableLiveData<String> errorMsg = new MutableLiveData<>("");
-    protected MutableLiveData<RawBeans> complete = new MutableLiveData<>(null);
+    protected MutableLiveData<ReadyMadeCoffee> complete = new MutableLiveData<>(null);
 
     //constructor
-    public RawBeansEditViewModel(Application application) {
+    public ReadyMadeCoffeeEditViewModel(Application application) {
         super(application);
-        _repository = new RawBeansRepository(application);
+        _repository = new ReadyMadeCoffeeRepository(application);
     }
 
-    void update(RawBeans newRawbeans) {
+    void update(ReadyMadeCoffee newReadymadecoffee) {
         //name must be non-null
-        if(newRawbeans.getRawbeans_name().trim().isEmpty()){
+        if(newReadymadecoffee.getReadymadecoffee_name().trim().isEmpty()){
             errorMsg.setValue("名前を入力してください");
         }
-        else if(newRawbeans.getRawbeans_amount() == WRONG_AMOUNT){
-            errorMsg.setValue("内容量には整数値を入力してください");
+        else if(newReadymadecoffee.getReadymadecoffee_drink_amount() == WRONG_AMOUNT){
+            errorMsg.setValue("飲んだ量には整数値を入力してください");
         }
-        else if(newRawbeans.getRawbeans_price() == WRONG_PRICE){
+        else if(newReadymadecoffee.getReadymadecoffee_price() == WRONG_PRICE){
             errorMsg.setValue("価格には整数値を入力してください");
         }
         else{
             try{
-                RawBeans updated = _repository.update(newRawbeans);
+                ReadyMadeCoffee updated = _repository.update(newReadymadecoffee);
                 complete.setValue(updated);
             }catch (Exception e){
                 errorMsg.setValue(e.getMessage());

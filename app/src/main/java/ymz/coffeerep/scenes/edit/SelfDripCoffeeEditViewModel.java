@@ -12,17 +12,17 @@ import java.util.Iterator;
 import java.util.List;
 
 import ymz.coffeerep.data.dropdown.DropDownDefault;
-import ymz.coffeerep.data.rawbeans.RawBeans;
 import ymz.coffeerep.data.roastbeans.RoastBeans;
-import ymz.coffeerep.repository.rawbeans.RawBeansRepository;
+import ymz.coffeerep.data.selfdripcoffee.SelfDripCoffee;
 import ymz.coffeerep.repository.roastbeans.RoastBeansRepository;
+import ymz.coffeerep.repository.selfdripcoffee.SelfDripCoffeeRepository;
 
-public class RoastBeansEditViewModel extends AndroidViewModel {
+public class SelfDripCoffeeEditViewModel extends AndroidViewModel {
 
+    private SelfDripCoffeeRepository _selfRep;
     private RoastBeansRepository _roastRep;
-    private RawBeansRepository _rawRep;
-    private final LiveData<List<RawBeans>> _allRawBeans;
-    private List<Integer> _allRawBeansId;
+    private final LiveData<List<RoastBeans>> _allRoastBeans;
+    private List<Integer> _allRoastBeansId;
 
     final int WRONG_AMOUNT = -1;
     final int WRONG_PRICE = -1;
@@ -30,40 +30,40 @@ public class RoastBeansEditViewModel extends AndroidViewModel {
 
     //MutableLiveData must be non-null (observed by fragment)
     protected MutableLiveData<String> errorMsg = new MutableLiveData<>("");
-    protected MutableLiveData<RoastBeans> complete = new MutableLiveData<>(null);
+    protected MutableLiveData<SelfDripCoffee> complete = new MutableLiveData<>(null);
     protected MutableLiveData<Boolean> makeOutArray = new MutableLiveData<>(false);
 
     //constructor
-    public RoastBeansEditViewModel(Application application) {
+    public SelfDripCoffeeEditViewModel(Application application) {
         super(application);
+        _selfRep = new SelfDripCoffeeRepository(application);
         _roastRep = new RoastBeansRepository(application);
-        _rawRep = new RawBeansRepository(application);
-        _allRawBeans = _rawRep.getAllRawBeans();
-        _allRawBeansId = new ArrayList<Integer>();
+        _allRoastBeans = _roastRep.getAllRoastBeans();
+        _allRoastBeansId = new ArrayList<Integer>();
     }
 
     //set items to dropdown list
-    void setRoastRawbeansItemsToAdapter(ArrayAdapter<String> adapter, List<RawBeans> rawbeans){
+    void setRoastbeansItemsToAdapter(ArrayAdapter<String> adapter, List<RoastBeans> roastbeans){
         //default item
         adapter.add(DropDownDefault.getDefault_str());
-        _allRawBeansId.add(DropDownDefault.getDefault_id());
+        _allRoastBeansId.add(DropDownDefault.getDefault_id());
 
         //read all items
-        Iterator<RawBeans> iterator = rawbeans.iterator();
+        Iterator<RoastBeans> iterator = roastbeans.iterator();
         while (iterator.hasNext()) {
-            RawBeans item = iterator.next();
-            adapter.add(item.getRawbeans_name());
-            _allRawBeansId.add(item.getRawbeans_id());
+            RoastBeans item = iterator.next();
+            adapter.add(item.getRoastbeans_name());
+            _allRoastBeansId.add(item.getRoastbeans_id());
         }
 
         //send set-completed message
         makeOutArray.setValue(true);
     }
 
-    //transform rawbeans_id into position in rawbeans dropdown list
+    //transform roastbeans_id into position in roastbeans dropdown list
     int idToPosition(int id){
         int idx = 0;
-        Iterator<Integer> iterator = _allRawBeansId.iterator();
+        Iterator<Integer> iterator = _allRoastBeansId.iterator();
         while (iterator.hasNext()) {
             int idInList = iterator.next();
             if (id == idInList)
@@ -73,30 +73,30 @@ public class RoastBeansEditViewModel extends AndroidViewModel {
         return ID_NOT_FOUND;
     }
 
-    //transform position in rawbeans dropdown list into rawbeans_id
+    //transform position in roastbeans dropdown list into roastbeans_id
     int positionToId(int pos){
-        return _allRawBeansId.get(pos);
+        return _allRoastBeansId.get(pos);
     }
 
-    //get rawbeans list from repository and return it directly
-    LiveData<List<RawBeans>> getAllRawBeans() {
-        return _allRawBeans;
+    //get roastbeans list from repository and return it directly
+    LiveData<List<RoastBeans>> getAllRoastBeans() {
+        return _allRoastBeans;
     }
 
-    void update(RoastBeans newRoastbeans) {
+    void update(SelfDripCoffee newSelfdripcoffee) {
         //name must be non-null
-        if(newRoastbeans.getRoastbeans_name().trim().isEmpty()){
+        if(newSelfdripcoffee.getSelfdripcoffee_name().trim().isEmpty()){
             errorMsg.setValue("名前を入力してください");
         }
-        else if(newRoastbeans.getRoastbeans_amount() == WRONG_AMOUNT){
-            errorMsg.setValue("内容量には整数値を入力してください");
+        else if(newSelfdripcoffee.getSelfdripcoffee_drink_amount() == WRONG_AMOUNT){
+            errorMsg.setValue("飲んだ量には整数値を入力してください");
         }
-        else if(newRoastbeans.getRoastbeans_price() == WRONG_PRICE){
+        else if(newSelfdripcoffee.getSelfdripcoffee_price() == WRONG_PRICE){
             errorMsg.setValue("価格には整数値を入力してください");
         }
         else{
             try{
-                RoastBeans updated = _roastRep.update(newRoastbeans);
+                SelfDripCoffee updated = _selfRep.update(newSelfdripcoffee);
                 complete.setValue(updated);
             }catch (Exception e){
                 errorMsg.setValue(e.getMessage());

@@ -63,11 +63,17 @@ public class RawBeans implements Serializable {
     @ColumnInfo(name = "rawbeans_purchased_shop")
     String rawbeans_purchased_shop;
 
-    //内容量（単位[g]）
+    //内容量[g]
     @Getter
     @Setter
     @ColumnInfo(name = "rawbeans_amount")
     int rawbeans_amount;
+
+    //価格[円]
+    @Getter
+    @Setter
+    @ColumnInfo(name = "rawbeans_price")
+    int rawbeans_price;
 
     //原産国
     @Getter

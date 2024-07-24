@@ -33,11 +33,12 @@ public class RawBeansDetailViewModel extends AndroidViewModel {
         _roastRep = new RoastBeansRepository(application);
     }
 
-    //get roastbeans list from repository and return it directly
+    //get roastbeans (need-to-update) list from repository and return it directly
     LiveData<List<RoastBeans>> getRoastbeansNeedUpdate(int rawbeans_id) {
         return _roastRep.getRoastBeansByRoastRawbeansId(rawbeans_id);
     }
 
+    //update roastbeans (need-to-update)
     void updateRoastbeansRoastRawbeansId(List<RoastBeans> roastbeansNeedUpdate){
         if(roastbeansNeedUpdate != null){
             Iterator<RoastBeans> iterator = roastbeansNeedUpdate.iterator();

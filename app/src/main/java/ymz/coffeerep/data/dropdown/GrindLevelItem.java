@@ -2,19 +2,21 @@ package ymz.coffeerep.data.dropdown;
 
 import android.widget.ArrayAdapter;
 
-public class BrendItem {
+public class GrindLevelItem {
 
-    public enum Brend{
+    public enum GrindLevel{
         DEFAULT(0, "-"),
-        SINGLE(1, "シングル"),
-        BREND(2, "ブレンド"),
-        OTHER(3, "その他"),
+        FINE(1, "細挽き"),
+        MED_FINE(2, "中細挽き"),
+        MEDIUM(3, "中挽き"),
+        MED_COARSE(4, "中粗挽き"),
+        COARSE(5, "粗挽き"),
         ;
 
         private final int id;
         private final String text;
 
-        private Brend(final int id, final String text) {
+        private GrindLevel(final int id, final String text) {
             this.id = id;
             this.text = text;
         }
@@ -28,9 +30,9 @@ public class BrendItem {
         }
 
         //search items by id
-        public static BrendItem.Brend getType(final int id) {
-            BrendItem.Brend[] items = BrendItem.Brend.values();
-            for (BrendItem.Brend item : items) {
+        public static GrindLevelItem.GrindLevel getType(final int id) {
+            GrindLevelItem.GrindLevel[] items = GrindLevelItem.GrindLevel.values();
+            for (GrindLevelItem.GrindLevel item : items) {
                 if (item.getInt() == id) {
                     return item;
                 }
@@ -40,16 +42,16 @@ public class BrendItem {
 
         //return the number of items
         public static int getNumber(){
-            return BrendItem.Brend.values().length;
+            return GrindLevelItem.GrindLevel.values().length;
         }
     }
 
     //set items to dropdown list
     public static void setItemsToAdapter(ArrayAdapter<String> adapter){
-        int loop = BrendItem.Brend.getNumber();
+        int loop = GrindLevelItem.GrindLevel.getNumber();
         for(int i=0; i<loop; i++){
-            if(BrendItem.Brend.getType(i) != null)
-                adapter.add(BrendItem.Brend.getType(i).getString());
+            if(GrindLevelItem.GrindLevel.getType(i) != null)
+                adapter.add(GrindLevelItem.GrindLevel.getType(i).getString());
         }
     }
 }

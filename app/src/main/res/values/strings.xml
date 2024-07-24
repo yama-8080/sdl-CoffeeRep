@@ -83,6 +83,9 @@
         <string name="match_food">相性の良い食べ物</string>
         <string name="atmosphere">雰囲気</string>
 
+            <!-- for selfdripcoffee table only -->
+            <string name="grind_level">挽き目</string>
+
         <!-- for dripmethod table -->
         <string name="method">方法</string>
 </resources>
