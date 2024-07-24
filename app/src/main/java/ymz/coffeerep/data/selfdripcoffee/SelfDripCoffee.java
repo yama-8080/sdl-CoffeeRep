@@ -81,6 +81,12 @@ public class SelfDripCoffee implements Serializable {
     @ColumnInfo(name = "selfdripcoffee_roastbeans")
     int selfdripcoffee_roastbeans;
 
+    //挽き目
+    @Getter
+    @Setter
+    @ColumnInfo(name = "selfdripcoffee_grind_level")
+    int selfdripcoffee_grind_level;
+
     //抽出方法
     @Getter
     @Setter
