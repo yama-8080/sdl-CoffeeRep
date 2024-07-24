@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+import ymz.coffeerep.data.roastbeans.RoastBeans;
 import ymz.coffeerep.data.selfdripcoffee.SelfDripCoffee;
 import ymz.coffeerep.data.selfdripcoffee.SelfDripCoffeeDAO;
 import ymz.coffeerep.data.selfdripcoffee.SelfDripCoffeeDatabase;
@@ -27,6 +28,11 @@ public class SelfDripCoffeeRepository {
     //get list from DAO and return it directly
     public LiveData<List<SelfDripCoffee>> getAllSelfDripCoffee() {
         return _allSelfDripCoffee;
+    }
+
+    //get selfdripcoffee-list, whose selfdripcoffee_roastbeans is this roastbeans_id, from DAO and return it directly
+    public LiveData<List<SelfDripCoffee>> getSelfDripCoffeeByRoastbeansId(int roastbeans_id){
+        return _selfdripcoffeeDao.getSelfDripCoffeeByRoastbeansId(roastbeans_id);
     }
 
     //get selfdripcoffee from DAO and return it directly
