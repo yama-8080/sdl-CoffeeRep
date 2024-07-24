@@ -22,8 +22,10 @@ import ymz.coffeerep.data.dropdown.AtmosphereItem;
 import ymz.coffeerep.data.dropdown.BrendItem;
 import ymz.coffeerep.data.dropdown.DrinkMethodTemperatureItem;
 import ymz.coffeerep.data.dropdown.DrinkMethodTypeItem;
+import ymz.coffeerep.data.dropdown.DripMethodItem;
 import ymz.coffeerep.data.dropdown.DropDownDefault;
 import ymz.coffeerep.data.dropdown.FlavorItem;
+import ymz.coffeerep.data.dropdown.GrindLevelItem;
 import ymz.coffeerep.data.dropdown.MatchFoodItem;
 import ymz.coffeerep.data.dropdown.ProcessItem;
 import ymz.coffeerep.data.dropdown.RoastLevelItem;
@@ -153,9 +155,14 @@ public class SelfDripCoffeeDetailFragment  extends Fragment {
                     });
         }
 
-        _binding.drinkMethodTemperatureSelfdripcoffeeDatail.setText(
-                DrinkMethodTemperatureItem.DrinkMethodTemperature.getType(
-                        selfdripcoffee.getSelfdripcoffee_drink_method_temperature()
+        _binding.grindLevelSelfdripcoffeeDetail.setText(
+                GrindLevelItem.GrindLevel.getType(
+                        selfdripcoffee.getSelfdripcoffee_grind_level()
+                ).getString()
+        );
+        _binding.dripmethodSelfdripcoffeeDetail.setText(
+                DripMethodItem.DripMethod.getType(
+                        selfdripcoffee.getSelfdripcoffee_dripmethod()
                 ).getString()
         );
         _binding.drinkMethodTemperatureSelfdripcoffeeDatail.setText(

@@ -10,6 +10,7 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import ymz.coffeerep.data.roastbeans.RoastBeans;
 import ymz.coffeerep.data.selfdripcoffee.SelfDripCoffee;
 
 @Dao
@@ -27,6 +28,9 @@ public interface SelfDripCoffeeDAO {
     @Query("SELECT * FROM selfdripcoffee ORDER BY registered_time DESC")
     LiveData<List<SelfDripCoffee>> getAllSelfDripCoffee();
     //getAllSelfDripCoffeeSortedByTime() is more suitable
+
+    @Query("SELECT * FROM selfdripcoffee WHERE selfdripcoffee_roastbeans = :roastbeans_id")
+    LiveData<List<SelfDripCoffee>> getSelfDripCoffeeByRoastbeansId(int roastbeans_id);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertSelfDripCoffee(SelfDripCoffee selfdripcoffee);

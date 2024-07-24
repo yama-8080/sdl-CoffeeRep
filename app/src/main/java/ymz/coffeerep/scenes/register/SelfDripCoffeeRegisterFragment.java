@@ -20,6 +20,7 @@ import ymz.coffeerep.data.dropdown.DrinkMethodTemperatureItem;
 import ymz.coffeerep.data.dropdown.DrinkMethodTypeItem;
 import ymz.coffeerep.data.dropdown.DripMethodItem;
 import ymz.coffeerep.data.dropdown.FlavorItem;
+import ymz.coffeerep.data.dropdown.GrindLevelItem;
 import ymz.coffeerep.data.dropdown.MatchFoodItem;
 import ymz.coffeerep.data.selfdripcoffee.SelfDripCoffee;
 import ymz.coffeerep.databinding.FragmentSelfdripcoffeeRegisterBinding;
@@ -94,6 +95,12 @@ public class SelfDripCoffeeRegisterFragment extends Fragment {
         });
         _binding.roastbeansSpinnerSelfdripcoffeeRegister.setAdapter(roastbeansAdapter);
 
+        //for grind_level
+        ArrayAdapter<String> grindLevelAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        grindLevelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        GrindLevelItem.setItemsToAdapter(grindLevelAdapter);
+        _binding.grindLevelSpinnerSelfdripcoffeeRegister.setAdapter(grindLevelAdapter);
+
         //for dripmethod
         ArrayAdapter<String> dripmethodAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
         dripmethodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -163,6 +170,7 @@ public class SelfDripCoffeeRegisterFragment extends Fragment {
             );
         }
 
+        newSelfdripcoffee.setSelfdripcoffee_grind_level(_binding.grindLevelSpinnerSelfdripcoffeeRegister.getSelectedItemPosition());
         newSelfdripcoffee.setSelfdripcoffee_dripmethod(_binding.dripmethodSpinnerSelfdripcoffeeRegister.getSelectedItemPosition());
         newSelfdripcoffee.setSelfdripcoffee_drink_method_temperature(_binding.drinkMethodTemperatureSpinnerSelfdripcoffeeRegister.getSelectedItemPosition());
         newSelfdripcoffee.setSelfdripcoffee_drink_method_type(_binding.drinkMethodTypeSpinnerSelfdripcoffeeRegister.getSelectedItemPosition());

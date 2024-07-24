@@ -22,6 +22,7 @@ import ymz.coffeerep.data.dropdown.DrinkMethodTemperatureItem;
 import ymz.coffeerep.data.dropdown.DrinkMethodTypeItem;
 import ymz.coffeerep.data.dropdown.DripMethodItem;
 import ymz.coffeerep.data.dropdown.FlavorItem;
+import ymz.coffeerep.data.dropdown.GrindLevelItem;
 import ymz.coffeerep.data.dropdown.MatchFoodItem;
 import ymz.coffeerep.data.dropdown.ProcessItem;
 import ymz.coffeerep.data.dropdown.RoastLevelItem;
@@ -107,6 +108,12 @@ public class SelfDripCoffeeEditFragment extends Fragment {
         });
         _binding.roastbeansSpinnerSelfdripcoffeeEdit.setAdapter(roastbeansAdapter);
 
+        //for grind_level
+        ArrayAdapter<String> grindLevelAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
+        grindLevelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        GrindLevelItem.setItemsToAdapter(grindLevelAdapter);
+        _binding.grindLevelSpinnerSelfdripcoffeeEdit.setAdapter(grindLevelAdapter);
+
         //for dripmethod
         ArrayAdapter<String> dripmethodAdapter = new ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_spinner_item);
         dripmethodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -162,6 +169,7 @@ public class SelfDripCoffeeEditFragment extends Fragment {
             }
         });
 
+        _binding.grindLevelSpinnerSelfdripcoffeeEdit.setSelection(selfdripcoffee.getSelfdripcoffee_grind_level());
         _binding.dripmethodSpinnerSelfdripcoffeeEdit.setSelection(selfdripcoffee.getSelfdripcoffee_dripmethod());
         _binding.drinkMethodTemperatureSpinnerSelfdripcoffeeEdit.setSelection(selfdripcoffee.getSelfdripcoffee_drink_method_temperature());
         _binding.drinkMethodTypeSpinnerSelfdripcoffeeEdit.setSelection(selfdripcoffee.getSelfdripcoffee_drink_method_type());
@@ -218,6 +226,7 @@ public class SelfDripCoffeeEditFragment extends Fragment {
             );
         }
 
+        newSelfdripcoffee.setSelfdripcoffee_grind_level(_binding.grindLevelSpinnerSelfdripcoffeeEdit.getSelectedItemPosition());
         newSelfdripcoffee.setSelfdripcoffee_dripmethod(_binding.dripmethodSpinnerSelfdripcoffeeEdit.getSelectedItemPosition());
         newSelfdripcoffee.setSelfdripcoffee_drink_method_temperature(_binding.drinkMethodTemperatureSpinnerSelfdripcoffeeEdit.getSelectedItemPosition());
         newSelfdripcoffee.setSelfdripcoffee_drink_method_type(_binding.drinkMethodTypeSpinnerSelfdripcoffeeEdit.getSelectedItemPosition());
