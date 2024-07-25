@@ -29,6 +29,11 @@
     <string name="edit_readymadecoffee">市販品コーヒーの編集</string>
     <string name="edit_dripmethod">抽出方法の編集</string>
 
+    <string name="caffeine_amount">カフェイン摂取量</string>
+    <string name="today">今日</string>
+    <string name="recent_a_week">直近１週間</string>
+    <string name="recent_a_month">直近１か月</string>
+
     <string name="register">登録</string>
     <string name="edit">編集</string>
     <string name="delete">削除</string>
