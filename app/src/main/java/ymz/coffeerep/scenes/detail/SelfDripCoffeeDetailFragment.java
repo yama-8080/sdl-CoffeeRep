@@ -118,7 +118,7 @@ public class SelfDripCoffeeDetailFragment  extends Fragment {
         _vm.complete.observe(getViewLifecycleOwner(), complete -> {
             if(complete){
                 //avoid from close only dialogFragment, specify go-back-destination fragment
-                Navigation.findNavController(view).popBackStack(R.id.beansListFragment, false);
+                Navigation.findNavController(view).popBackStack(R.id.coffeeListFragment, false);
             }
         });
     }
